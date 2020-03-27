@@ -1,5 +1,6 @@
 .previewTitle {
-  font-size: 1.5em;
+  font-size: 1.1rem;
+  font-weight: 800;
 }
 
 .tag {
@@ -11,4 +12,28 @@
   border-radius: 2px;
   border: 1px solid #A0A0A0;
   margin-right: .5em;
+}
+
+
+/*--- buttons --- */
+.ctaMain {
+  position: relative;
+  border-radius: 5px;
+  padding: 1.2em 1.5em;
+  border: solid 2px;
+  margin-top: 1em;
+  margin-bottom: 3em;
+  text-transform: uppercase;
+  font-size: .8em;
+  letter-spacing: .08em;
+  text-decoration: none;
+  color: #fff;
+  border-color: #0069b4;
+  background-color: #0069b4;
+  transition: all .5s ease;
+  display: inline-block;
+  font-weight: 500;
+  text-align: center;
+  white-space: normal;
+  vertical-align: middle;
 }

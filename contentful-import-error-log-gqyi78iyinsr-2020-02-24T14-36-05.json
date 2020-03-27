@@ -1,0 +1,46 @@
+[
+  {
+    "ts": "2020-02-24T03:36:55.124Z",
+    "level": "error",
+    "error": {
+      "originalError": {
+        "message": "self signed certificate in certificate chain",
+        "name": "Error",
+        "stack": "Error: self signed certificate in certificate chain\n    at TLSSocket.onConnectSecure (_tls_wrap.js:1317:34)\n    at TLSSocket.emit (events.js:200:13)\n    at TLSSocket._finishInit (_tls_wrap.js:792:8)\n    at TLSWrap.ssl.onhandshakedone (_tls_wrap.js:606:12)",
+        "config": {
+          "url": "gqyi78iyinsr",
+          "method": "get",
+          "headers": {
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/vnd.contentful.management.v1+json",
+            "X-Contentful-User-Agent": "app contentful.import/7.7.0; feature library-import; sdk contentful-management.js/5.13.0; platform node.js/v12.5.0; os macOS/19.3.0;",
+            "Authorization": "Bearer CFPAT-Upv2LL05UXzEqe_0nF36MeMaVCj8ZniTI0qYJ-QnlO8",
+            "user-agent": "node.js/v12.5.0",
+            "Accept-Encoding": "gzip"
+          },
+          "proxy": false,
+          "baseURL": "https://api.contentful.com:443/spaces/",
+          "transformRequest": [
+            null
+          ],
+          "transformResponse": [
+            null
+          ],
+          "timeout": 30000,
+          "adapter": false,
+          "xsrfCookieName": "XSRF-TOKEN",
+          "xsrfHeaderName": "X-XSRF-TOKEN",
+          "maxContentLength": 1073741824,
+          "httpAgent": false,
+          "httpsAgent": false
+        },
+        "code": "SELF_SIGNED_CERT_IN_CHAIN"
+      },
+      "stacktrace": [
+        "Error: Error: self signed certificate in certificate chain",
+        "/Users/rickyhobbs/Documents/Gatsby/TESTS/starter-gatsby-blog/node_modules/contentful-batch-libs/dist/listr.js:24:27",
+        "processTicksAndRejections (internal/process/task_queues.js:82:5)"
+      ]
+    }
+  }
+]

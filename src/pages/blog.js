@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import {graphql, Link} from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styles from './blog.module.css'
@@ -15,6 +15,13 @@ class BlogIndex extends React.Component {
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
+            <div className="breadcrumbs">
+                <p><i>
+                    <Link className="crumb" to="/">Home</Link>
+                    |
+                    <Link className="crumb" to="/blog">Media</Link>
+                </i></p>
+            </div>
           <div className={styles.hero}>Blog</div>
           <div className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
