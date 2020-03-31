@@ -13,7 +13,7 @@ import {
 class NewsPage extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const news = get(this, 'props.data.allContentfulNews.edges')
+    const newsitems = get(this, 'props.data.allContentfulNews.edges')
 
     return (
       <Layout location={this.props.location}>
@@ -29,10 +29,10 @@ class NewsPage extends React.Component {
               </div>
             <SectionHeadline>News</SectionHeadline>
             <ArticleList>
-              {news.map(({ node }) => {
+              {newsitems.map(({ node }) => {
                 return (
                   <li key={node.slug}>
-                    <NewsPreview news={node} />
+                    <NewsPreview newsitems={node} />
                   </li>
                 )
               })}

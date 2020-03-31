@@ -11,7 +11,8 @@ import {
 } from '../styles/shared.ts';
 
 class BiographiesPage extends React.Component {
-  render() {
+
+    render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const biographies = get(this, 'props.data.allContentfulBiographies.edges')
 
@@ -28,7 +29,8 @@ class BiographiesPage extends React.Component {
                   </i></p>
               </div>
             <SectionHeadline>Biographies</SectionHeadline>
-            <ArticleList>
+              <p>The people listed on this page are available to provide comments within their areas of expertise. You can also download their photograph and access approved quotes and previously published works.</p>
+    <ArticleList>
               {biographies.map(({ node }) => {
                 return (
                   <li key={node.slug}>
@@ -78,8 +80,16 @@ export const pageQuery = graphql`
             childMarkdownRemark {
               html
             }
+            mediaApprovedQuote
+              internal {
+                content
+              }
           }
-          publishedWork
+          publishedWork {
+              childMarkdownRemark {
+                html
+              }
+            }
         }
       }
     }

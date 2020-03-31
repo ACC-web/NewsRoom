@@ -1,6 +1,8 @@
 import { css } from 'styled-components';
 import styled from 'styled-components';
 import { colors } from './colors.ts';
+import Img from 'gatsby-image'
+
 
 export const outer = css`
   position: relative;
@@ -148,6 +150,7 @@ export const ArticleList = styled.ul`
   display: flex;
   flex-direction: column;
   padding: 0;
+  flex-wrap: wrap;
  
   @media(min-width: 768px){
     flex-direction: row;
@@ -308,4 +311,18 @@ export const ItalicParagraph = styled.p`
   font-size: 0.8rem;
   margin: 0;
   
+`
+
+export const FeatureImage = styled(Img)`
+    width: calc(100% - 2rem);
+    margin: 0 1rem; 
+    height: 30rem;
+    float: none;
+    background-color: #fff;
+
+   @media(min-width: 768px){
+        width: 50%;
+        float: right;
+        margin: 0 1rem 1rem 1rem;
+  }
 `

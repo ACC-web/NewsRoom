@@ -3,7 +3,9 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import styles from '../article-preview.module.css'
-import {ItalicParagraph} from "../../styles/shared.ts";
+import {
+    ItalicParagraph
+} from "../../styles/shared.ts";
 
 const Container = styled.section`
      flex-direction: column;
@@ -17,9 +19,15 @@ const Container = styled.section`
 const TextElements = styled.div`
   display: flex;
   flex-direction: column;
+  p{
+    margin: 0.5rem 0;
+     @media(min-width: 768px){
+      margin: 0;
+     }
+  }
 `
 const BioName = styled.h3`
-  margin-top: 0;
+  margin: 0;
   a{
     text-decoration: none;
   }
@@ -27,13 +35,15 @@ const BioName = styled.h3`
 
 const ProfileImage = styled(Img)`
     width: 100%;
-    height: auto;
-    margin-bottom: 2rem;
+    height: 250px;
+    margin: 0 0 1rem 0;
+
     @media(min-width: 768px){
-        //width: 15rem;
-        //height: calc(100% - 0);
-        //margin: 0 2rem 0 0;
+        width: 250px;
+        height: 250px;
+        margin: 0 1rem;
     }
+    
 `
 
 const Button = styled(Link)`
@@ -42,20 +52,20 @@ const Button = styled(Link)`
 
 
 
-export default ({ news }) => (
+export default ({ newsitems }) => (
   <Container className={styles.preview}>
       {/*//TODO: link to the original full size image*/}
-      <Link to={`/${news.slug}`}>
-          <ProfileImage className="image" alt="" fluid={news.image.fluid} />
+      <Link to={`/${newsitems.slug}`}>
+          <ProfileImage className="image" alt="" fluid={newsitems.image.fluid} />
       </Link>
       <TextElements>
         <BioName className={styles.previewTitle}>
-          <Link to={`/${news.slug}`}>{news.title}</Link>
+          <Link to={`/${newsitems.slug}`}>{newsitems.title}</Link>
         </BioName>
-          <ItalicParagraph className="grey5-fill">{news.datePublished}</ItalicParagraph>
+          <ItalicParagraph className="grey5-fill">{newsitems.datePublished}</ItalicParagraph>
           <p
               dangerouslySetInnerHTML={{
-                  __html: news.bodyContent.childMarkdownRemark.excerpt
+                  __html: newsitems.bodyContent.childMarkdownRemark.excerpt
               }}
           />
 
@@ -67,7 +77,7 @@ export default ({ news }) => (
           {/*        __html: news.publishedWork*/}
           {/*    }}*/}
           {/*/></ul>*/}
-          <Button className={styles.ctaMain} style={{ boxShadow: `none` }} to={`/${news.slug}`}>Read More</Button>
+          <Button className={styles.ctaMain} style={{ boxShadow: `none` }} to={`/${newsitems.slug}`}>Read More</Button>
       </TextElements>
   </Container>
 )

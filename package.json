@@ -25,6 +25,7 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-helmet": "^5.2.0",
+    "react-responsive-modal": "^4.0.1",
     "styled-components": "^5.0.1"
   },
   "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",

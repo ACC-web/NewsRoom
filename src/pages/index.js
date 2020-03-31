@@ -162,7 +162,7 @@ class RootIndex extends React.Component {
                       {newsitems.map(({ node }) => {
                           return (
                               <NewsItem key={node.slug}>
-                                  <NewsPreview news={node} />
+                                  <NewsPreview newsitems={node} />
                               </NewsItem>
                           )
                       })}
@@ -207,14 +207,16 @@ class RootIndex extends React.Component {
                 {/*</ArticleList>*/}
               </Feed>
               <Sidebar>
-                  <MediaContainer>
-                      <h2 style={{ fontSize: '1.1rem' }}>Media Contacts</h2>
-                  {mediacontact.map(({ node }) => {
-                      return (
-                          <MediaContacts contact={node} />
-                      )
-                  })}
-                  </MediaContainer>
+                      <p style={{ fontSize: '80%' }}>ACC’s newsroom exists to help the media access facts, stories, comments, information, photographs and videos about our schools. Media representatives and educational bloggers can also request school visits and comments from our extensive list of subject matter experts.</p>
+                      <p style={{ fontSize: '80%' }}>This newsroom includes a logo, photo and video gallery (with a search filter), facts sheets on a range of education topics, infographics for use by the media, a live stream of media releases, biographies of ACC topical experts and story starters.</p>
+                      <MediaContainer>
+                          <h2 style={{ fontSize: '1.1rem' }}>Media Contacts</h2>
+                          {mediacontact.map(({ node }) => {
+                              return (
+                                  <MediaContacts contact={node} />
+                              )
+                          })}
+                      </MediaContainer>
                   <MediaAssets />
                   {/*<iframe src="https://australianchristiancollege.formstack.com/forms/school_visit_request_form" style={{ border: 'none' }} title="School Visit Request Form" width="100%" height="800"></iframe>*/}
                 <VisitForm />

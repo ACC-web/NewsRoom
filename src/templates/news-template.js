@@ -7,25 +7,17 @@ import Layout from '../components/layout'
 import styled from "styled-components";
 
 import {
-    ItalicParagraph
+    ItalicParagraph,
+    FeatureImage
 } from '../styles/shared.ts';
+
 import heroStyles from '../components/hero.module.css'
 
 const Wrapper = styled.div`
   margin: 0 1rem;
   width: calc(100% - 2rem);
 `
-const FeatureImage = styled(Img)`
-    width: 100%; 
-    height: 30rem;
-    float: none;
 
-   @media(min-width: 768px){
-        width: 50%;
-        float: right;
-        margin: 0 0 1rem 1rem;
-  }
-`
 
 class NewsTemplate extends React.Component {
   render() {

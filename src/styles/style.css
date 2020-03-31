@@ -533,8 +533,16 @@ p{
     line-height: 1.5rem;
 }
 
+a{
+    color: #202020;
+}
+
 .small{
     font-size: 80%;
+}
+
+*:focus {
+    outline: none;
 }
 
 
@@ -857,7 +865,7 @@ body.school-list-open #MainNav .reveal{
     }
 
     #main-menu li:first-of-type {
-        border-top: 0px;
+        border-top: 0;
     }
 
     #main-menu li a {
@@ -1083,4 +1091,31 @@ footer {
 .crumb:hover{
      color: #0069B4;
  }
+
+.published-work ul{
+    list-style-type: none;
+    padding-left: 1rem;
+    margin: 0;
+}
+.published-work a{
+   text-decoration: none;
+    color: #020202;
+
+    /*These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+
+}
 

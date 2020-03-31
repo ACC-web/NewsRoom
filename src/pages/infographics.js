@@ -32,15 +32,11 @@ const ImageGallery = styled.ul`
 `
 
 const Item = styled.li`
-    width: 100%;
-    margin: 0.5rem 0;
-    position:relative;
-  @media(min-width:576px){
-    width: calc(50% - 1rem);
+  width: calc(50% - 1rem);
     margin: 0.5rem;
     //max-height: 9rem;
     position:relative;
-  }
+
   @media(min-width:768px){
     width: calc(33.3333% - 1rem);
     margin: 0.5rem;
@@ -144,14 +140,10 @@ const Item = styled.li`
         cursor: pointer;
       }
   }
-  p{
-    margin: 0.2rem 0;
-    font-size: 80%;
-  }
 `
 
-const Photo = styled(Img)`
-  height: 15rem;
+const Infographic = styled(Img)`
+  height: auto;
   width: 100%;
   position: relative;
   
@@ -169,13 +161,10 @@ const Url = styled.a`
   }
 `
 
-class MultimediaPage extends React.Component {
+class InfographicPage extends React.Component {
     render() {
         const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-        const photos = get(this, 'props.data.photos.edges')
-        const cats = get(this, 'props.data.photos.edges')
-        const videos = get(this, 'props.data.videos.edges')
-        const logos = get(this, 'props.data.logos.edges')
+        const infographics = get(this, 'props.data.infographics.edges')
 
         return (
             <Layout location={this.props.location}>
@@ -186,69 +175,23 @@ class MultimediaPage extends React.Component {
                             <p><i>
                                 <Link className="crumb" to="/">Home</Link>
                                 |
-                                <Link className="crumb" to="/multimedia">Multimedia Gallery</Link>
+                                <Link className="crumb" to="/infographics">Infographics</Link>
                             </i></p>
                         </div>
                         <SectionHeadline>Multimedia Gallery</SectionHeadline>
                         <ImageGallery>
-                            {/*Photos*/}
-                            {photos.map(({ node }) => {
+                            {/*infographics*/}
+                            {infographics.map(({ node }) => {
                                 return (
-                                    <Item key={node.photo.src} className={node.categories}>
-                                        <a href={node.photo.file.url} download='file' download target="_blank">
-                                        <Photo fluid={node.photo.fluid} caption={node.caption} alt={node.caption}  />
-
-                                        <p><i>{node.caption}</i></p>
-                                        {/*<ul className="flex-row">*/}
-                                        {/*    {node.categories.map(categories => (*/}
-                                        {/*    <li>{categories}</li>*/}
-                                        {/*))}*/}
-                                        {/*</ul>*/}
-                                        </a>
-                                    </Item>
-                                )
-                            })}
-                            {/*Videos*/}
-                            {videos.map(({ node }) => {
-                                return (
-                                    <Item key={node.video.src} className={node.categories}>
-                                        <a href={node.video.file.url} download='file' download>
-                                            <Photo fluid={node.thumbnail.fluid} caption={node.caption} alt={node.caption}  />
+                                    <Item key={node.infographicImage.src}>
+                                        <a href={node.infographicImage.file.url} download='file' download target="_blank">
+                                            <Infographic fluid={node.infographicImage.fluid} caption={node.caption} alt={node.caption}  />
                                             <p>{node.caption}</p>
-                                            {/*<ul className="flex-row">*/}
-                                            {/*    {node.categories.map(categories => (*/}
-                                            {/*        <li>{categories}</li>*/}
-                                            {/*    ))}*/}
-                                            {/*</ul>*/}
                                         </a>
                                     </Item>
                                 )
                             })}
-                            {/*Logos*/}
-                            {logos.map(({ node }) => {
-                                return (
-                                    <Item key={node.relativePath.src} className="logo">
-                                        <a href={node.absolutePath} download='file' download>
-                                            <Photo fluid={node.childImageSharp.fluid} objectFit="contain" objectPosition="50% 50%" imgStyle={{ objectFit: 'contain' }} caption="ACC Logo" alt="ACC Logo"  />
-                                            <p>{node.childImageSharp.fluid.originalName}</p>
-                                        </a>
-                                    </Item>
-                                )
-                            })}
-
-
                         </ImageGallery>
-                        {/*    <ul>*/}
-                        {/*    {cats.map(({ node }) => {*/}
-                        {/*        return (*/}
-                        {/*            <>*/}
-                        {/*                {node.categories.map(categories => (*/}
-                        {/*                    <li>{categories}</li>*/}
-                        {/*                ))}*/}
-                        {/*            </>*/}
-                        {/*        )*/}
-                        {/*    })}*/}
-                        {/*</ul>*/}
                     </Container>
 
                 </div>
@@ -257,62 +200,25 @@ class MultimediaPage extends React.Component {
     }
 }
 
-export default MultimediaPage
+export default InfographicPage
 
 export const pageQuery = graphql`
-    query MultiMediaQuery {
-        photos: allContentfulPhotos {
+    query InfographicQuery {
+        infographics: allContentfulInfographic {
             edges {
-                node {
-                    photo {
-                        fluid(maxWidth: 500, quality: 90) {
-                            ...GatsbyContentfulFluid
-                            src
-                        }
-                        file{
-                            url
-                        }
+              node {
+                caption
+                infographicImage {
+                  fluid(maxWidth: 500, quality: 90) {
+                        ...GatsbyContentfulFluid
+                        src
                     }
-                    caption
-                    categories
+                  file {
+                    url
+                  }
                 }
+              }
             }
-        }
-        videos: allContentfulVideos {
-            edges {
-                node {
-                    caption
-                    categories
-                    thumbnail {
-                        fluid(maxWidth: 500, quality: 90) {
-                            ...GatsbyContentfulFluid
-                            src
-                        }
-                    }
-                    video {
-                        fluid {
-                            src
-                        }
-                        file {
-                            url
-                        }
-                    }
-                }
-            }
-        }
-        logos: allFile {
-            edges {
-                node {
-                    childImageSharp {
-                        fluid(maxWidth: 200, quality: 60, ) {
-                            ...GatsbyImageSharpFluid_tracedSVG
-                            src
-                        }
-                    }
-                    relativePath
-                    absolutePath
-                }
-            }
-        }
+          }
     }
 `
