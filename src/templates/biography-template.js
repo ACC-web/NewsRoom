@@ -52,7 +52,7 @@ class BiographyTemplate extends React.Component {
                   dangerouslySetInnerHTML={{
                       // __html: {biography.content.content},
                       //TODO: change this too be the same as the blog-post page html thingy
-                      __html: biography.mediaApprovedQuote.childMarkdownRemark.html,
+                      __html: biography.mediaApprovedQuote?.childMarkdownRemark.html,
 
                   }}
               />
@@ -62,7 +62,7 @@ class BiographyTemplate extends React.Component {
                   dangerouslySetInnerHTML={{
                       // __html: {biography.content.content},
                       //TODO: change this too be the same as the blog-post page html thingy
-                      __html: biography.publishedWork.childMarkdownRemark.html,
+                      __html: biography.publishedWork?.childMarkdownRemark.html,
 
                   }}
               />
