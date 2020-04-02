@@ -15,7 +15,6 @@ class BiographyTemplate extends React.Component {
   render() {
     const biography = get(this.props, 'data.contentfulBiographies')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-    const bioName = get(this.props, 'data.site.siteMetadata.name')
 
     return (
       <Layout location={this.props.location}>

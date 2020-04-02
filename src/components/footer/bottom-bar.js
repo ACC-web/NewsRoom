@@ -1,6 +1,4 @@
-import { Link } from 'gatsby';
 import React from "react";
-// import styled from '@emotion/styled';
 import { colors } from '../../styles/colors.ts';
 import {inner} from "../../styles/shared.ts";
 import styled from 'styled-components'
@@ -35,7 +33,7 @@ class BottomBar extends React.Component {
     return (
       <Container>
         <div css={[inner]}>
-          {' Australian Christian College'} &copy; {new Date().getFullYear()}&nbsp;&nbsp;|&nbsp;&nbsp;<a rel="noopener" name="Privacy Policy" href="https://docs.google.com/document/d/1Mlh1xeAikswfDmYR6t7-FaE3eliBMg_WjZing23QVwQ/preview" target="_blank">Privacy Statement</a>
+          {' Australian Christian College'} &copy; {new Date().getFullYear()}&nbsp;&nbsp;|&nbsp;&nbsp;<a rel="noopener noreferrer" name="Privacy Policy" href="https://docs.google.com/document/d/1Mlh1xeAikswfDmYR6t7-FaE3eliBMg_WjZing23QVwQ/preview" target="_blank">Privacy Statement</a>
         </div>
       </Container>
     );

@@ -4,18 +4,11 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 
-import Hero from '../components/hero'
 import Layout from '../components/layout'
 import NewsPreview from '../components/news/news-preview'
-import ArticlePreview from '../components/article-preview'
-import BiographyPreview from '../components/biography-preview'
 import MediaContacts from '../components/SIDEBAR/media-contact/media-contact'
 import MediaAssets from '../components/SIDEBAR/media-assets'
 import VisitForm from '../components/SIDEBAR/visit-request-form'
-
-import {
- ArticleList
-} from '../styles/shared.ts';
 
 const Wrapper = styled.div`
   display: flex;
@@ -146,9 +139,7 @@ class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const newsitems = get(this, 'props.data.news.edges')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const media = get(this, 'props.data.media.edges')
-    const bios = get(this, 'props.data.allContentfulBiographies.edges')
     const mediacontact = get(this, 'props.data.mediacontact.edges')
 
     return (
@@ -169,16 +160,6 @@ class RootIndex extends React.Component {
                   </NewsList>
                   <ReadMore to={/news/}><p>See More Articles &#9660;</p></ReadMore>
 
-                {/*<h2 className="section-headline">Recent articles</h2>*/}
-                {/*<ArticleList>*/}
-                {/*  {posts.map(({ node }) => {*/}
-                {/*    return (*/}
-                {/*      <li key={node.slug}>*/}
-                {/*        <ArticlePreview article={node} />*/}
-                {/*      </li>*/}
-                {/*    )*/}
-                {/*  })}*/}
-                {/*</ArticleList>*/}
 
                   <MediaList>
                       <SectionHeading className="section-headline">ACC in the Media</SectionHeading>
@@ -186,7 +167,7 @@ class RootIndex extends React.Component {
                       {media.map(({ node }) => {
                           return (
                               <li key={node.slug}>
-                                  <a href={node.mediaUrl} target="_blank">
+                                  <a href={node.mediaUrl} target="_blank" rel="noopener noreferrer">
                                     <p><strong>{node.mediaTitle}</strong></p>
                                     <p>{node.mediaUrl}</p>
                                   </a>
@@ -195,16 +176,6 @@ class RootIndex extends React.Component {
                       })}
                   </MediaList>
                   <ReadMore to={/media/}><p>See More Articles &#9660;</p></ReadMore>
-                {/*<SectionHeading className="section-headline">Biographies</SectionHeading>*/}
-                {/*<ArticleList>*/}
-                {/*  {bios.map(({ node }) => {*/}
-                {/*    return (*/}
-                {/*        <li key={node.slug}>*/}
-                {/*          <BiographyPreview biographies={node} />*/}
-                {/*        </li>*/}
-                {/*    )*/}
-                {/*  })}*/}
-                {/*</ArticleList>*/}
               </Feed>
               <Sidebar>
                       <p style={{ fontSize: '80%' }}>ACC’s newsroom exists to help the media access facts, stories, comments, information, photographs and videos about our schools. Media representatives and educational bloggers can also request school visits and comments from our extensive list of subject matter experts.</p>

@@ -158,22 +158,11 @@ const Photo = styled(Img)`
   
 `
 
-const Url = styled.a`
-  margin: 0.5rem 0;
-  color: black;
-  text-decoration: none;
-  
-  &:hover{
-    color: #023E83;
-    text-decoration: underline;
-  }
-`
 
 class MultimediaPage extends React.Component {
     render() {
         const siteTitle = get(this, 'props.data.site.siteMetadata.title')
         const photos = get(this, 'props.data.photos.edges')
-        const cats = get(this, 'props.data.photos.edges')
         const videos = get(this, 'props.data.videos.edges')
         const logos = get(this, 'props.data.logos.edges')
 
@@ -191,40 +180,27 @@ class MultimediaPage extends React.Component {
                         </div>
                         <SectionHeadline>Multimedia Gallery</SectionHeadline>
                         <ImageGallery>
-                            {/*Photos*/}
                             {photos.map(({ node }) => {
                                 return (
                                     <Item key={node.photo.src} className={node.categories}>
-                                        <a href={node.photo.file.url} download='file' download target="_blank">
+                                        <a href={node.photo.file.url} download='file' download target="_blank" rel="noopener noreferrer">
                                         <Photo fluid={node.photo.fluid} caption={node.caption} alt={node.caption}  />
 
                                         <p><i>{node.caption}</i></p>
-                                        {/*<ul className="flex-row">*/}
-                                        {/*    {node.categories.map(categories => (*/}
-                                        {/*    <li>{categories}</li>*/}
-                                        {/*))}*/}
-                                        {/*</ul>*/}
                                         </a>
                                     </Item>
                                 )
                             })}
-                            {/*Videos*/}
                             {videos.map(({ node }) => {
                                 return (
                                     <Item key={node.video.src} className={node.categories}>
                                         <a href={node.video.file.url} download='file' download>
                                             <Photo fluid={node.thumbnail.fluid} caption={node.caption} alt={node.caption}  />
                                             <p>{node.caption}</p>
-                                            {/*<ul className="flex-row">*/}
-                                            {/*    {node.categories.map(categories => (*/}
-                                            {/*        <li>{categories}</li>*/}
-                                            {/*    ))}*/}
-                                            {/*</ul>*/}
                                         </a>
                                     </Item>
                                 )
                             })}
-                            {/*Logos*/}
                             {logos.map(({ node }) => {
                                 return (
                                     <Item key={node.relativePath.src} className="logo">
@@ -235,22 +211,8 @@ class MultimediaPage extends React.Component {
                                     </Item>
                                 )
                             })}
-
-
                         </ImageGallery>
-                        {/*    <ul>*/}
-                        {/*    {cats.map(({ node }) => {*/}
-                        {/*        return (*/}
-                        {/*            <>*/}
-                        {/*                {node.categories.map(categories => (*/}
-                        {/*                    <li>{categories}</li>*/}
-                        {/*                ))}*/}
-                        {/*            </>*/}
-                        {/*        )*/}
-                        {/*    })}*/}
-                        {/*</ul>*/}
                     </Container>
-
                 </div>
             </Layout>
         )

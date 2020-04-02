@@ -1,7 +1,6 @@
-import {Link, StaticQuery, graphql, useStaticQuery} from 'gatsby';
+import {graphql, useStaticQuery} from 'gatsby';
 import * as React from 'react';
 import styled from "styled-components"
-import * as _ from 'lodash';
 
 import { colors } from '../../styles/colors.ts';
 // import InfinityIcon from './icons/infinity';
@@ -12,7 +11,6 @@ import { inner } from '../../styles/shared.ts';
 
 import SchoolList from "./school-list.js";
 import BottomBar from "./bottom-bar.js";
-import EGuides from "./eguides.js";
 import SiteNavLogo from "../header/SiteNavLogo";
 
 const Wrapper = styled.div`
@@ -123,30 +121,6 @@ const Column = styled.div`
 `;
 
 
-
-const SiteFooterContent = css`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.3rem;
-  @media (max-width: 650px) {
-    flex-direction: column;
-    justify-content: center;
-  }
-    a {
-      color: ${colors.lightgrey};
-    }
-    a:hover {
-      color: ${colors.lightblue};
-      text-decoration: none;
-    }
-    
-`;
-
-
 const SiteFooterNav = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -206,7 +180,6 @@ const Footer = () => {
             file(relativePath: {regex: "/BrendanCorrEtched.png/"}) {
                 childImageSharp {
                     fluid(maxWidth: 1000, jpegProgressive: true, fit: CONTAIN) {
-                        srcSetWebp
                         src
                     }
                 }

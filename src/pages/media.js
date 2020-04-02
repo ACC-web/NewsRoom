@@ -62,7 +62,7 @@ class MediaPage extends React.Component {
                 return (
                   <li key={node.slug}>
                       <Title>{node.mediaTitle}</Title>
-                      <Url href={node.mediaUrl} target="_blank">{node.mediaUrl}</Url>
+                      <Url href={node.mediaUrl} target="_blank" rel="noopener noreferrer" >{node.mediaUrl}</Url>
                   </li>
                 )
               })}

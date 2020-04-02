@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Container from './container'
-import Navigation from './header/navigation'
 import HeaderArea from "./header/header";
 import "../styles/shared.ts"
 import "../styles/style.css"

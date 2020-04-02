@@ -1,6 +1,5 @@
 import React, { useState }  from "react"
 import axios from "axios";
-import { Link } from "gatsby"
 import styled from 'styled-components'
 import styles from '../article-preview.module.css'
 

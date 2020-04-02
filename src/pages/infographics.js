@@ -6,8 +6,6 @@ import Layout from '../components/layout'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 
-
-
 import {
     SectionHeadline,
 
@@ -150,17 +148,6 @@ const Infographic = styled(Img)`
   
 `
 
-const Url = styled.a`
-  margin: 0.5rem 0;
-  color: black;
-  text-decoration: none;
-  
-  &:hover{
-    color: #023E83;
-    text-decoration: underline;
-  }
-`
-
 class InfographicPage extends React.Component {
     render() {
         const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -184,7 +171,7 @@ class InfographicPage extends React.Component {
                             {infographics.map(({ node }) => {
                                 return (
                                     <Item key={node.infographicImage.src}>
-                                        <a href={node.infographicImage.file.url} download='file' download target="_blank">
+                                        <a href={node.infographicImage.file.url} download='file' download target="_blank" rel="noopener noreferrer">
                                             <Infographic fluid={node.infographicImage.fluid} caption={node.caption} alt={node.caption}  />
                                             <p>{node.caption}</p>
                                         </a>

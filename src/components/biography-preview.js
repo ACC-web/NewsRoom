@@ -63,7 +63,7 @@ const PublishedWork = styled.span`
             return (
                 <Container className={styles.preview}>
                     <Link to={`/${this.props.biographies.slug}`}>
-                        {/*//TODO: link to the original full size image*/}
+                        {/*//TODO: link to the originaaagit commanl full size image*/}
                         <ProfileImage alt="" fluid={this.props.biographies.thumbnail.fluid}/>
                     </Link>
                     <BioName className={styles.previewTitle}>
@@ -76,26 +76,17 @@ const PublishedWork = styled.span`
                         }}
                     />
 
-                    {/*<p>{biographies.mediaApprovedQuote.childMarkdownRemark.html}</p>*/}
-
-                    {/*<p> ${biographies.childContentfulBiographiesMediaApprovedQuoteTextNode.mediaApprovedQuote}</p>*/}
-                    {/*<ul><li*/}
-                    {/*    dangerouslySetInnerHTML={{*/}
-                    {/*        __html: biographies.publishedWork*/}
-                    {/*    }}*/}
-                    {/*/></ul>*/}
-
-                    <a href="#" onClick={this.onOpenModal} style={{boxShadow: `none`, color: `#0069b4`}}>Media approved quote</a>
+                    <button onClick={this.onOpenModal} style={{boxShadow: `none`, color: `#0069b4`}}>Media approved quote</button>
                     <p>Published works:</p>
                     <PublishedWork
                         className={styles.breakcontents}
                         dangerouslySetInnerHTML={{
-                            __html: this.props.biographies.publishedWork.childMarkdownRemark.html
+                            __html: this.props.biographies.publishedWork?.childMarkdownRemark.html
                         }}
                     />
                         <Modal open={open} onClose={this.onCloseModal} center>
                             <h2>Media Approved Quote</h2>
-                            <p><i>"{this.props.biographies.mediaApprovedQuote.internal.content}"</i></p>
+                            <p><i>"{this.props.biographies.mediaApprovedQuote?.internal.content}"</i></p>
                         </Modal>
 
                     <Link className={styles.ctaMain} style={{boxShadow: `none`, color: `#fff`}}
@@ -104,5 +95,6 @@ const PublishedWork = styled.span`
             )
         }
     }
+
 
     export default BiographyPreview;
