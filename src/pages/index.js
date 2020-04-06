@@ -63,7 +63,6 @@ const NewsItem = styled.li`
     
     @media(min-width: 768px){
         width: 100%;
-        margin: 0;
         flex-direction: row;
         
         &:first-of-type{
