@@ -129,7 +129,7 @@ class SiteNav extends React.Component {
                                     </li>
                                     <li role="menuitem">
                                         <Link to="/">Podcast</Link>
-                                    </li>A
+                                    </li>
                                 </ul>
                             </div>
                             <a href="#main-menu-toggle"
