@@ -39,9 +39,7 @@ const ProfileImage = styled(Img)`
     margin: 0 0 1rem 0;
 
     @media(min-width: 768px){
-        width: 250px;
-        height: 250px;
-        margin: 0 1rem;
+        margin: 0 0 1.5rem 0;
     }
     
 `
