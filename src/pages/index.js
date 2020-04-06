@@ -217,7 +217,7 @@ export const pageQuery = graphql`
                       }
                   }
                   image {
-                      fluid(maxWidth: 350, quality: 10) {
+                      fluid(maxWidth: 350, quality: 90) {
                           ...GatsbyContentfulFluid
                           src
                       }
