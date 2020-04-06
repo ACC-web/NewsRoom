@@ -56,7 +56,7 @@ const NewsList = styled.ul`
 
 const NewsItem = styled.li`
     display: flex;
-    margin: 0;
+    margin: 1rem 0;
     padding: 0;
     list-style: none;
     width: calc(100%);
@@ -68,6 +68,8 @@ const NewsItem = styled.li`
         
         &:first-of-type{
           flex-direction: column;
+          margin: 0;
+
         }
          &:first-of-type .image{
           width: 100%;
