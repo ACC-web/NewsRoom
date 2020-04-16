@@ -65,6 +65,12 @@ const NewsItem = styled.li`
         width: 100%;
         flex-direction: row;
         
+        & .image{
+            width: 250px;
+            height: 200px;
+            margin: 0 1rem;
+        }
+        
         &:first-of-type{
           flex-direction: column;
           margin: 0;
@@ -126,12 +132,14 @@ const MediaList = styled.ul`
       color: black;
       text-decoration: none;
   }
-  p{
-    margin: 1rem 0 0.5rem 0;
-    &:nth-of-type(2){
-      font-size: 85%;
-      margin: 0.5rem 0 0.5rem 0;
-    }
+  & p.title{
+    margin: 0 0 0.5rem 0;
+    font-size: 90%;
+  }
+  & p.publication{
+      font-size: 80%;
+      margin: 0;
+      line-height: 1.1rem;
   }
   
 `
@@ -169,8 +177,8 @@ class RootIndex extends React.Component {
                           return (
                               <li key={node.slug}>
                                   <a href={node.mediaUrl} target="_blank" rel="noopener noreferrer">
-                                    <p><strong>{node.mediaTitle}</strong></p>
-                                    <p>{node.mediaUrl}</p>
+                                      <p className="publication">{node.publication}</p>
+                                      <p className="title"><strong>{node.mediaTitle}</strong></p>
                                   </a>
                               </li>
                           )
@@ -292,9 +300,10 @@ export const pageQuery = graphql`
             }
           }
         }
-        media: allContentfulMediaLink(sort: {fields: [datePublished], order: DESC}) {
+        media: allContentfulMediaLink(limit: 8, sort: {fields: [datePublished], order: DESC}) {
             edges {
                 node {
+                    publication
                     mediaUrl
                     mediaTitle
                 }

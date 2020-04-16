@@ -23,6 +23,12 @@ const ArticleList = styled.ul`
   width: 100%;
 `
 
+const Publication = styled.p`
+  font-size: 80%;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem 0;
+`
+
 const Title = styled.p`
   font-weight: 800;
   margin: 1rem 0 0.5rem 0;
@@ -61,8 +67,10 @@ class MediaPage extends React.Component {
               {media.map(({ node }) => {
                 return (
                   <li key={node.slug}>
-                      <Title>{node.mediaTitle}</Title>
-                      <Url href={node.mediaUrl} target="_blank" rel="noopener noreferrer" >{node.mediaUrl}</Url>
+                      <Publication>{node.publication}</Publication>
+                      <Url href={node.mediaUrl} target="_blank" rel="noopener noreferrer" >
+                          <Title>{node.mediaTitle}</Title>
+                      </Url>
                   </li>
                 )
               })}
@@ -81,6 +89,7 @@ export const pageQuery = graphql`
       allContentfulMediaLink(sort: {fields: [datePublished], order: DESC}) {
           edges {
               node {
+                publication
                   mediaUrl
                   mediaTitle
               }
