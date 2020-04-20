@@ -51,6 +51,6 @@ export default () => (
         {/*<Button to={"/fact-sheets"}>Fact Sheet</Button>*/}
         <Button to={"/infographics"}>Infographics</Button>
         <Button to={"/biographies"}>Biographies</Button>
-        {/*<Button to={"/story-starters"}>Story Starters</Button>*/}
+        <Button to={"/story-starters"}>Story Starters</Button>
     </Container>
 )

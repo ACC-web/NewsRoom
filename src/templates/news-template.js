@@ -17,6 +17,10 @@ const Wrapper = styled.div`
   width: calc(100% - 2rem);
 `
 
+const ActiveCrumb = styled.span`
+//TODO: restrict the length of the active crumb
+`
+
 
 class NewsTemplate extends React.Component {
   render() {
@@ -33,7 +37,7 @@ class NewsTemplate extends React.Component {
                     |
                     <Link className="crumb" to="/news">News</Link>
                     |
-                    <span className="crumb active"
+                    <ActiveCrumb className="crumb active"
                           dangerouslySetInnerHTML={{
                               // __html: {biography.content.content},
                               //TODO: change this too be the same as the blog-post page html thingy

@@ -6,7 +6,8 @@ import Layout from '../components/layout'
 
 import heroStyles from '../components/hero.module.css'
 import {
-    FeatureImage
+    FeatureImage,
+    SectionHeadline
 } from '../styles/shared.ts';
 
 import "../styles/style.css"
@@ -36,15 +37,18 @@ class BiographyTemplate extends React.Component {
                     />
                 </i></p>
             </div>
-          <div className={heroStyles.hero}>
-            <FeatureImage
-                className={heroStyles.heroImage}
-                alt={biography.title}
-                fluid={biography.thumbnail.fluid}
-            />
+            <SectionHeadline>{biography.name}</SectionHeadline>
+
+            <div className={heroStyles.hero}>
+              <a href={biography.thumbnail.file.url}>
+                  <FeatureImage
+                    className={heroStyles.heroImage}
+                    alt={biography.title}
+                    fluid={biography.thumbnail.fluid}
+                />
+              </a>
           </div>
-          <div className="wrapper">
-            <h1 className="section-headline">{biography.name}</h1>
+            <div className="wrapper">
             <a href={biography.thumbnail.file.url}>Download a Press Photo of {biography.name}</a>
               <h2 style={{ margin: '1rem 0 0.5rem 0' }}>Media approved quote</h2>
               <i
@@ -74,7 +78,9 @@ class BiographyTemplate extends React.Component {
 
               }}
             />
-          </div>
+                <div style={{clear: 'both', display: 'block', width:'100%'}}/>
+
+            </div>
         </div>
       </Layout>
     )

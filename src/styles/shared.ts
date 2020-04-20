@@ -140,7 +140,7 @@ export const SiteHeaderStyles = css`
 
 /* --------- Article content list pages ---------*/
 
-export const SectionHeadline = styled.h2`
+export const SectionHeadline = styled.h1`
     padding: 0 0 0.4em 0;
     margin: 0 0 5vmin 0;
     border-bottom: 1px solid #ddd;

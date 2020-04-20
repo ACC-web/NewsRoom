@@ -507,18 +507,19 @@ body{
 h1, h2, h3, h4, h5, p, em, a, i{
     text-rendering: optimizelegibility;
 }
-h1{}
+h1{ font-weight: 500;}
 h2{
     font-size: 1.8rem;
     line-height: 1.15;
     margin: 0.5em 0 1em;
+    font-weight: 400;
 }
 h2.section-headline{
     font-weight: 400;
 }
 h3{
     font-size: 1.4em;
-    font-weight: 400;
+    font-weight: 300;
     margin-top: 0.5em;
 }
 h3 a{
@@ -543,6 +544,12 @@ a{
 
 *:focus {
     outline: none;
+}
+
+ul li{
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.8rem;
 }
 
 
