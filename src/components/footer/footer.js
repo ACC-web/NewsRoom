@@ -1,10 +1,7 @@
 import {graphql, useStaticQuery} from 'gatsby';
 import * as React from 'react';
 import styled from "styled-components"
-
 import { colors } from '../../styles/colors.ts';
-// import InfinityIcon from './icons/infinity';
-
 import { css } from 'styled-components';
 
 import { inner } from '../../styles/shared.ts';
@@ -41,14 +38,18 @@ const SiteFooter = styled.footer`
                   font-size: inherit;
 
       li{    
-        padding: 0;
-        margin: 0.2em 0;
+            padding: 0;
+            margin: 0.2em 0;
+            color: #fff;
+            line-height: 0.9rem;;
 
         a{
-            font-size: 0.9em;
+            font-size: 0.8rem;
+            font-weight: 400;
             margin: 0;
-            color: inherit;
+            color: #fff;
             text-decoration: none;
+
             
             :hover{
                 color: ${colors.lightblue};
@@ -62,7 +63,7 @@ const SiteFooter = styled.footer`
     height: auto;
     max-width: 230px
 }
-`;
+`
 
 const flex = css`
   //add next line because weird style bug, first line will be ignored
@@ -73,7 +74,7 @@ const flex = css`
     @media (min-width: 768px){
       flex-direction: row;
     }
-`;
+`
 
 
 const Column = styled.div`
@@ -96,8 +97,7 @@ const Column = styled.div`
   }
   
   /* ------------this is the logo---------- */
-  
-
+ 
 
   svg{
   flex-shrink: 0;
@@ -117,8 +117,7 @@ const Column = styled.div`
       text-decoration: none;
     }
   }
- 
-`;
+`
 
 
 const SiteFooterNav = styled.nav`
@@ -153,7 +152,7 @@ const SiteFooterNav = styled.nav`
       margin-left: 0;
     }
   }
-`;
+`
 
 const rightAlign = css`
   text-align: left;
@@ -162,6 +161,7 @@ const rightAlign = css`
     text-align: right;
   }
 `
+
 
 const LogoWrapper = styled.div`
     height: 73px;
@@ -172,7 +172,7 @@ const LogoWrapper = styled.div`
     flex-direction: row;
     align-items: center;
     text-align: center;
-`;
+`
 
 const Footer = () => {
     const data = useStaticQuery(graphql`
@@ -196,7 +196,7 @@ const Footer = () => {
                             <LogoWrapper>
                                 <SiteNavLogo />
                             </LogoWrapper>
-                            <p css={[rightAlign]}>Transforming young lives spiritually, academically, socially and physically.</p>
+                            <p style={{color: '#fff'}} css={[rightAlign]}><i>Transforming young lives spiritually, academically, socially and physically.</i></p>
                     </Column>
                     <Column>
                         <SiteFooterNav>

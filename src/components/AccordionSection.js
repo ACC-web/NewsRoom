@@ -33,14 +33,16 @@ class AccordionSection extends Component {
                     background: isOpen ? 'rgb(213,213,213)' : 'rgb(213,213,213)',
                     padding: '0.5rem 1rem 0.5rem 1rem',
                     borderRadius: '5px',
-                    marginBottom: '1rem'
+                    marginBottom: '1rem',
+                    transition: 'all 1s ease'
                 }}
             >
                 <H2 onClick={onClick} style={{ cursor: 'pointer' }}>
                     {label}
-                    <div style={{ float: 'right' }}>
-                        {!isOpen && <span>&#x2b;</span>}
-                        {isOpen && <span>&#x2212;</span>}
+                    <div style={{ float: 'right', transform: isOpen ? 'rotate(45deg)' : 'rotate(445deg)', transition: 'all 1s ease' }}>
+                        {/*{!isOpen && <span>&#x2b;</span>}*/}
+                        {<span>&#x2b;</span>}
+                        {/*{isOpen && <span>&#x2212;</span>}*/}
                     </div>
                 </H2>
                 {isOpen && (
