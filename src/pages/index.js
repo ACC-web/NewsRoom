@@ -276,23 +276,18 @@ export const pageQuery = graphql`
             }
           }
         }
-        allContentfulBiographies {
+        allContentfulBiographies(sort: {order: ASC, fields: name}) {
           edges {
             node {
               slug
-              publishDate(formatString: "MMMM Do, YYYY")
               name
               thumbnail {
                 fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
                   ...GatsbyContentfulFluid
                 }
+                title
               }
               content {
-                childMarkdownRemark {
-                  html
-                }
-              }
-              description {
                 childMarkdownRemark {
                   html
                 }

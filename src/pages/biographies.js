@@ -30,7 +30,7 @@ class BiographiesPage extends React.Component {
               </div>
             <SectionHeadline>Biographies</SectionHeadline>
               <p>The people listed on this page are available to provide comments within their areas of expertise. You can also download their photograph and access approved quotes and previously published works.</p>
-    <ArticleList>
+                <ArticleList>
               {biographies.map(({ node }) => {
                 return (
                   <li key={node.slug}>
@@ -50,11 +50,10 @@ export default BiographiesPage
 
 export const pageQuery = graphql`
   query BiographiesPageQuery {
-    allContentfulBiographies(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulBiographies(sort: {order: ASC, fields: name}) {
       edges {
         node {
           slug
-          publishDate(formatString: "MMMM Do, YYYY")
           name
           thumbnail {
             fluid(maxWidth: 350, quality: 100) {
@@ -64,13 +63,9 @@ export const pageQuery = graphql`
             file {
               url
             }
+            title
           }
           content {
-            childMarkdownRemark {
-              html
-            }
-          }
-          description {
             childMarkdownRemark {
               html
               excerpt

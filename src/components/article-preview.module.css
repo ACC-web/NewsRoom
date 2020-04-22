@@ -19,12 +19,12 @@
 .ctaMain {
   position: relative;
   border-radius: 5px;
-  padding: 1.2em 1.5em;
+  padding: 0.8rem 1rem;
   border: solid 2px;
   margin-top: 1em;
   margin-bottom: 3em;
   text-transform: uppercase;
-  font-size: .8em;
+  font-size: .65rem;
   letter-spacing: .08em;
   text-decoration: none;
   color: #fff;

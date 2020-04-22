@@ -94,7 +94,6 @@ export const pageQuery = graphql`
     contentfulBiographies(slug: {eq: $slug}) {
       name
       slug
-      publishDate(formatString: "MMMM Do, YYYY")
       publishedWork {
           childMarkdownRemark {
             html
@@ -103,11 +102,6 @@ export const pageQuery = graphql`
           id
         }
       content {
-        childMarkdownRemark {
-          html
-        }
-      }
-      description {
         childMarkdownRemark {
           html
         }
