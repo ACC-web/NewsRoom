@@ -67,7 +67,7 @@ const NewsItem = styled.li`
         
         & .image{
             width: 250px;
-            height: 200px;
+            height: calc(100% - 1rem);
             margin: 0 1rem;
         }
         
