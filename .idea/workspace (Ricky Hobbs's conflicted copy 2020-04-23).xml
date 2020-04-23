@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="236946fb-e569-4da4-9961-aedd78b23b24" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/components/biography-preview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/biography-preview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/biographies.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/biographies.js" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1YEnUtTaLzEHpWySIy2qJqQhMve" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/SIDEBAR" />
+      <recent name="$PROJECT_DIR$/src/components/header" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages" />
+      <recent name="$PROJECT_DIR$/src/components/SIDEBAR" />
+      <recent name="$PROJECT_DIR$/src/components/media-contact" />
+      <recent name="$PROJECT_DIR$/src/templates" />
+      <recent name="$PROJECT_DIR$/src/components/news" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="236946fb-e569-4da4-9961-aedd78b23b24" name="Default Changelist" comment="" />
+      <created>1582516639804</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582516639804</updated>
+      <workItem from="1582516641018" duration="52545000" />
+      <workItem from="1583893231075" duration="2720000" />
+      <workItem from="1584310658735" duration="638000" />
+      <workItem from="1584315244106" duration="26870000" />
+      <workItem from="1584493608630" duration="32707000" />
+      <workItem from="1584913272781" duration="11929000" />
+      <workItem from="1584942562664" duration="1141000" />
+      <workItem from="1585174757559" duration="194000" />
+      <workItem from="1585175155621" duration="17819000" />
+      <workItem from="1585266190359" duration="128000" />
+      <workItem from="1585266339446" duration="5551000" />
+      <workItem from="1585517171055" duration="22949000" />
+      <workItem from="1585603756615" duration="1048000" />
+      <workItem from="1585610892209" duration="7669000" />
+      <workItem from="1585722571526" duration="113000" />
+      <workItem from="1585776177436" duration="12185000" />
+      <workItem from="1586134298549" duration="3191000" />
+      <workItem from="1586144997500" duration="4872000" />
+      <workItem from="1587016007519" duration="20671000" />
+      <workItem from="1587613514176" duration="388000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/styles/shared.ts</url>
+          <line>153</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/pages/story-starters.js</url>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

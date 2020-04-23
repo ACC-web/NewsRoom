@@ -13,20 +13,24 @@ import VisitForm from '../components/SIDEBAR/visit-request-form'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 3rem 1rem 0 1rem;
+  margin: 1rem 1rem 0 1rem;
   
    @media(min-width: 768px){
     flex-direction: row;
+     margin: 3rem 1rem 0 1rem;
+
   }
 `
 
 const Feed = styled.section`
   width: 100%;
   margin-top: 0;
+  order: 2;
   
   @media(min-width: 768px){
     width: calc(75% - 1rem);
-     margin-right: 1rem
+     margin-right: 1rem;
+     order: 1;
   }
 `
 
@@ -86,7 +90,9 @@ const NewsItem = styled.li`
 
 const Sidebar = styled.section`
   width: 100%;
+  order: 1;
    @media(min-width: 768px){
+   order: 2;
     width: calc(25% - 1rem);
     border-left: 1px solid grey;
     padding-left: 1rem;
@@ -243,11 +249,6 @@ export const pageQuery = graphql`
               heroImage {
                 fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
                   ...GatsbyContentfulFluid
-                }
-              }
-              description {
-                childMarkdownRemark {
-                  html
                 }
               }
             }

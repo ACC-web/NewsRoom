@@ -54,7 +54,7 @@ exports.createPages = ({ actions, graphql }) => {
     // Create biography pages
     result.data.bios.edges.forEach(({ node }) => {
       createPage({
-        path: node.slug,
+        path: `/biographies/${node.slug}`,
         component: bioTemplate,
           context: {
               slug: node.slug

@@ -170,7 +170,7 @@ const LogoWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     text-align: center;
 `
 

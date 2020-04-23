@@ -23,7 +23,14 @@ if (!spaceId || !accessToken) {
 }
 
 module.exports = {
-  pathPrefix: '/gatsby-contentful-starter',
+    pathPrefix: '/newsroom',
+    siteMetadata: {
+        title: 'ACC NewsRoom',
+        author: `ACC`,
+        description: 'A collection of articles relevant to parents with school-age children',
+        siteUrl: 'https://www.acc.edu.au' // full path to blog - no ending slash
+    },
+    pathPrefix: '/gatsby-contentful-starter',
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
@@ -43,5 +50,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-breadcrumb`,
+    `gatsby-plugin-sitemap`,
   ],
 }

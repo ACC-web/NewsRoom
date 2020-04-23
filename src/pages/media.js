@@ -25,13 +25,14 @@ const ArticleList = styled.ul`
 
 const Publication = styled.p`
   font-size: 80%;
+  line-height: 80%;
   font-weight: 600;
   margin: 1rem 0 0.5rem 0;
 `
 
 const Title = styled.p`
-  font-weight: 800;
-  margin: 1rem 0 0.5rem 0;
+  font-weight: 600;
+  margin: 0.5rem 0 0.5rem 0;
 `
 
 const Url = styled.a`
