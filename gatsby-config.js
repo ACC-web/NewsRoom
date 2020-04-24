@@ -28,9 +28,8 @@ module.exports = {
         title: 'ACC NewsRoom',
         author: `ACC`,
         description: 'A collection of articles relevant to parents with school-age children',
-        siteUrl: 'https://www.acc.edu.au' // full path to blog - no ending slash
+        siteUrl: 'https://www.acc.edu.au/newsroom' // full path to this site - no ending slash
     },
-    pathPrefix: '/gatsby-contentful-starter',
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-plugin-react-helmet',
@@ -51,5 +50,70 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-breadcrumb`,
     `gatsby-plugin-sitemap`,
+      // {
+      //     resolve: `gatsby-plugin-feed`,
+      //     options: {
+      //         query: `
+      //             {
+      //               site {
+      //                 siteMetadata {
+      //                   title
+      //                   description
+      //                   siteUrl
+      //                   site_url: siteUrl
+      //                 }
+      //               }
+      //             }
+      //           `,
+      //         feeds: [
+      //             {
+      //                 // serialize: ({ query: { site, allcontentfulNews } }) => {
+      //                 //     return allContentfulNews.edges.map(edge => {
+      //                 //         return Object.assign({}, edge.node, {
+      //                 //             description: edge.node.bodyContent.childMarkdownRemark.excerpt,
+      //                 //             date: edge.node.datePublished,
+      //                 //             url: site.siteMetadata.siteUrl + edge.node.slug,
+      //                 //             guid: site.siteMetadata.siteUrl + edge.node.slug,
+      //                 //             custom_elements: [{ "content:encoded": edge.node.bodyContent.childMarkdownRemark.html }],
+      //                 //         })
+      //                 //     })
+      //                 // },
+      //                 query: `
+      //                 {
+      //                   allContentfulNews(sort: {fields: [datePublished], order: DESC}) {
+      //                     edges {
+      //                         node {
+      //                             datePublished(formatString: "MMMM Do, YYYY")
+      //                             title
+      //                             slug
+      //                             bodyContent {
+      //                                 childMarkdownRemark {
+      //                                     html
+      //                                     excerpt(pruneLength: 200)
+      //                                 }
+      //                             }
+      //                             image {
+      //                                 file {
+      //                                   url
+      //                                 }
+      //                               }
+      //                         }
+      //                     }
+      //                   }
+      //                 }
+      //               `,
+      //                 output: "/rss.xml",
+      //                 title: "ACC Media Releases",
+      //                 // optional configuration to insert feed reference in pages:
+      //                 // if `string` is used, it will be used to create RegExp and then test if pathname of
+      //                 // current page satisfied this regular expression;
+      //                 // if not provided or `undefined`, all pages will have feed reference inserted
+      //                 match: "^/news/",
+      //                 // optional configuration to specify external rss feed, such as feedburner
+      //                 // link: "https://feeds.feedburner.com/gatsby/blog",
+      //             },
+      //         ],
+      //     },
+      // },
   ],
 }

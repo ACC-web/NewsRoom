@@ -48,12 +48,12 @@ const Button = styled(Link)`
 export default ({ newsitems }) => (
   <Container className={styles.preview}>
       {/*//TODO: link to the original full size image*/}
-      <Link to={`/${newsitems.slug}`}>
+      <Link to={`/media-releases/${newsitems.slug}`}>
           <ProfileImage className="image" alt="" fluid={newsitems.image.fluid} />
       </Link>
       <TextElements>
         <BioName className={styles.previewTitle}>
-          <Link to={`/${newsitems.slug}`}>{newsitems.title}</Link>
+          <Link to={`/media-releases/${newsitems.slug}`}>{newsitems.title}</Link>
         </BioName>
           <ItalicParagraph className="grey5-fill">{newsitems.datePublished}</ItalicParagraph>
           <p
@@ -70,7 +70,7 @@ export default ({ newsitems }) => (
           {/*        __html: news.publishedWork*/}
           {/*    }}*/}
           {/*/></ul>*/}
-          <Button className={styles.ctaMain} style={{ boxShadow: `none` }} to={`/${newsitems.slug}`}>Read More</Button>
+          <Button className={styles.ctaMain} style={{ boxShadow: `none` }} to={`/media-releases/${newsitems.slug}`}>Read More</Button>
       </TextElements>
   </Container>
 )

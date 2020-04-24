@@ -64,7 +64,7 @@ exports.createPages = ({ actions, graphql }) => {
       // Create blog pages
       result.data.news.edges.forEach(({ node }) => {
           createPage({
-              path: node.slug,
+              path: `/media-releases/${node.slug}`,
               component: newsTemplate,
               context: {
                   slug: node.slug

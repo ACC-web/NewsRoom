@@ -24,10 +24,10 @@ class NewsPage extends React.Component {
                   <p><i>
                       <Link className="crumb" to="/">Home</Link>
                       |
-                      <Link className="crumb" to="/news">News</Link>
+                      <Link className="crumb" to="/media-releases">Media Releases</Link>
                   </i></p>
               </div>
-            <SectionHeadline>News</SectionHeadline>
+            <SectionHeadline>Media Releases</SectionHeadline>
             <ArticleList>
               {newsitems.map(({ node }) => {
                 return (

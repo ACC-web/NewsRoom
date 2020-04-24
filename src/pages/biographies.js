@@ -72,18 +72,21 @@ export const pageQuery = graphql`
             }
           }
           mediaApprovedQuote {
-            childMarkdownRemark {
-              html
-            }
-            mediaApprovedQuote
-              internal {
-                content
+              childMarkdownRemark {
+            
+                html
               }
-          }
+            }
           publishedWork {
               childMarkdownRemark {
                 html
               }
+          }
+          mediaLink {
+              mediaTitle
+              mediaUrl
+              publication
+              datePublished
             }
         }
       }

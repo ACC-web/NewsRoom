@@ -3,14 +3,35 @@ import {graphql, Link} from 'gatsby'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../components/layout'
+import Img from 'gatsby-image'
+
 
 import heroStyles from '../components/hero.module.css'
 import {
-    FeatureImage,
     SectionHeadline
 } from '../styles/shared.ts';
 
 import "../styles/style.css"
+import styled from "styled-components"
+
+const ImageWrapper = styled.div`
+  width: calc(100% - 2rem);
+    margin: 0 1rem; 
+    height: 30rem;
+    float: none;
+    background-color: #fff;
+    
+    & a{
+      text-decoration: none;
+    }
+
+   @media(min-width: 768px){
+        width: 50%;
+        float: right;
+        margin: 0 1rem 1rem 1rem;
+  }
+`
+
 
 class BiographyTemplate extends React.Component {
   render() {
@@ -37,20 +58,30 @@ class BiographyTemplate extends React.Component {
                     />
                 </i></p>
             </div>
-            <SectionHeadline>{biography.name}</SectionHeadline>
+            <div className="wrapper">
+                <SectionHeadline>{biography.name}</SectionHeadline>
+            </div>
 
-            <div className={heroStyles.hero}>
+            <ImageWrapper>
               <a href={biography.thumbnail.file.url}>
-                  <FeatureImage
+                  <Img
                     className={heroStyles.heroImage}
                     alt={biography.title}
                     fluid={biography.thumbnail.fluid}
                 />
               </a>
-          </div>
+                <a style={{ float: 'right' }} href={biography.thumbnail.file.url}>Download a Press Photo of {biography.name}</a>
+            </ImageWrapper>
             <div className="wrapper">
-            <a href={biography.thumbnail.file.url}>Download a Press Photo of {biography.name}</a>
-              <h2 style={{ margin: '1rem 0 0.5rem 0' }}>Media approved quote</h2>
+                <div
+                    dangerouslySetInnerHTML={{
+                        // __html: {biography.content.content},
+                        //TODO: change this too be the same as the blog-post page html thingy
+                        __html: biography.content.childMarkdownRemark.html,
+
+                    }}
+                />
+                <p style={{ margin: '0.5rem 0' }}><strong>Media approved quote:</strong></p>
               <i
                   dangerouslySetInnerHTML={{
                       // __html: {biography.content.content},
@@ -59,7 +90,7 @@ class BiographyTemplate extends React.Component {
 
                   }}
               />
-              <p style={{ margin: '0.5rem 0' }}><strong>Published Work</strong></p>
+              <p style={{ margin: '0.5rem 0' }}><strong>Published Work:</strong></p>
               <span
                   className="published-work"
                   dangerouslySetInnerHTML={{
@@ -70,14 +101,6 @@ class BiographyTemplate extends React.Component {
                   }}
               />
 
-              <div
-              dangerouslySetInnerHTML={{
-                // __html: {biography.content.content},
-                //TODO: change this too be the same as the blog-post page html thingy
-                __html: biography.content.childMarkdownRemark.html,
-
-              }}
-            />
                 <div style={{clear: 'both', display: 'block', width:'100%'}}/>
 
             </div>

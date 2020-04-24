@@ -35,7 +35,7 @@ class NewsTemplate extends React.Component {
                 <p>
                     <Link className="crumb" to="/">Home</Link>
                     |
-                    <Link className="crumb" to="/news">News</Link>
+                    <Link className="crumb" to="/media-releases">Media Releases</Link>
                     |
                     <ActiveCrumb className="crumb active"
                           dangerouslySetInnerHTML={{

@@ -164,7 +164,7 @@ class RootIndex extends React.Component {
           <Wrapper className="wrapper">
               <Feed>
                   <NewsList>
-                      <h2 className="section-headline">Latest News</h2>
+                      <h2 className="section-headline">Latest Media Releases</h2>
                       {newsitems.map(({ node }) => {
                           return (
                               <NewsItem key={node.slug}>
@@ -173,7 +173,7 @@ class RootIndex extends React.Component {
                           )
                       })}
                   </NewsList>
-                  <ReadMore to={/news/}><p>See More Articles &#9660;</p></ReadMore>
+                  <ReadMore to={/media-releases/}><p>See More Media Releases &#9660;</p></ReadMore>
 
 
                   <MediaList>

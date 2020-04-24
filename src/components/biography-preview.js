@@ -62,22 +62,19 @@ const PublishedWork = styled.span`
 
             return (
                 <Container className={styles.preview}>
-                    <Link to={`/${this.props.biographies.slug}`}>
+                    <Link to={`/biographies/${this.props.biographies.slug}`}>
                         {/*//TODO: link to the originaaagit commanl full size image*/}
                         {/*//TODO: make the alt tag a prop alt="{this.props.biographies.thumbnail.title}"*/}
                         <ProfileImage alt="Photograph of ACC Team Member" fluid={this.props.biographies.thumbnail.fluid}/>
                     </Link>
                     <BioName className={styles.previewTitle}>
-                        <Link to={`/${this.props.biographies.slug}`}>{this.props.biographies.name}</Link>
+                        <Link to={`/biographies/${this.props.biographies.slug}`}>{this.props.biographies.name}</Link>
                     </BioName>
 
-                    <p
-                        dangerouslySetInnerHTML={{
-                            __html: this.props.biographies.content.childMarkdownRemark.excerpt
-                        }}
-                    />
+                    <p>{this.props.biographies.content.childMarkdownRemark.excerpt}</p>
 
-                    <button onClick={this.onOpenModal} style={{boxShadow: `none`, color: `#0069b4`}}>Media approved quote</button>
+
+                    <p onClick={this.onOpenModal} style={{boxShadow: `none`, color: `#0069b4`, fontSize: `80%`}}>Media approved quote</p>
                     {/*//TODO: make this a variable depending of whether published work exists*/}
                     {/*<p>Published works:</p>*/}
                     <PublishedWork
@@ -86,13 +83,23 @@ const PublishedWork = styled.span`
                             __html: this.props.biographies.publishedWork?.childMarkdownRemark.html
                         }}
                     />
+                    {/*//TODO: Make linked media links appear below, I think I need to list them or something square brackets are in he graphql data later*/}
+                    {/*<a href={this.props.biographies.mediaLink?.mediaUrl}><p>{this.props.biographies.mediaLink?.mediaTitle}</p></a>*/}
+
+
                         <Modal open={open} onClose={this.onCloseModal} center>
                             {/*<h2>Media Approved Quote</h2>*/}
-                            <p><i>"{this.props.biographies.mediaApprovedQuote?.internal.content}"</i></p>
+                            {/*<p><i>"{this.props.biographies.mediaApprovedQuote?.childMarkdownRemark.html}"</i></p>*/}
+                            <h2>Approved quote for {this.props.biographies.name}</h2>
+                            <PublishedWork
+                                dangerouslySetInnerHTML={{
+                                    __html: this.props.biographies.mediaApprovedQuote?.childMarkdownRemark.html
+                                }}
+                            />
                         </Modal>
 
                     <Link className={styles.ctaMain} style={{boxShadow: `none`, color: `#fff`}}
-                          to={`/${this.props.biographies.slug}`}>Read More</Link>
+                          to={`/biographies/${this.props.biographies.slug}`}>Read More</Link>
                 </Container>
             )
         }
