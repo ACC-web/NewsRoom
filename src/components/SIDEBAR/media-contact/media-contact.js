@@ -73,6 +73,7 @@ export default ({ contact }) => (
         <TextElements>
             <p><strong>{contact.name}</strong></p>
             <p>{contact.position}</p>
+            <p>{contact.companyName}</p>
             <p>{contact.email}</p>
             <p>{contact.phone}</p>
         </TextElements>

@@ -313,6 +313,7 @@ export const pageQuery = graphql`
                 name
                 phone
                 position
+                companyName
                 image {
                   fluid(maxWidth: 100, quality: 90) {
                       ...GatsbyContentfulFluid
