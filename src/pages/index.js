@@ -315,8 +315,8 @@ export const pageQuery = graphql`
                 position
                 companyName
                 image {
-                  fluid(maxWidth: 100, quality: 90) {
-                      ...GatsbyContentfulFluid
+                  fixed(width: 100, height: 100, quality: 90) {
+                      ...GatsbyContentfulFixed
                   }
                 }
               }

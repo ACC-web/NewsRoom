@@ -68,7 +68,7 @@ const TextElements = styled.div`
 export default ({ contact }) => (
     <Container>
 
-        <Photo fluid={contact.image.fluid} objectFit="cover" alt="Media Contact's photo" objectPosition="50% 50%" />
+        <Photo fixed={contact.image.fixed} objectFit="cover" alt="Media Contact's photo" objectPosition="50% 50%" />
 
         <TextElements>
             <p><strong>{contact.name}</strong></p>
