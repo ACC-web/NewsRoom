@@ -187,16 +187,10 @@ class MultimediaPage extends React.Component {
                                         <Photo fluid={node.asset.fluid} caption={node.caption} alt={node.caption} />
 
                                         <p><i>{node.caption}</i></p>
-                                        <p>{node.categories.category}</p>
+                                            <ul>
+                                        <span>{node.categories.category}</span>
+                                            </ul>
                                         </a>
-                                    </Item>
-                                )
-                            })}
-
-                            {items.map(({ node }) => {
-                                return (
-                                    <Item key={node.categories.id}>
-                                            <p>{node.categories.category}</p>
                                     </Item>
                                 )
                             })}
@@ -216,21 +210,20 @@ export const pageQuery = graphql`
             edges {
               node {
                 id
+                caption
                 asset {
                   file {
                     url
                   }
-                  id
                   fluid(maxWidth: 500, quality: 90) {
                         ...GatsbyContentfulFluid
                         src
                     }
+                  description
                 }
                 categories {
                   category
-                  id
                 }
-                caption
               }
             }
           }
