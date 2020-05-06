@@ -9,6 +9,7 @@ import { inner } from '../../styles/shared.ts';
 import SchoolList from "./school-list.js";
 import BottomBar from "./bottom-bar.js";
 import SiteNavLogo from "../header/SiteNavLogo";
+import LatestMediaReleaseList from "./latestMediaReleaseList.js"
 
 const Wrapper = styled.div`
   p.small{
@@ -204,7 +205,7 @@ const Footer = () => {
                         </SiteFooterNav>
                     </Column>
                     <Column>
-                        {/*<h2>Blog Episodes</h2>*/}
+                       <LatestMediaReleaseList />
                     </Column>
                 </div>
             </SiteFooter>

@@ -5,11 +5,9 @@ import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import styled from 'styled-components'
 
-
 import {
-  SectionHeadline,
-
-} from '../styles/shared.ts';
+  SectionHeadline
+} from '../styles/shared.ts'
 
 const Container = styled.div`
   margin: 1rem;

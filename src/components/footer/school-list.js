@@ -1,5 +1,5 @@
 import React from "react";
-import {List} from '../../styles/shared.ts';
+import {List, H2} from '../../styles/shared.ts';
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
@@ -10,13 +10,7 @@ const Wrapper = styled.div`
     }
 `
 
-const H2 = styled.h2`
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0;
-    margin-top: 0;
-`
+
 
 
 const Item = styled.li`

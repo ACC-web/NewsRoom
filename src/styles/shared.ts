@@ -140,6 +140,14 @@ export const SiteHeaderStyles = css`
 
 /* --------- Article content list pages ---------*/
 
+export const H2 = styled.h2`
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0;
+    margin-top: 0;
+`
+
 export const SectionHeadline = styled.h1`
     padding: 0 0 0.4rem 0;
     margin: 0 0 2rem 0;
@@ -309,7 +317,7 @@ export const List = styled.ul`
 export const ItalicParagraph = styled.p`
   font-style: italic;
   font-size: 0.8rem;
-  margin: 0;
+  margin: 1rem 0;
   
 `
 
