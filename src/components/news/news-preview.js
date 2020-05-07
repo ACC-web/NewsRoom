@@ -7,12 +7,31 @@ import {
     ItalicParagraph
 } from "../../styles/shared.ts";
 
+const WrapperLink = styled.a`
+  display: inherit;
+  flex-direction: inherit;
+  
+  & :hover{
+    cursor: pointer;
+  }
+  
+  & p, a{
+    text-decoration: none;
+  }
+`
+
 const Container = styled.section`
      flex-direction: column;
+     padding: 1rem;
 
   @media(min-width: 768px){
      display: inherit;
      flex-direction: inherit;
+ }
+ 
+ &:hover{
+    background-color: #edeef2;
+    border-radius: 5px;
  }
 `
 
@@ -27,7 +46,7 @@ const TextElements = styled.div`
   }
 `
 const BioName = styled.h3`
-  margin: 0;
+  margin: 0.5rem 0 0 0;
   a{
     text-decoration: none;
   }
@@ -36,7 +55,7 @@ const BioName = styled.h3`
 const ProfileImage = styled(Img)`
     width: 100%;
     height: 250px;
-    margin: 0 0 1rem 0;  
+    margin: 0;  
 `
 
 const Button = styled(Link)`
@@ -46,14 +65,14 @@ const Button = styled(Link)`
 
 
 export default ({ newsitems }) => (
-  <Container className={styles.preview}>
+    <WrapperLink to={`/media-releases/${newsitems.slug}`}>
+
+    <Container className={styles.preview}>
       {/*//TODO: link to the original full size image*/}
-      <Link to={`/media-releases/${newsitems.slug}`}>
           <ProfileImage className="image" alt="" fluid={newsitems.image.fluid} />
-      </Link>
       <TextElements>
         <BioName className={styles.previewTitle}>
-          <Link to={`/media-releases/${newsitems.slug}`}>{newsitems.title}</Link>
+            <span>{newsitems.title}</span>
         </BioName>
           <ItalicParagraph className="grey5-fill">{newsitems.datePublished}</ItalicParagraph>
           <p
@@ -70,7 +89,9 @@ export default ({ newsitems }) => (
           {/*        __html: news.publishedWork*/}
           {/*    }}*/}
           {/*/></ul>*/}
-          <Button className={styles.ctaMain} style={{ boxShadow: `none` }} to={`/media-releases/${newsitems.slug}`}>Read More</Button>
+          {/*<Button className={styles.ctaMain} style={{ boxShadow: `none` }} to={`/media-releases/${newsitems.slug}`}>Read More</Button>*/}
       </TextElements>
   </Container>
+    </WrapperLink>
+
 )

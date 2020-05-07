@@ -215,7 +215,7 @@ export const pageQuery = graphql`
                   file {
                     url
                   }
-                  fluid(maxWidth: 500, quality: 90) {
+                  fluid(maxWidth: 500, quality: 50) {
                         ...GatsbyContentfulFluid
                         src
                     }

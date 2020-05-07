@@ -25,6 +25,6 @@ export default ({ article }) => (
         __html: article.description.childMarkdownRemark.html,
       }}
     />
-      <Link className={styles.ctaMain} to={`/${article.slug}`}>READ MORE</Link>
+      {/*<Link className={styles.ctaMain} to={`/${article.slug}`}>READ MORE</Link>*/}
   </div>
 )

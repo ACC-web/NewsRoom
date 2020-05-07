@@ -68,8 +68,8 @@ const NewsItem = styled.li`
 
     & .image {
       width: 250px;
-      height: calc(100% - 1rem);
-      margin: 0 1rem;
+      height: calc(100%);
+      margin: 0 1rem 0 0;
     }
 
     &:first-of-type {
@@ -214,7 +214,7 @@ class RootIndex extends React.Component {
               <MediaContainer>
                 <h2 style={{ fontSize: "1.1rem" }}>Media Contacts</h2>
                 {mediacontact.map(({ node }) => {
-                  return <MediaContacts contact={node} />;
+                  return <MediaContacts contact={node} />
                 })}
               </MediaContainer>
               <MediaAssets />
