@@ -34,7 +34,7 @@ class Accordion extends Component {
         });
     };
 
-    render() {
+    render () {
         const {
             onClick,
             props: { children },

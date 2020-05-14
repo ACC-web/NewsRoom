@@ -8,7 +8,7 @@ import Footer from "./footer/footer";
 // import "./base.css"
 
 class Template extends React.Component {
-  render() {
+  render () {
     const { children } = this.props
 
     return (

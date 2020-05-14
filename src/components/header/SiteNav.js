@@ -38,7 +38,7 @@ const SiteNavRight = styled.div`
 `;
 
 class SiteNav extends React.Component {
-    render() {
+    render () {
         // const element = document.getElementById('MainNav').classList.add('MyClass');
 
         // const { isHome = false } = this.props;

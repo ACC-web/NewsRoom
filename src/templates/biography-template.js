@@ -81,7 +81,7 @@ class BiographyTemplate extends React.Component {
 
                     }}
                 />
-                <p style={{ margin: '0.5rem 0' }}><strong>Media approved quote:</strong></p>
+                <p style={{ margin: '0.5rem 0' }}><strong>Media approved quotes:</strong></p>
               <i
                   dangerouslySetInnerHTML={{
                       // __html: {biography.content.content},

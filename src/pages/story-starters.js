@@ -25,7 +25,7 @@ const StoryItem = styled.div`
 
 class StoryStarters extends React.Component {
 
-    render() {
+    render () {
         const siteTitle = get(this, 'props.data.site.siteMetadata.title')
         const story = get(this, 'props.data.allContentfulStoryStarter.edges')
 

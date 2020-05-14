@@ -5,7 +5,7 @@ import { List } from '../../styles/shared.ts';
 
 class EGuides extends React.Component {
 
-  render() {
+  render () {
     return (
       <div>
         <h2>eGuides</h2>

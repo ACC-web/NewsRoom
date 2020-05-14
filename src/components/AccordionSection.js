@@ -21,7 +21,7 @@ class AccordionSection extends Component {
         this.props.onClick(this.props.label);
     };
 
-    render() {
+    render () {
         const {
             onClick,
             props: { isOpen, label },

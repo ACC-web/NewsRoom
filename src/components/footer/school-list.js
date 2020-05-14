@@ -24,7 +24,7 @@ const Item = styled.li`
 
 class SchoolList extends React.Component {
 
-  render() {
+  render () {
     return (
       <Wrapper>
         <H2>Schools</H2>

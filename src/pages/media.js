@@ -22,18 +22,15 @@ const ArticleList = styled.ul`
 `
 
 const Publication = styled.p`
-  font-size: 80%;
-  line-height: 80%;
+  //font-size: 80%;
+  line-height: 1.1rem;
   font-weight: 600;
   margin: 1rem 0 0.5rem 0;
-`
-
-const Title = styled.p`
-  font-weight: 600;
-  margin: 0.5rem 0 0.5rem 0;
+  
 `
 
 const Url = styled.a`
+  //font-size: 80%;
   margin: 0.5rem 0;
   color: black;
   text-decoration: none;
@@ -44,8 +41,13 @@ const Url = styled.a`
   }
 `
 
+const Title = styled.p`
+  font-weight: 400;
+  margin: 0.5rem 0 0.5rem 0;
+`
+
 class MediaPage extends React.Component {
-  render() {
+  render () {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const media = get(this, 'props.data.allContentfulMediaLink.edges')
 

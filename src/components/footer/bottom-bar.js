@@ -30,7 +30,7 @@ const Container = styled.div`
 
 class BottomBar extends React.Component {
 
-  render() {
+  render () {
     return (
       <Container>
         <div css={[inner]}>

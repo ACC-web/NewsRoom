@@ -334,3 +334,78 @@ export const FeatureImage = styled(Img)`
         margin: 0 1rem 1rem 1rem;
   }
 `
+
+
+/*====================================== Gallery pages ==================================*/
+/* multimedia gallery and Infographic gallery */
+export const Item = styled.li`
+    width: 100%;
+    margin: 0.5rem 0;
+    position:relative;
+  @media(min-width:576px){
+    width: calc(50% - 1rem);
+    margin: 0.5rem;
+    //max-height: 9rem;
+    position:relative;
+  }
+  @media(min-width:768px){
+    width: calc(33.3333% - 1rem);
+    margin: 0.5rem;
+  }
+
+  & a{
+    text-decoration: none;
+    color: #2a333c;
+
+    &:before{
+        content:"";
+        background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAYAAABWk2cPAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAHaADAAQAAAABAAAAHQAAAAD9szRrAAADUElEQVRIDbWWzUtVQRiHu9EHJoSUJUjSwoKSTKmNFYG5adGitkULq5WtCoz+g7ZRmzDaRBkRlFSrWtii0EW5CBdFZBSp2YeppWVG3p7nej23c+8516PSwHNnzvv+Zt47c2beOaklCUo6na5CdggaYQdUwCisgE/wBG6mUqlO6sUVgm2FThiH3zAMP+APDMBPGAN9E/ACWhcclc4XYRQM0guXoAE2wFIHpi6DzdAC3TAEBn8PtfMKTodX8A364WjSzmjLoQNcBVelOVFfhM/BJbuTqEOEiL51MJUdpylCkjMhcoYGbMtZC1v4N8G1Qk/Ogr8EBuErRAfG4Tt0SeecIZrHWe2uXJjCFppqcBJ9sC6kwOAuddP0hxwxD+iegRumIUYSmNGcAnf/3cBoA8MjcJcm2jToEgfNju+m+gx1mcA0qsB/0psxJPhBO9+gh+njyrQ7vOfNTLMSzCr/qzxkYGMdMICNRhiDq/BfCulxmIG7wAxWb9CdsAoSbSJ0Cy1OrBSqDLoeXN5BWHRhJqmYQV5jL4FKg3pbDLEE09ShwgAX4HzIWOQBbQ3uHurlEbIBbMvEoF5PaxCWUeeXjRiO4QufsXwVz2j2UbkZTQKuXH7ZjmECRgzqfTgF4YyBgdm7s9/Afga9Th1Z8G3DcRucQAP9xiOE3sFpGPQfXgZ3VUuEMGPC9w4m4ZwG6uCc0q4AE4sJYObwRwyEz3P6C0odoAns1B2hDUz4zShf4CzMBt1N2wvdnH0wEOc18O2F79ATuHh4CR+hPDBGNPD7b7013mbb/tkROBEhD0z428CVOv6vsRWDA3YExpgGGoufJ9PgDXImRpox468BLxNPSbhg9BPDL4XY92IP/KvBJTVoJpeGRwo/obkP5vYjYc/MYLU43Aze+B7i2ILfwJlNFSvCgeYW+L4fxOpwNoNL5o1fHStM4KC/AR3HI1e8IHI3u1kMfrq4utBLH9/hPXCGcwecHQKxgfvAzeWSex+unfVH1fg9Fu5SN43vMHZJ45Kz78MMdQX2gO/Y7NUF3hYmb3PpFvDr3xRo7jbnTsJJstIN6oUVgvs52Q7O4AO4bLPFTOahN9P0QO4cFgkXO9OoPgxaj92ZVYI3xggMwlNmZjJPVP4CnxREQ4pBE9MAAAAASUVORK5CYII=)
+        no-repeat
+        center center;
+        position: absolute;
+        display: block;
+        top: calc(50% - 37px);
+        right: calc(50% - 37px);
+        z-index: 999;
+        //color: #fff;
+        border: 0;
+        //background: transparent;
+        box-sizing: border-box;
+        width: 74px;
+        height: 74px;
+
+        //border-color: transparent transparent transparent #0069B4;
+        transition: 150ms all ease;
+        cursor: pointer;
+        }
+        &:hover{
+          &:before {
+            content:"";
+            background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAYAAABWk2cPAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAHaADAAQAAAABAAAAHQAAAAD9szRrAAADUElEQVRIDbWWzUtVQRiHu9EHJoSUJUjSwoKSTKmNFYG5adGitkULq5WtCoz+g7ZRmzDaRBkRlFSrWtii0EW5CBdFZBSp2YeppWVG3p7nej23c+8516PSwHNnzvv+Zt47c2beOaklCUo6na5CdggaYQdUwCisgE/wBG6mUqlO6sUVgm2FThiH3zAMP+APDMBPGAN9E/ACWhcclc4XYRQM0guXoAE2wFIHpi6DzdAC3TAEBn8PtfMKTodX8A364WjSzmjLoQNcBVelOVFfhM/BJbuTqEOEiL51MJUdpylCkjMhcoYGbMtZC1v4N8G1Qk/Ogr8EBuErRAfG4Tt0SeecIZrHWe2uXJjCFppqcBJ9sC6kwOAuddP0hxwxD+iegRumIUYSmNGcAnf/3cBoA8MjcJcm2jToEgfNju+m+gx1mcA0qsB/0psxJPhBO9+gh+njyrQ7vOfNTLMSzCr/qzxkYGMdMICNRhiDq/BfCulxmIG7wAxWb9CdsAoSbSJ0Cy1OrBSqDLoeXN5BWHRhJqmYQV5jL4FKg3pbDLEE09ShwgAX4HzIWOQBbQ3uHurlEbIBbMvEoF5PaxCWUeeXjRiO4QufsXwVz2j2UbkZTQKuXH7ZjmECRgzqfTgF4YyBgdm7s9/Afga9Th1Z8G3DcRucQAP9xiOE3sFpGPQfXgZ3VUuEMGPC9w4m4ZwG6uCc0q4AE4sJYObwRwyEz3P6C0odoAns1B2hDUz4zShf4CzMBt1N2wvdnH0wEOc18O2F79ATuHh4CR+hPDBGNPD7b7013mbb/tkROBEhD0z428CVOv6vsRWDA3YExpgGGoufJ9PgDXImRpox468BLxNPSbhg9BPDL4XY92IP/KvBJTVoJpeGRwo/obkP5vYjYc/MYLU43Aze+B7i2ILfwJlNFSvCgeYW+L4fxOpwNoNL5o1fHStM4KC/AR3HI1e8IHI3u1kMfrq4utBLH9/hPXCGcwecHQKxgfvAzeWSex+unfVH1fg9Fu5SN43vMHZJ45Kz78MMdQX2gO/Y7NUF3hYmb3PpFvDr3xRo7jbnTsJJstIN6oUVgvs52Q7O4AO4bLPFTOahN9P0QO4cFgkXO9OoPgxaj92ZVYI3xggMwlNmZjJPVP4CnxREQ4pBE9MAAAAASUVORK5CYII=)
+            no-repeat
+            center center;
+            position: absolute;
+            display: block;
+            top: calc(50% - 22px);
+            right: calc(50% - 37px);
+            z-index: 999;
+            //color: #fff;
+            border: 0;
+            //background: transparent;
+            box-sizing: border-box;
+            width: 80px;
+            height: 80px;
+            opacity: 0.1;
+
+            //border-color: transparent transparent transparent #0069B4;
+            transition: 150ms all ease;
+            cursor: pointer;
+           }
+      }
+  }
+    p{
+        margin: 0.2rem 0;
+        font-size: 80%;
+  }
+  `
+

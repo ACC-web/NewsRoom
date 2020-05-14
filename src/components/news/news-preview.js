@@ -74,7 +74,7 @@ export default ({ newsitems }) => (
         <BioName className={styles.previewTitle}>
             <span>{newsitems.title}</span>
         </BioName>
-          <ItalicParagraph className="grey5-fill">{newsitems.datePublished}</ItalicParagraph>
+          <ItalicParagraph className="grey5-fill extra-margin">{newsitems.datePublished}</ItalicParagraph>
           <p
               dangerouslySetInnerHTML={{
                   __html: newsitems.bodyContent.childMarkdownRemark.excerpt

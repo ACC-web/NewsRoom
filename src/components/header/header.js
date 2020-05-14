@@ -22,7 +22,7 @@ const LogoWrapper = styled.div`
 `;
 
 class HeaderArea extends React.Component {
-    render() {
+    render () {
         return (
             <>
                 <header css={[outer, SiteHeader]}>

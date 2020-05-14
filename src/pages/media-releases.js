@@ -11,7 +11,7 @@ import {
 } from '../styles/shared.ts';
 
 class NewsPage extends React.Component {
-  render() {
+  render () {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const newsitems = get(this, 'props.data.allContentfulNews.edges')
 

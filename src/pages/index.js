@@ -41,7 +41,7 @@ const SectionHeading = styled.h2`
 const NewsList = styled.ul`
   display: flex;
   flex-direction: column;
-  padding: 0 1rem;
+  padding: 0;
   margin-top: 0;
 
   @media (min-width: 768px) {
@@ -82,23 +82,26 @@ const NewsItem = styled.li`
       margin: 0 0 2rem 0;
     }
   }
-`;
+`
 
 const Sidebar = styled.section`
   width: 100%;
   order: 1;
+  & h1{
+    font-size: 1.1rem
+  }
   @media (min-width: 768px) {
     order: 2;
     width: calc(25% - 1rem);
     border-left: 1px solid grey;
     padding-left: 1rem;
   }
-`;
+`
 
 const MediaContainer = styled.div`
-  width: calc(100% - 2rem);
-  margin: 0 1rem 3rem 1rem;
-`;
+  width: calc(100%);
+  margin: 0 1rem 3rem 0;
+`
 
 const ReadMore = styled(Link)`
   color: #2a333c;
@@ -115,7 +118,7 @@ const ReadMore = styled(Link)`
       color: #0069b4;
     }
   }
-`;
+`
 
 const MediaList = styled.ul`
   display: flex;
@@ -133,16 +136,17 @@ const MediaList = styled.ul`
     color: black;
     text-decoration: none;
   }
+  & p.publication {
+    //font-size: 80%;
+    margin: 0;
+    line-height: 1.5rem;
+    margin-bottom: 1px;
+  }
   & p.title {
     margin: 0 0 0.5rem 0;
-    font-size: 90%;
+    //font-size: 80%;
   }
-  & p.publication {
-    font-size: 80%;
-    margin: 0;
-    line-height: 1.1rem;
-  }
-`;
+`
 
 class RootIndex extends React.Component {
   render () {
@@ -155,9 +159,10 @@ class RootIndex extends React.Component {
       <Layout location={this.props.location}>
         <div style={{ background: "#fff" }}>
           <Helmet title={siteTitle} />
-          <Wrapper className="wrapper">
-            <Feed>
-              <NewsList>
+
+            <Wrapper className="wrapper">
+              <Feed>
+                <NewsList>
                 <h2 className="section-headline">Latest Media Releases</h2>
                 {newsitems.map(({ node }) => {
                   return (
@@ -184,9 +189,11 @@ class RootIndex extends React.Component {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <p className="publication">{node.publication}</p>
+                        <p className="publication">
+                            <strong>{node.publication}</strong>
+                        </p>
                         <p className="title">
-                          <strong>{node.mediaTitle}</strong>
+                          {node.mediaTitle}
                         </p>
                       </a>
                     </li>
@@ -198,18 +205,20 @@ class RootIndex extends React.Component {
               </ReadMore>
             </Feed>
             <Sidebar>
-              <p style={{ fontSize: "80%" }}>
+                <h1>ACC NewsRoom</h1>
+
+                <p style={{ fontSize: "90%" }}>
                 ACC’s newsroom exists to help the media access facts, stories,
                 comments, information, photographs and videos about our schools.
                 Media representatives and educational bloggers can also request
                 school visits and comments from our extensive list of subject
                 matter experts.
               </p>
-              <p style={{ fontSize: "80%" }}>
+              <p style={{ fontSize: "90%" }}>
                 This newsroom includes a logo, photo and video gallery (with a
                 search filter), facts sheets on a range of education topics,
                 infographics for use by the media, a live stream of media
-                releases, biographies of ACC topical experts and story starters.
+                releases, biographies of ACC topical experts and story starters.<br />
               </p>
               <MediaContainer>
                 <h2 style={{ fontSize: "1.1rem" }}>Media Contacts</h2>

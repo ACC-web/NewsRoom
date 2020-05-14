@@ -57,7 +57,7 @@ const PublishedWork = styled.span`
             this.setState({ open: false });
         };
 
-        render() {
+        render () {
             const { open } = this.state;
 
             return (
@@ -74,7 +74,7 @@ const PublishedWork = styled.span`
                     <p>{this.props.biographies.content.childMarkdownRemark.excerpt}</p>
 
 
-                    <p onClick={this.onOpenModal} style={{boxShadow: `none`, color: `#0069b4`, fontSize: `80%`}}>Media approved quote</p>
+                    <p onClick={this.onOpenModal} style={{boxShadow: `none`, color: `#0069b4`, fontSize: `80%`}}>Media approved quotes</p>
                     {/*//TODO: make this a variable depending of whether published work exists*/}
                     {/*<p>Published works:</p>*/}
                     <PublishedWork
@@ -88,7 +88,7 @@ const PublishedWork = styled.span`
 
 
                         <Modal open={open} onClose={this.onCloseModal} center>
-                            {/*<h2>Media Approved Quote</h2>*/}
+                            {/*<h2>Media Approved Quotes</h2>*/}
                             {/*<p><i>"{this.props.biographies.mediaApprovedQuote?.childMarkdownRemark.html}"</i></p>*/}
                             <h2>Approved quote for {this.props.biographies.name}</h2>
                             <PublishedWork

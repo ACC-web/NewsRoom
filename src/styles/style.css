@@ -512,7 +512,7 @@ h1{ font-weight: 500;}
 h2{
     font-size: 1.8rem;
     line-height: 1.15;
-    margin: 0.5em 0 1em;
+    margin: 0.5rem 0 1rem;
     font-weight: 400;
 }
 h2.section-headline{
@@ -549,9 +549,13 @@ a{
 
 ul li{
     font-weight: 400;
-    font-size: 1.2rem;
-    line-height: 1.8rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
+
+.extra-margin{
+
+   }
 
 
 /* -------------- STRUCTURE  --------------- */
@@ -1013,6 +1017,7 @@ gatsby-image-wrapper {
 
 
 
+
 /*======================================FOOTER ==================================*/
 
 
@@ -1088,10 +1093,10 @@ footer {
 .crumb{
     color: #2a333c;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 70%;
     margin: 0.2rem;
-    font-style: italic
+    /*font-style: italic*/
 }
 
 .crumb.active{color: #2a333c99;}
