@@ -8,11 +8,19 @@ import Modal from 'react-responsive-modal';
 // MODAL https://www.npmjs.com/package/react-responsive-modal
 
 const Container = styled.div`
-  a{
-      text-decoration: none;
-      color: hsla(0,0%,0%,0.8);
-      font-size: 0.8rem
-  }
+  text-decoration: none;
+  color: hsla(0,0%,0%,0.8);
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 3px;
+  
+  &:hover{
+    background-color: #edeef2;
+    border-radius: 5px;
+ }
+
 `
 const BioName = styled.h3`
   a{
@@ -26,19 +34,22 @@ const ProfileImage = styled(Img)`
 `
 
 const PublishedWork = styled.span`
-  ul{
-  padding: 0;
-    li{
+
+    p{
       font-size: 0.8rem;
       margin: 0;
-      line-height: 1rem;
+      line-height: 1.2rem;
       width: 100%;
      
       a{
        color: #0069b4;
+       text-decoration: none;
+     width: 100%;
+      display: block;
+
       }
     }
-  }
+
 `
 
 
@@ -61,7 +72,7 @@ const PublishedWork = styled.span`
             const { open } = this.state;
 
             return (
-                <Container className={styles.preview}>
+                <Container to={`/biographies/${this.props.biographies.slug}`} className={styles.preview}>
                     <Link to={`/biographies/${this.props.biographies.slug}`}>
                         {/*//TODO: link to the originaaagit commanl full size image*/}
                         {/*//TODO: make the alt tag a prop alt="{this.props.biographies.thumbnail.title}"*/}
@@ -72,7 +83,6 @@ const PublishedWork = styled.span`
                     </BioName>
 
                     <p>{this.props.biographies.content.childMarkdownRemark.excerpt}</p>
-
 
                     <p onClick={this.onOpenModal} style={{boxShadow: `none`, color: `#0069b4`, fontSize: `80%`}}>Media approved quotes</p>
                     {/*//TODO: make this a variable depending of whether published work exists*/}
@@ -90,16 +100,16 @@ const PublishedWork = styled.span`
                         <Modal open={open} onClose={this.onCloseModal} center>
                             {/*<h2>Media Approved Quotes</h2>*/}
                             {/*<p><i>"{this.props.biographies.mediaApprovedQuote?.childMarkdownRemark.html}"</i></p>*/}
-                            <h2>Approved quote for {this.props.biographies.name}</h2>
+                            <h2>Approved quotes for {this.props.biographies.name}</h2>
                             <PublishedWork
                                 dangerouslySetInnerHTML={{
                                     __html: this.props.biographies.mediaApprovedQuote?.childMarkdownRemark.html
                                 }}
                             />
                         </Modal>
-
-                    <Link className={styles.ctaMain} style={{boxShadow: `none`, color: `#fff`}}
-                          to={`/biographies/${this.props.biographies.slug}`}>Read More</Link>
+<br />
+                    <Link  style={{boxShadow: `none`, color: `#0069B4`, textDecoration: 'none', fontWeight: 'bold'}}
+                          to={`/biographies/${this.props.biographies.slug}`}>Read More about {this.props.biographies.name}</Link>
                 </Container>
             )
         }

@@ -7,15 +7,16 @@ import {
     ItalicParagraph
 } from "../../styles/shared.ts";
 
-const WrapperLink = styled.a`
+const WrapperLink = styled(Link)`
   display: inherit;
   flex-direction: inherit;
+  text-decoration: none;
   
   & :hover{
     cursor: pointer;
   }
   
-  & p, a{
+  & p{
     text-decoration: none;
   }
 `
@@ -62,36 +63,33 @@ const Button = styled(Link)`
   max-width: 15rem;
 `
 
-
-
 export default ({ newsitems }) => (
     <WrapperLink to={`/media-releases/${newsitems.slug}`}>
+        <Container className={styles.preview}>
+          {/*//TODO: link to the original full size image*/}
+              <ProfileImage className="image" alt="" fluid={newsitems.image.fluid} />
+          <TextElements>
+            <BioName className={styles.previewTitle}>
+                <span>{newsitems.title}</span>
+            </BioName>
+              <ItalicParagraph className="grey5-fill extra-margin">{newsitems.datePublished}</ItalicParagraph>
+              <p
+                  dangerouslySetInnerHTML={{
+                      __html: newsitems.bodyContent.childMarkdownRemark.excerpt
+                  }}
+              />
 
-    <Container className={styles.preview}>
-      {/*//TODO: link to the original full size image*/}
-          <ProfileImage className="image" alt="" fluid={newsitems.image.fluid} />
-      <TextElements>
-        <BioName className={styles.previewTitle}>
-            <span>{newsitems.title}</span>
-        </BioName>
-          <ItalicParagraph className="grey5-fill extra-margin">{newsitems.datePublished}</ItalicParagraph>
-          <p
-              dangerouslySetInnerHTML={{
-                  __html: newsitems.bodyContent.childMarkdownRemark.excerpt
-              }}
-          />
+              {/*<p>{news.mediaApprovedQuote.childMarkdownRemark.html}</p>*/}
 
-          {/*<p>{news.mediaApprovedQuote.childMarkdownRemark.html}</p>*/}
-
-          {/*<p> ${news.childContentfulNewsMediaApprovedQuoteTextNode.mediaApprovedQuote}</p>*/}
-          {/*<ul><li*/}
-          {/*    dangerouslySetInnerHTML={{*/}
-          {/*        __html: news.publishedWork*/}
-          {/*    }}*/}
-          {/*/></ul>*/}
-          {/*<Button className={styles.ctaMain} style={{ boxShadow: `none` }} to={`/media-releases/${newsitems.slug}`}>Read More</Button>*/}
-      </TextElements>
-  </Container>
+              {/*<p> ${news.childContentfulNewsMediaApprovedQuoteTextNode.mediaApprovedQuote}</p>*/}
+              {/*<ul><li*/}
+              {/*    dangerouslySetInnerHTML={{*/}
+              {/*        __html: news.publishedWork*/}
+              {/*    }}*/}
+              {/*/></ul>*/}
+              {/*<Button className={styles.ctaMain} style={{ boxShadow: `none` }} to={`/media-releases/${newsitems.slug}`}>Read More</Button>*/}
+          </TextElements>
+        </Container>
     </WrapperLink>
 
 )

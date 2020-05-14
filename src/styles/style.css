@@ -1113,6 +1113,7 @@ footer {
 .published-work a{
    text-decoration: none;
     color: #020202;
+    display: block;
 
     /*These are technically the same, but use both */
     overflow-wrap: break-word;

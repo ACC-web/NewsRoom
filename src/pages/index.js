@@ -126,6 +126,10 @@ const MediaList = styled.ul`
   padding: 0 1rem;
   margin-top: 3rem;
   list-style: none;
+  
+  & li{
+    margin-bottom: 0.5rem;
+  }
 
   @media (min-width: 768px) {
     flex-direction: column;
