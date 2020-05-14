@@ -13,13 +13,6 @@ exports.createPages = ({ actions, graphql }) => {
   // All in one go
   return graphql(`
 		{
-          blogs: allContentfulBlogPost {
-            edges {
-              node {
-                slug
-              }
-            }
-          }
           bios: allContentfulBiographies {
             edges {
               node {
@@ -41,16 +34,6 @@ exports.createPages = ({ actions, graphql }) => {
       console.log(result.errors);
     }
 
-    // Create blog pages
-    result.data.blogs.edges.forEach(({ node }) => {
-      createPage({
-        path: node.slug,
-        component: blogTemplate,
-          context: {
-              slug: node.slug
-          }
-      });
-    });
     // Create biography pages
     result.data.bios.edges.forEach(({ node }) => {
       createPage({
