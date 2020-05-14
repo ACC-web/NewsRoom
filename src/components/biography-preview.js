@@ -107,7 +107,6 @@ const PublishedWork = styled.span`
                                 }}
                             />
                         </Modal>
-<br />
                     <Link  style={{boxShadow: `none`, color: `#0069B4`, textDecoration: 'none', fontWeight: 'bold'}}
                           to={`/biographies/${this.props.biographies.slug}`}>Read More about {this.props.biographies.name}</Link>
                 </Container>
