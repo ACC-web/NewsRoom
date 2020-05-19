@@ -55,5 +55,19 @@ module.exports = {
               trackingId: 'UA-9213011-1'
           },
       },
+      {
+          resolve: `gatsby-source-rss-feed`,
+          options: {
+              url: `https://www.acc.edu.au/blog/rss.xml`,
+              name: `ACCBlog`,
+              // Optional
+              // Read parser document: https://github.com/bobby-brennan/rss-parser#readme
+              parserOption: {
+                  customFields: {
+                      item: ['itunes:duration']
+                  }
+              }
+          }
+      }
   ],
 }

@@ -10,6 +10,7 @@ import SchoolList from "./school-list.js";
 import BottomBar from "./bottom-bar.js";
 import SiteNavLogo from "../header/SiteNavLogo";
 import LatestMediaReleaseList from "./latestMediaReleaseList.js"
+import LatestBlogPosts from "./latestBlogPost"
 
 const Wrapper = styled.div`
   p.small{
@@ -205,7 +206,8 @@ const Footer = () => {
                         </SiteFooterNav>
                     </Column>
                     <Column>
-                       <LatestMediaReleaseList />
+                       {/*<LatestMediaReleaseList />*/}
+                       <LatestBlogPosts />
                     </Column>
                 </div>
             </SiteFooter>
