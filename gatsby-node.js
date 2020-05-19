@@ -5,7 +5,6 @@ const path = require('path')
 // Create pages for docs
 exports.createPages = ({actions, graphql}) => {
     const {createPage} = actions;
-    const blogTemplate = path.resolve('src/templates/blog-post-template.js');
     const bioTemplate = path.resolve('src/templates/biography-template.js');
     const newsTemplate = path.resolve('src/templates/news-template.js');
 
