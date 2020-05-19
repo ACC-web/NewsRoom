@@ -152,6 +152,7 @@ export const SectionHeadline = styled.h1`
     padding: 0 0 0.4rem 0;
     margin: 0 0 2rem 0;
     border-bottom: 1px solid #ddd;
+    
 `
 
 export const ArticleList = styled.ul`
@@ -171,8 +172,8 @@ export const ArticleList = styled.ul`
     width: calc(100% - 2rem);
     
     @media(min-width: 768px){
-      width: calc(33.33333% - 2rem);
-      margin: 0 1rem;
+      width: 33.33333%;
+      margin: 0;
     }
   }
 `

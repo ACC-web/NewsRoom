@@ -58,7 +58,7 @@ class MediaPage extends React.Component {
           <Container>
               <div className="breadcrumbs">
                   <p><i>
-                  <Link className="crumb" to="/">Home</Link>
+                  <Link className="crumb" to="/">Newsroom</Link>
                       |
                   <Link className="crumb" to="/media">Media</Link>
                   </i></p>

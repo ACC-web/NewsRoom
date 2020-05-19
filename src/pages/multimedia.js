@@ -10,7 +10,7 @@ import Img from 'gatsby-image'
 
 import {
     SectionHeadline,
-    Item,
+    Item
 
 } from '../styles/shared.ts'
 
@@ -53,7 +53,7 @@ class MultimediaPage extends React.Component {
                     <Container>
                         <div className="breadcrumbs">
                             <p><i>
-                                <Link className="crumb" to="/">Home</Link>
+                                <Link className="crumb" to="/">Newsroom</Link>
                                 |
                                 <Link className="crumb" to="/multimedia">Multimedia Gallery</Link>
                             </i></p>

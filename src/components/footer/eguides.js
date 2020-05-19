@@ -10,7 +10,7 @@ class EGuides extends React.Component {
       <div>
         <h2>eGuides</h2>
         <List>
-          <li><a target="_blank" rel="noopener noreferrer" href="/">'Big School Ready' Checklist'</a></li>
+          <li><a target="_blank" rel="noopener noreferrer" href="/">Big School Ready Checklist</a></li>
           <li><a target="_blank" rel="noopener noreferrer" href="/">How to Read to Your Child</a></li>
           <li><a target="_blank" rel="noopener noreferrer" href="/">Meal Prepping School Lunches</a></li>
           <li><a target="_blank" rel="noopener noreferrer" href="/">The Ultimate Nack-to-School Checklist</a></li>

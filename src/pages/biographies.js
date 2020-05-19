@@ -8,11 +8,10 @@ import BiographyPreview from '../components/biography-preview'
 import {
   SectionHeadline,
   ArticleList
-} from '../styles/shared.ts';
+} from '../styles/shared.ts'
 
 class BiographiesPage extends React.Component {
-
-    render() {
+    render () {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const biographies = get(this, 'props.data.allContentfulBiographies.edges')
 
@@ -23,7 +22,7 @@ class BiographiesPage extends React.Component {
           <div className="wrapper">
               <div className="breadcrumbs">
                   <p><i>
-                      <Link className="crumb" to="/">Home</Link>
+                      <Link className="crumb" to="/">Newsroom</Link>
                       |
                       <Link className="crumb" to="/biographies">Biographies</Link>
                   </i></p>
@@ -31,13 +30,13 @@ class BiographiesPage extends React.Component {
             <SectionHeadline>Biographies</SectionHeadline>
               <p>The people listed on this page are available to provide comments within their areas of expertise. You can also download their photograph and access approved quotes and previously published works.</p>
                 <ArticleList>
-              {biographies.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <BiographyPreview biographies={node} />
-                  </li>
-                )
-              })}
+                  {biographies.map(({ node }) => {
+                    return (
+                      <li key={node.slug}>
+                        <BiographyPreview biographies={node} />
+                      </li>
+                    )
+                  })}
             </ArticleList>
           </div>
         </div>

@@ -36,7 +36,7 @@ class StoryStarters extends React.Component {
                     <div className="wrapper">
                         <div className="breadcrumbs">
                             <p><i>
-                                <Link className="crumb" to="/">Home</Link>
+                                <Link className="crumb" to="/">Newsroom</Link>
                                 |
                                 <Link className="crumb" to="/story-starter">Story Starters</Link>
                             </i></p>

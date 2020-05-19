@@ -209,7 +209,7 @@ class RootIndex extends React.Component {
               </ReadMore>
             </Feed>
             <Sidebar>
-                <h1>ACC NewsRoom</h1>
+                <h1>ACC Newsroom</h1>
 
                 <p style={{ fontSize: "90%" }}>
                 ACC’s newsroom exists to help the media access facts, stories,

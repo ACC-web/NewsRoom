@@ -33,7 +33,7 @@ class NewsTemplate extends React.Component {
           <Helmet title={`${news.title} | ${siteTitle}`} />
             <div className="breadcrumbs">
                 <p>
-                    <Link className="crumb" to="/">Home</Link>
+                    <Link className="crumb" to="/">Newsroom</Link>
                     |
                     <Link className="crumb" to="/media-releases">Media Releases</Link>
                     |

@@ -84,7 +84,7 @@ const PublishedWork = styled.span`
 
                     <p>{this.props.biographies.content.childMarkdownRemark.excerpt}</p>
 
-                    <p onClick={this.onOpenModal} style={{boxShadow: `none`, color: `#0069b4`, fontSize: `80%`}}>Media approved quotes</p>
+                    {/*<p onClick={this.onOpenModal} style={{boxShadow: `none`, color: `#0069b4`, fontSize: `80%`}}>Media approved quotes</p>*/}
                     {/*//TODO: make this a variable depending of whether published work exists*/}
                     {/*<p>Published works:</p>*/}
                     <PublishedWork

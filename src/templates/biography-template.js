@@ -37,6 +37,12 @@ class BiographyTemplate extends React.Component {
   render () {
     const biography = get(this.props, 'data.contentfulBiographies')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    //TODO: Ask Danny about this
+    // const check = () => {
+    //       if (biography.mediaApprovedQuote?.childMarkdownRemark.html) = true{
+    //           return <div><p>Media approved quote</p></div>
+    //       }
+    //   }
 
     return (
       <Layout location={this.props.location}>
@@ -44,7 +50,7 @@ class BiographyTemplate extends React.Component {
           <Helmet title={`${biography.title} | ${siteTitle}`} />
             <div className="breadcrumbs">
                 <p><i>
-                    <Link className="crumb" to="/">Home</Link>
+                    <Link className="crumb" to="/">Newsroom</Link>
                     |
                     <Link className="crumb" to="/biographies">Biographies</Link>
                     |
