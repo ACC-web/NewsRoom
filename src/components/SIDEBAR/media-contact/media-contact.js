@@ -68,13 +68,16 @@ const TextElements = styled.div`
 export default ({ contact }) => (
     <Container>
 
+        {/*const emailLink = "mailto: + ${contact.email}"*/}
+
         <Photo fixed={contact.image.fixed} objectFit="cover" alt="Media Contact's photo" objectPosition="50% 50%" />
 
         <TextElements>
             <p><strong>{contact.name}</strong></p>
             <p>{contact.position}</p>
             <p>{contact.companyName}</p>
-            <p>{contact.email}</p>
+            <p><a href={'mailto:' + contact.email} target="_blank">{contact.email}</a></p>
+            <p></p>
             <p>{contact.phone}</p>
         </TextElements>
     </Container>

@@ -212,17 +212,10 @@ class RootIndex extends React.Component {
                 <h1>ACC Newsroom</h1>
 
                 <p style={{ fontSize: "90%" }}>
-                ACC’s newsroom exists to help the media access facts, stories,
-                comments, information, photographs and videos about our schools.
-                Media representatives and educational bloggers can also request
-                school visits and comments from our extensive list of subject
-                matter experts.
+                    ACC’s newsroom exists to help the media access facts, stories, comments, information, photographs and videos about our schools. Media representatives and educational bloggers can also request school visits and comments from our extensive list of subject matter experts.
               </p>
               <p style={{ fontSize: "90%" }}>
-                This newsroom includes a logo, photo and video gallery (with a
-                search filter), facts sheets on a range of education topics,
-                infographics for use by the media, a live stream of media
-                releases, biographies of ACC topical experts and story starters.<br />
+                  This newsroom includes a logo, photo and video gallery, infographics for use by the media, a live stream of media releases, biographies of ACC subject matter experts and story starters.<br />
               </p>
               <MediaContainer>
                 <h2 style={{ fontSize: "1.1rem" }}>Media Contacts</h2>
