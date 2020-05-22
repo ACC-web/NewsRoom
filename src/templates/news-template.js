@@ -86,7 +86,7 @@ export const pageQuery = graphql`
               }
           }
           image {
-              fluid(maxWidth: 350, quality: 90) {
+              fluid(maxWidth: 800, quality: 75) {
                   src
               }
           }
