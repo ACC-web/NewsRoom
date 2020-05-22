@@ -209,16 +209,16 @@ class RootIndex extends React.Component {
               </ReadMore>
             </Feed>
             <Sidebar>
-                <h1>ACC Newsroom</h1>
+                <h2 style={{ fontSize: '1.1rem' }}>ACC Newsroom</h2>
 
-                <p style={{ fontSize: "90%" }}>
+                <p style={{ fontSize: '90%', marginTop: '0' }}>
                     ACC’s newsroom exists to help the media access facts, stories, comments, information, photographs and videos about our schools. Media representatives and educational bloggers can also request school visits and comments from our extensive list of subject matter experts.
               </p>
-              <p style={{ fontSize: "90%" }}>
+              <p style={{ fontSize: '90%' }}>
                   This newsroom includes a logo, photo and video gallery, infographics for use by the media, a live stream of media releases, biographies of ACC subject matter experts and story starters.<br />
               </p>
               <MediaContainer>
-                <h2 style={{ fontSize: "1.1rem" }}>Media Contacts</h2>
+                <h2 style={{ fontSize: '1.1rem', marginBottom: '1.47rem'}}>Media Contacts</h2>
                 {mediacontact.map(({ node }) => {
                   return <MediaContacts contact={node} />
                 })}
