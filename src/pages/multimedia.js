@@ -22,7 +22,7 @@ const Container = styled.div`
 //   margin: 1rem 0 0.5rem 0;
 // `
 
-const ImageGallery = styled.ul`git 
+const ImageGallery = styled.ul`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -93,8 +93,8 @@ export const pageQuery = graphql`
                   file {
                     url
                   }
-                  fluid(maxWidth: 500, quality: 50) {
-                        ...GatsbyContentfulFluid
+                  fluid(maxWidth: 370, quality: 50) {
+                        ...GatsbyContentfulFluid_withWebp
                         src
                     }
                   description
