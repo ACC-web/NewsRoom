@@ -498,7 +498,7 @@ body{
     line-height: 1.6em;
     font-weight: 400;
     font-style: normal;
-    letter-spacing: 0px;
+    letter-spacing: 0;
     text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
 }
@@ -506,6 +506,7 @@ body{
 /* ------ TYPOGRAPHY ----- */
 h1, h2, h3, h4, h5, p, em, a, i{
     text-rendering: optimizelegibility;
+    font-family: montserrat, arial, sans-serif;
 }
 h1{ font-weight: 500;}
 h2{
@@ -528,6 +529,7 @@ h3 a{
     color: hsla(0,0%,0%,0.8);
 }
 
+/*paragraph*/
 p{
     font-weight: 400;
     font-size: 1rem;
