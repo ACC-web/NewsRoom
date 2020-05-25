@@ -1,10 +1,11 @@
 import React from 'react'
-
 import Container from './container'
 import HeaderArea from "./header/header";
 import "../styles/shared.ts"
 import "../styles/style.css"
 import Footer from "./footer/footer";
+import styled from "styled-components";
+
 // import "./base.css"
 
 class Template extends React.Component {
@@ -13,7 +14,7 @@ class Template extends React.Component {
 
     return (
         <div>
-        <HeaderArea />
+            <HeaderArea />
         <Container>
             {/*<Navigation />*/}
             {/*//TODO: breadcrumbs*/}

@@ -3,10 +3,10 @@ const path = require('path')
 
 //https://swas.io/blog/using-multiple-queries-on-gatsbyjs-createpages-node-api/
 // Create pages for docs
-exports.createPages = ({actions, graphql}) => {
-    const {createPage} = actions;
-    const bioTemplate = path.resolve('src/templates/biography-template.js');
-    const newsTemplate = path.resolve('src/templates/news-template.js');
+exports.createPages = ({ actions, graphql }) => {
+    const { createPage } = actions;
+    const bioTemplate = path.resolve('src/templates/biography-template.js')
+    const newsTemplate = path.resolve('src/templates/news-template.js')
 
     // Individual doc and blog pages
     // All in one go

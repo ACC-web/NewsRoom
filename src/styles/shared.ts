@@ -1,8 +1,11 @@
 import { css } from 'styled-components';
 import styled from 'styled-components';
-import { colors } from './colors.ts';
+import { colors } from './colors';
 import Img from 'gatsby-image'
 
+export const GlobalStyles = css`
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:200,200i,300i,400,400i,500,600, 600i&display=swap');
+`
 
 export const outer = css`
   position: relative;

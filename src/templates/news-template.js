@@ -1,14 +1,14 @@
 import React from 'react'
-import {graphql, Link} from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../components/layout'
-import styled from "styled-components";
+import styled from "styled-components"
 
 import {
     ItalicParagraph,
     FeatureImage
-} from '../styles/shared.ts';
+} from '../styles/shared.ts'
 
 import heroStyles from '../components/hero.module.css'
 
@@ -21,9 +21,8 @@ const ActiveCrumb = styled.span`
 //TODO: restrict the length of the active crumb
 `
 
-
 class NewsTemplate extends React.Component {
-  render() {
+  render () {
     const news = get(this.props, 'data.contentfulNews')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
@@ -31,6 +30,7 @@ class NewsTemplate extends React.Component {
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <Helmet title={`${news.title} | ${siteTitle}`} />
+
             <div className="breadcrumbs">
                 <p>
                     <Link className="crumb" to="/">Newsroom</Link>

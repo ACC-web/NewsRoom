@@ -5,10 +5,9 @@ import get from 'lodash/get'
 import Layout from '../components/layout'
 import Img from 'gatsby-image'
 
-
 import heroStyles from '../components/hero.module.css'
 import {
-    SectionHeadline
+    SectionHeadline,
 } from '../styles/shared.ts';
 
 import "../styles/style.css"
@@ -31,7 +30,6 @@ const ImageWrapper = styled.div`
         margin: 0 1rem 1rem 1rem;
   }
 `
-
 
 class BiographyTemplate extends React.Component {
   render () {
