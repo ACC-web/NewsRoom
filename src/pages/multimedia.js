@@ -94,7 +94,7 @@ export const pageQuery = graphql`
                     url
                   }
                   fluid(maxWidth: 370, quality: 50) {
-                        ...GatsbyContentfulFluid_withWebp
+                        ...GatsbyContentfulFluid_tracedSVG
                         src
                     }
                   description

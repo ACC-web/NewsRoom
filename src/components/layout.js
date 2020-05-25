@@ -1,10 +1,11 @@
 import React from 'react'
 
 import Container from './container'
-import HeaderArea from "./header/header";
-import "../styles/shared.ts"
-import "../styles/style.css"
-import Footer from "./footer/footer";
+import HeaderArea from './header/header'
+import '../styles/shared'
+import '../styles/style.css'
+import Footer from './footer/footer'
+
 // import "./base.css"
 
 class Template extends React.Component {
@@ -15,6 +16,7 @@ class Template extends React.Component {
         <div>
             <HeaderArea />
         <Container>
+            <googleFonts />
             {/*<Navigation />*/}
             {/*//TODO: breadcrumbs*/}
             {children}
