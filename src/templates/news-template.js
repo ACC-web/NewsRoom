@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../components/layout'
-import styled from "styled-components"
+import styled from 'styled-components'
 
 import {
     ItalicParagraph,

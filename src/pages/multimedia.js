@@ -1,5 +1,5 @@
 //https://github.com/madebymutual/gatsby-craft-filtering-demo/blob/master/src/templates/news.js
-
+//TODO: add infinite scroll https://github.com/jaredpalmer/react-simple-infinite-scroll
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import get from 'lodash/get'
@@ -11,7 +11,6 @@ import Img from 'gatsby-image'
 import {
     SectionHeadline,
     Item
-
 } from '../styles/shared.ts'
 
 const Container = styled.div`
@@ -23,7 +22,7 @@ const Container = styled.div`
 //   margin: 1rem 0 0.5rem 0;
 // `
 
-const ImageGallery = styled.ul`
+const ImageGallery = styled.ul`git 
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -37,7 +36,6 @@ const Photo = styled(Img)`
   width: 100%;
   position: relative;
 `
-
 
 class MultimediaPage extends React.Component {
     render () {
