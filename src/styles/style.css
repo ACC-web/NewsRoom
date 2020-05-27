@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200,200i,300i,400,400i,500,600, 600i&display=swap');
 
+
 /* -- colours fills -- */
 .acc-blue-fill{fill:#0069AF; color:#0069AF;}
 .acc-blue-hover:hover {background-color:#0069AF;}
@@ -45,6 +46,7 @@ html {
     overflow-x: hidden;
     overflow-y: scroll;
     font-size: 100%;
+    font-family: montserrat, arial, sans-serif;
 
 
 }
