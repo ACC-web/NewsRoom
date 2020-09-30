@@ -6,19 +6,35 @@ try {
   contentfulConfig = require('./.contentful')
 } catch (_) {}
 
-// Overwrite the Contentful config with environment variables if they exist
-contentfulConfig = {
-  spaceId: process.env.CONTENTFUL_SPACE_ID || contentfulConfig.spaceId,
-  accessToken:
-    process.env.CONTENTFUL_DELIVERY_TOKEN || contentfulConfig.accessToken,
-}
-
 const { spaceId, accessToken } = contentfulConfig
 
 if (!spaceId || !accessToken) {
-  throw new Error(
-    'Contentful spaceId and the delivery token need to be provided.'
-  )
+    throw new Error(
+        'Contentful spaceId and the delivery token need to be provided.'
+    )
+}
+
+let twitterConfig
+const twitterpath = require('path')
+
+try {
+    // Load the Contentful config from the .contentful.json
+        twitterConfig = require('./.twitter')
+} catch (_) {}
+
+// Overwrite the Contentful config with environment variables if they exist
+contentfulConfig = {
+    spaceId: process.env.CONTENTFUL_SPACE_ID || contentfulConfig.spaceId,
+    accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN || contentfulConfig.accessToken,
+}
+
+const { consumerKey, consumerSecret, bearerToken } = twitterConfig
+
+// Overwrite the Contentful config with environment variables if they exist
+twitterConfig = {
+    consumer_key: process.env.CONTENTFUL_SPACE_ID || contentfulConfig.spaceId,
+    consumer_secret: "r1gd0TsWlW57afx8J7vv6Zm8Z1hUQgNMxVjzDRsTiMolQq3Ell",
+    bearer_token: "AAAAAAAAAAAAAAAAAAAAAE5AHwEAAAAAaZD4%2BM%2B5wo%2BSGTUMsIRdBbtT%2B7U%3DLMjtfZPVfgF6fpMY7vHWWwoifz0dGlC48SdwVfHlbNoCfjXv4x",
 }
 
 module.exports = {
@@ -73,9 +89,7 @@ module.exports = {
           resolve: `gatsby-source-twitter`,
           options: {
               credentials: {
-                  consumer_key: "EmUfJocNZvIGaT9aJM52ZEY6O",
-                  consumer_secret: "r1gd0TsWlW57afx8J7vv6Zm8Z1hUQgNMxVjzDRsTiMolQq3Ell",
-                  bearer_token: "AAAAAAAAAAAAAAAAAAAAAE5AHwEAAAAAaZD4%2BM%2B5wo%2BSGTUMsIRdBbtT%2B7U%3DLMjtfZPVfgF6fpMY7vHWWwoifz0dGlC48SdwVfHlbNoCfjXv4x",
+                  twitterConfig
               },
               queries: {
                   getPosts: {
