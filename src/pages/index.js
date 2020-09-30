@@ -1,14 +1,18 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
-import get from "lodash/get";
-import Helmet from "react-helmet";
-import styled from "styled-components";
+import React from 'react'
+import { graphql, Link } from 'gatsby'
+import get from 'lodash/get'
+import Helmet from 'react-helmet'
+import styled from 'styled-components'
+import Img from 'gatsby-image'
 
-import Layout from "../components/layout";
-import NewsPreview from "../components/news/news-preview";
-import MediaContacts from "../components/SIDEBAR/media-contact/media-contact";
-import MediaAssets from "../components/SIDEBAR/media-assets";
-import VisitForm from "../components/SIDEBAR/visit-request-form";
+import Layout from '../components/layout'
+import NewsPreview from '../components/news/news-preview'
+import MediaContacts from '../components/SIDEBAR/media-contact/media-contact'
+import MediaAssets from '../components/SIDEBAR/media-assets'
+import VisitForm from '../components/SIDEBAR/visit-request-form'
+import Accordion from '../components/Accordion'
+
+import TwitterWidget from '../components/twitter-widget'
 
 const Wrapper = styled.div`
   display: flex;
@@ -24,7 +28,7 @@ const Wrapper = styled.div`
 const Feed = styled.section`
   width: 100%;
   margin-top: 0;
-  order: 2;
+  order: 1;
 
   @media (min-width: 768px) {
     width: calc(75% - 1rem);
@@ -53,7 +57,7 @@ const NewsList = styled.ul`
   .section-headline {
     margin-top: 0;
   }
-`;
+`
 
 const NewsItem = styled.li`
   display: flex;
@@ -152,12 +156,15 @@ const MediaList = styled.ul`
   }
 `
 
+
+
 class RootIndex extends React.Component {
   render () {
-    const siteTitle = get(this, "props.data.site.siteMetadata.title");
-    const newsitems = get(this, "props.data.news.edges");
-    const media = get(this, "props.data.media.edges");
-    const mediacontact = get(this, "props.data.mediacontact.edges");
+    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    const media = get(this, 'props.data.media.edges')
+    const mediacontact = get(this, 'props.data.mediacontact.edges')
+    const medialogos = get(this, 'props.data.mediaLogos.childImageSharp.fluid')
+    const story = get(this, 'props.data.storyStarters.edges')
 
     return (
       <Layout location={this.props.location}>
@@ -166,64 +173,45 @@ class RootIndex extends React.Component {
 
             <Wrapper className="wrapper">
               <Feed>
-                <NewsList>
-                <h2 className="section-headline">Latest Media Releases</h2>
-                {newsitems.map(({ node }) => {
-                  return (
-                    <NewsItem key={node.slug}>
-                      <NewsPreview newsitems={node} />
-                    </NewsItem>
-                  );
-                })}
-              </NewsList>
-              <ReadMore to={/media-releases/}>
-                <p>See More Media Releases &#9660;</p>
-              </ReadMore>
+                  <h2 style={{ fontSize: '1.8rem', fontWeight: '500' }}>Newsroom</h2>
+                  <p style={{ fontSize: '90%', marginTop: '0' }}>
+                      This newsroom exists to help the media access facts, stories, comments, information, photographs and videos about our schools. Journalists and media representatives can also request school visits and expert comments.
+                  </p>
+                  <p style={{ fontSize: '90%' }}>
+                      This newsroom includes a logo, photo and video gallery, infographics for use by the media, a live stream of media releases and story starters.
+                  </p>
+                <section>
+                <h2 className="section-headline">Story Starters</h2>
+                    <Accordion>
+                        {story.map(({ node }) => {
+                            return (
+                                <div key={node.slug} label={node.title}>
+                                        <span className="accordionContent">
+                                            <a className="imageLink" href={node.image.file.url}><img src={node.image.fluid.src} /></a>
+                                            <span dangerouslySetInnerHTML={{
+                                                    __html: node.body.childMarkdownRemark.html
+                                                }}
+                                            />
+                                        </span>
+                                </div>
+                            )
+                        })}
 
-              <MediaList>
-                <SectionHeading className="section-headline">
-                  ACC in the Media
-                </SectionHeading>
-
-                {media.map(({ node }) => {
-                  return (
-                    <li key={node.slug}>
-                      <a
-                        href={node.mediaUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <p className="publication">
-                            <strong>{node.publication}</strong>
-                        </p>
-                        <p className="title">
-                          {node.mediaTitle}
-                        </p>
-                      </a>
-                    </li>
-                  );
-                })}
-              </MediaList>
-              <ReadMore to={/media/}>
-                <p>See More Articles &#9660;</p>
-              </ReadMore>
-            </Feed>
+                    </Accordion>
+              </section>
+              <hr />
+                  <h4 style={{ textAlign: 'center', fontWeight: '400', textTransform: 'uppercase' }}>Australian Christian College has received media coverage in</h4>
+              <Img fluid={medialogos} style={{ width: '100%' }} objectFit="cover" alt="Media Outlets" objectPosition="50% 50%" />
+              </Feed>
             <Sidebar>
-                <h2 style={{ fontSize: '1.1rem' }}>ACC Newsroom</h2>
-
-                <p style={{ fontSize: '90%', marginTop: '0' }}>
-                    ACC’s newsroom exists to help the media access facts, stories, comments, information, photographs and videos about our schools. Media representatives and educational bloggers can also request school visits and comments from our extensive list of subject matter experts.
-              </p>
-              <p style={{ fontSize: '90%' }}>
-                  This newsroom includes a logo, photo and video gallery, infographics for use by the media, a live stream of media releases, biographies of ACC subject matter experts and story starters.<br />
-              </p>
               <MediaContainer>
                 <h2 style={{ fontSize: '1.1rem', marginBottom: '1.47rem'}}>Media Contacts</h2>
                 {mediacontact.map(({ node }) => {
                   return <MediaContacts contact={node} />
                 })}
               </MediaContainer>
-              <MediaAssets />
+                <TwitterWidget />
+                <MediaAssets />
               {/*<iframe src="https://australianchristiancollege.formstack.com/forms/school_visit_request_form" style={{ border: 'none' }} title="School Visit Request Form" width="100%" height="800"></iframe>*/}
               <VisitForm />
             </Sidebar>
@@ -238,30 +226,31 @@ export default RootIndex;
 //TODO: make the graphql calls unique with :news allContent etc etc.
 export const pageQuery = graphql`
   query HomeQuery {
-    news: allContentfulNews(
-      limit: 3
-      sort: { fields: [datePublished], order: DESC }
-    ) {
-      edges {
-        node {
-          datePublished(formatString: "MMMM Do, YYYY")
-          title
-          slug
-          bodyContent {
-            childMarkdownRemark {
-              html
-              excerpt(pruneLength: 200)
-            }
+      site {
+          siteMetadata {
+              title
           }
-          image {
-            fluid(maxWidth: 1000, quality: 75) {
-              ...GatsbyContentfulFluid
-              src
+      }
+     storyStarters: allContentfulStoryStarter {
+        edges {
+          node {
+            body {
+              childMarkdownRemark {
+                html
+              }
+            }
+            title
+            image {
+              fluid(maxWidth: 500, quality: 60, cropFocus: CENTER) {
+                src
+              }
+              file {
+                url
+              }
             }
           }
         }
-      }
-    }
+     }
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
@@ -347,6 +336,14 @@ export const pageQuery = graphql`
           }
         }
       }
+    }
+    mediaLogos: file(name: {eq: "acc-newsroom-logos"}) {
+        childImageSharp {
+          fluid(maxWidth: 1000, quality: 100) {
+            ...GatsbyImageSharpFluid
+            src
+          }
+        }
     }
   }
 `;

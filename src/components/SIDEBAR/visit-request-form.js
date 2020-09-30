@@ -33,7 +33,7 @@ const VisitForm = () => {
             data: new FormData(form)
         })
             .then(r => {
-                handleServerResponse(true, "Thanks for your request to visit one of our schools. We have received your request and will be in contact shortly.", form);
+                handleServerResponse(true, "We have received your request and will be in contact shortly.", form);
             })
             .catch(r => {
                 handleServerResponse(false, r.response.data.error, form);
@@ -41,7 +41,7 @@ const VisitForm = () => {
     };
     return (
             <Container>
-                <h2 style={{ fontSize: '1.1rem' }}>School Visit Request Form</h2>
+                <h2 style={{ fontSize: '1.1rem' }}>Journalist Enquiry Form</h2>
 
                 <div className="visit-form">
                     <form onSubmit={handleOnSubmit}>
@@ -57,6 +57,22 @@ const VisitForm = () => {
                                 <div>
                                     <input className="checkbox" type="radio" id="represent-blog" name="I Represent a" value="Represent BlogORweb" />
                                         <label htmlFor="dewey">Blog/website</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div className="checkboxes">
+                            <label>I would like to:</label>
+                            <div className="flex-row">
+                                <div>
+                                    <input className="checkbox" type="checkbox" id="addToMedia" name="Add to ACC's media list" value="Checked" checked />
+                                    <label htmlFor="addToMedia">Add to ACC's media list</label>
+                                </div>
+
+                                <div>
+                                    <input className="checkbox" type="checkbox" id="organiseVisit" name="Organise a school visit" value="Checked" />
+                                    <label htmlFor="organiseVisit">Organise a school visit</label>
                                 </div>
                             </div>
 
@@ -142,7 +158,7 @@ const VisitForm = () => {
                             Submit
                         </button>
                         {serverState.status && (
-                            <p className={!serverState.status.ok ? "errorMsg" : ""}>
+                            <p className={!serverState.status.ok ? "errorMsg" : "formSuccess"}>
                                 {serverState.status.msg}
                             </p>
                         )}

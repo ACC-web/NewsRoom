@@ -45,23 +45,24 @@ class BiographyTemplate extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
-          <Helmet title={`${biography.title} | ${siteTitle}`} />
+          <Helmet title={`${biography.name} | ${siteTitle}`} />
+            {/*- start of breadcrumbs --*/}
             <div className="breadcrumbs">
-                <p><i>
-                    <Link className="crumb" to="/">Newsroom</Link>
-                    |
+                    <Link href="/" className="crumb">
+                        <i className="home"></i>
+                    </Link>
                     <Link className="crumb" to="/biographies">Biographies</Link>
-                    |
-                    <span className="crumb"
-                        dangerouslySetInnerHTML={{
-                            // __html: {biography.content.content},
-                            //TODO: change this too be the same as the blog-post page html thingy
-                            __html: biography.name,
+                <span className="crumb">
+                        <span className="content"
+                              dangerouslySetInnerHTML={{
+                                  // __html: {biography.content.content},
+                                  //TODO: change this too be the same as the blog-post page html thingy
+                                  __html: biography.name,
 
-                        }}
-                    />
-                </i></p>
+                              }}/>
+                    </span>
             </div>
+             {/*- end of breadcrumbs --*/}
             <div className="wrapper">
                 <SectionHeadline>{biography.name}</SectionHeadline>
             </div>
@@ -118,7 +119,12 @@ export default BiographyTemplate
 
 export const pageQuery = graphql`
   query GetBiographies($slug: String!) {
-    contentfulBiographies(slug: {eq: $slug}) {
+      site {
+          siteMetadata {
+              title
+          }
+      }
+      contentfulBiographies(slug: {eq: $slug}) {
       name
       slug
       publishedWork {

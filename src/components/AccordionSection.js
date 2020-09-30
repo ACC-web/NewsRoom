@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components'
 
 const H2 = styled.div`
-  font-size: 1.8rem;
+  font-size: 1.3rem;
     line-height: 1.15;
     margin: .5rem 0 .5rem;
     font-weight: 400;
@@ -30,16 +30,16 @@ class AccordionSection extends Component {
         return (
             <div
                 style={{
-                    background: isOpen ? 'rgb(213,213,213)' : 'rgb(213,213,213)',
+                    background: isOpen ? '#f9f9f9' : '#e9ecef',
                     padding: '0.5rem 1rem 0.5rem 1rem',
-                    borderRadius: '5px',
-                    marginBottom: '1rem',
+                    borderRadius: '2px',
+                    marginBottom: '1.5rem',
                     transition: 'all 1s ease'
                 }}
             >
                 <H2 onClick={onClick} style={{ cursor: 'pointer' }}>
                     {label}
-                    <div style={{ float: 'right', transform: isOpen ? 'rotate(45deg)' : 'rotate(445deg)', transition: 'all 1s ease' }}>
+                    <div style={{ float: 'right', transform: isOpen ? 'rotate(45deg)' : 'rotate(450deg)', transition: 'all 1s ease' }}>
                         {/*{!isOpen && <span>&#x2b;</span>}*/}
                         {<span>&#x2b;</span>}
                         {/*{isOpen && <span>&#x2212;</span>}*/}

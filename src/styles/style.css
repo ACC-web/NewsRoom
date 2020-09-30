@@ -417,6 +417,55 @@ textarea {
     font: inherit; /* 2 */
 }
 
+p.formSuccess{
+    background-color: #39b339;
+    padding: 1rem;
+    border-radius: 5px;
+    color: #fff;
+}
+p.errorMsg{
+    background-color: #bf3636;
+    padding: 1rem;
+    border-radius: 5px;
+    color: #fff;
+
+}
+
+.accordionContent{position: relative;}
+.accordionContent a.imageLink{
+    float: right;
+    margin: 0 0 1rem 1rem;
+}
+.accordionContent img{
+    width: 100%;
+    max-width: 350px
+}
+
+.accordionContent a.imageLink{
+    position: relative;
+}
+.accordionContent a.imageLink:before {
+    content: "";
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAYAAABWk2cPAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAHaADAAQAAAABAAAAHQAAAAD9szRrAAADUElEQVRIDbWWzUtVQRiHu9EHJoSUJUjSwoKSTKmNFYG5adGitkULq5WtCoz+g7ZRmzDaRBkRlFSrWtii0EW5CBdFZBSp2YeppWVG3p7nej23c+8516PSwHNnzvv+Zt47c2beOaklCUo6na5CdggaYQdUwCisgE/wBG6mUqlO6sUVgm2FThiH3zAMP+APDMBPGAN9E/ACWhcclc4XYRQM0guXoAE2wFIHpi6DzdAC3TAEBn8PtfMKTodX8A364WjSzmjLoQNcBVelOVFfhM/BJbuTqEOEiL51MJUdpylCkjMhcoYGbMtZC1v4N8G1Qk/Ogr8EBuErRAfG4Tt0SeecIZrHWe2uXJjCFppqcBJ9sC6kwOAuddP0hxwxD+iegRumIUYSmNGcAnf/3cBoA8MjcJcm2jToEgfNju+m+gx1mcA0qsB/0psxJPhBO9+gh+njyrQ7vOfNTLMSzCr/qzxkYGMdMICNRhiDq/BfCulxmIG7wAxWb9CdsAoSbSJ0Cy1OrBSqDLoeXN5BWHRhJqmYQV5jL4FKg3pbDLEE09ShwgAX4HzIWOQBbQ3uHurlEbIBbMvEoF5PaxCWUeeXjRiO4QufsXwVz2j2UbkZTQKuXH7ZjmECRgzqfTgF4YyBgdm7s9/Afga9Th1Z8G3DcRucQAP9xiOE3sFpGPQfXgZ3VUuEMGPC9w4m4ZwG6uCc0q4AE4sJYObwRwyEz3P6C0odoAns1B2hDUz4zShf4CzMBt1N2wvdnH0wEOc18O2F79ATuHh4CR+hPDBGNPD7b7013mbb/tkROBEhD0z428CVOv6vsRWDA3YExpgGGoufJ9PgDXImRpox468BLxNPSbhg9BPDL4XY92IP/KvBJTVoJpeGRwo/obkP5vYjYc/MYLU43Aze+B7i2ILfwJlNFSvCgeYW+L4fxOpwNoNL5o1fHStM4KC/AR3HI1e8IHI3u1kMfrq4utBLH9/hPXCGcwecHQKxgfvAzeWSex+unfVH1fg9Fu5SN43vMHZJ45Kz78MMdQX2gO/Y7NUF3hYmb3PpFvDr3xRo7jbnTsJJstIN6oUVgvs52Q7O4AO4bLPFTOahN9P0QO4cFgkXO9OoPgxaj92ZVYI3xggMwlNmZjJPVP4CnxREQ4pBE9MAAAAASUVORK5CYII=) no-repeat center center;
+    position: absolute;
+    display: block;
+    top: calc(50% - 37px);
+    right: calc(50% - 37px);
+    z-index: 999;
+    border: 0;
+    box-sizing: border-box;
+    width: 74px;
+    height: 74px;
+    -webkit-transition: 150ms all ease;
+    transition: 150ms all ease;
+    cursor: pointer;
+}
+
+.accordionContent a.imageLink:hover:before{
+     top: calc(50% - 22px);
+     transition: 150ms all ease;
+ }
+
 /* Interactive
    ========================================================================== */
 
@@ -1081,28 +1130,146 @@ footer {
 }
 
 /*================= BREADCRUMBS ==================*/
+/*https://bootsnipp.com/snippets/GaqB2*/
 
 
 .breadcrumbs {
     text-align: right;
-    margin: 0 1rem;
+    margin: 0 1rem 0 1rem;
     width: calc(100% - 2rem);
+
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0.95rem;
+    line-height: 0.95rem;
+}
+
+@media (min-width: 767px) {
+    .breadcrumbs {
+        margin: 0 1rem;
+        background-color: #fff;
+        width: auto;
+        float: right;
+    }
 }
 
 .crumb{
     color: #2a333c;
     text-decoration: none;
     font-weight: 400;
-    font-size: 70%;
     margin: 0.2rem;
+    margin-left: -4px;
     /*font-style: italic*/
-}
 
-.crumb.active{color: #2a333c99;}
+    background-color: #fff;
+    border-color: transparent;
+    border: 0px solid transparent;
+    border-right: 1px solid transparent !important;
+    font-size: 11px;
+
+    padding:6px 12px 6px 24px;
+    position: relative;
+    float: left;
+}
 
 .crumb:hover{
      color: #0069B4;
+    background-color: #e6e6e6;
  }
+.crumb:hover:before, .btn-breadcrumb .btn.btn-default:before {border-left: 10px solid #adadad;}
+.crumb:hover:after {border-left: 10px solid #e6e6e6;}
+
+.crumb:before {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-left: 10px solid rgb(173, 173, 173);
+    position: absolute;
+    top: 50%;
+    margin-top: -14px;
+    margin-left: 1px;
+    left: 100%;
+    z-index: 3;
+}
+.crumb:after {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-left: 10px solid white;
+    position: absolute;
+    top: 50%;
+    margin-top: -14px;
+    margin-left: 0px;
+    left: 100%;
+    z-index: 3;
+}
+
+.crumb:first-child {
+    padding: 6px 6px 6px 10px;
+}
+.crumb:first-child .home:before {
+    content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAMCAYAAAC5tzfZAAAACXBIWXMAAAsSAAALEgHS3X78AAAApUlEQVQokb2QsQ3CMBBFn1kgjECNi0TCJVZWYIPABmwATAIjZAe3Lmjcs0ImCLI4ILKT0PEly9K/92T5VN/3pNHGVkAL7IJ393SeSdrYFRDBAuiAKnj3GDKLRFjKC4VU8W6lH5dEKJOulD6XtLE3oM4++Eot86+kjT0CzYTwTiMcar3Z7oHrD2GYw2d72tgzcJqBL8G7yGSLGAIqnrHhlDSbP0nAE745KrCerCgeAAAAAElFTkSuQmCC');
+    width: 12px;
+    height: 13px;
+}
+
+.crumb span.content {
+    max-width: 200px;
+    display: block;
+    overflow: hidden;
+    padding: 0;
+}
+
+.crumb span.content:after {
+    content: "...";
+    position: absolute;
+    right: 10px;
+    z-index: 4;
+}
+
+.crumb .home{
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    color: #333;
+}
+
+.crumb:last-child {
+    font-weight: bold;
+    /*text-decoration: underline; */
+    color: #2a333c99;
+    padding:6px 18px 6px 24px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 147px;
+}
+
+@media(min-width:768px){
+    .crumb:last-child {
+        max-width: unset;
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: unset;}
+}
+.crumb:last-child:after{margin-left: -2px;}
+.crumb:last-child:before{margin-left: -1px;}
+
+
+/*------ published work ---------*/
 
 .published-work ul{
     list-style-type: none;
@@ -1110,7 +1277,7 @@ footer {
     margin: 0;
 }
 .published-work a{
-   text-decoration: none;
+    text-decoration: none;
     color: #020202;
     display: block;
 
@@ -1131,4 +1298,3 @@ footer {
     hyphens: auto;
 
 }
-

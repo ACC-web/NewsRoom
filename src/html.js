@@ -5,8 +5,6 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
-          <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,400&display=swap" rel="stylesheet" />
-
           <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta

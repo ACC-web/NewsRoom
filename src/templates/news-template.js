@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import get from 'lodash/get'
 import Layout from '../components/layout'
 import styled from 'styled-components'
+import '../styles/style.css'
 
 import {
     ItalicParagraph,
@@ -17,8 +18,11 @@ const Wrapper = styled.div`
   width: calc(100% - 2rem);
 `
 
-const ActiveCrumb = styled.span`
-//TODO: restrict the length of the active crumb
+const FullWidth = styled.div`
+  width: 100%;
+  display: block;
+    height: 2rem;
+    margin-top: 1rem;  
 `
 
 class NewsTemplate extends React.Component {
@@ -30,23 +34,25 @@ class NewsTemplate extends React.Component {
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <Helmet title={`${news.title} | ${siteTitle}`} />
-
-            <div className="breadcrumbs">
-                <p>
-                    <Link className="crumb" to="/">Newsroom</Link>
-                    |
+            <FullWidth>
+                {/*- start of breadcrumbs --*/}
+                <div className="breadcrumbs">
+                    <Link href="/" className="crumb">
+                        <i className="home"></i>
+                    </Link>
                     <Link className="crumb" to="/media-releases">Media Releases</Link>
-                    |
-                    <ActiveCrumb className="crumb active"
+                    <span className="crumb">
+                        <span className="content"
                           dangerouslySetInnerHTML={{
                               // __html: {biography.content.content},
                               //TODO: change this too be the same as the blog-post page html thingy
                               __html: news.title,
 
-                          }}
-                    />
-                </p>
-            </div>
+                          }}/>
+                    </span>
+                </div>
+                {/*- end of breadcrumbs --*/}
+            </FullWidth>
           <div className={heroStyles.hero}>
 
           </div>
@@ -76,6 +82,11 @@ export default NewsTemplate
 
 export const pageQuery = graphql`
   query GetNews($slug: String!) {
+      site {
+          siteMetadata {
+              title
+          }
+      }
       contentfulNews(slug: {eq: $slug}) {
           datePublished(formatString: "MMMM Do, YYYY")
           title

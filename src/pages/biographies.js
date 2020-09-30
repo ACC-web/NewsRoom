@@ -20,13 +20,14 @@ class BiographiesPage extends React.Component {
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <div className="wrapper">
+              {/*- start of breadcrumbs --*/}
               <div className="breadcrumbs">
-                  <p><i>
-                      <Link className="crumb" to="/">Newsroom</Link>
-                      |
-                      <Link className="crumb" to="/biographies">Biographies</Link>
-                  </i></p>
+                  <Link href="/" className="crumb">
+                      <i className="home"></i>
+                  </Link>
+                  <span className="crumb" to="/biographies">Biographies</span>
               </div>
+              {/*- end of breadcrumbs --*/}
             <SectionHeadline>Biographies</SectionHeadline>
               <p>The people listed on this page are available to provide comments within their areas of expertise. You can also download their photograph and access approved quotes and previously published works.</p>
                 <ArticleList>
@@ -49,7 +50,12 @@ export default BiographiesPage
 
 export const pageQuery = graphql`
   query BiographiesPageQuery {
-    allContentfulBiographies(sort: {order: ASC, fields: name}) {
+      site {
+          siteMetadata {
+              title
+          }
+      }
+      allContentfulBiographies(sort: {order: ASC, fields: name}) {
       edges {
         node {
           slug

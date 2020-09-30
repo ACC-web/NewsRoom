@@ -45,8 +45,8 @@ module.exports = {
         path: path.join(__dirname, 'src', 'images')
       },
     },
-    'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     'gatsby-plugin-breadcrumb',
     'gatsby-plugin-sitemap',
       {
@@ -68,6 +68,27 @@ module.exports = {
                   }
               }
           }
-      }
+      },
+      {
+          resolve: `gatsby-source-twitter`,
+          options: {
+              credentials: {
+                  consumer_key: "EmUfJocNZvIGaT9aJM52ZEY6O",
+                  consumer_secret: "r1gd0TsWlW57afx8J7vv6Zm8Z1hUQgNMxVjzDRsTiMolQq3Ell",
+                  bearer_token: "AAAAAAAAAAAAAAAAAAAAAE5AHwEAAAAAaZD4%2BM%2B5wo%2BSGTUMsIRdBbtT%2B7U%3DLMjtfZPVfgF6fpMY7vHWWwoifz0dGlC48SdwVfHlbNoCfjXv4x",
+              },
+              queries: {
+                  getPosts: {
+                      endpoint: "statuses/user_timeline",
+                      params: {
+                          screen_name: "smashingmag",
+                          include_rts: false,
+                          exclude_replies: true,
+                          tweet_mode: "extended",
+                      },
+                  },
+              },
+          },
+      },
   ],
 }

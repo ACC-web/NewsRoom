@@ -105,6 +105,9 @@ class SiteNav extends React.Component {
                                     {/* TODO: mark current nav item - add class nav-current */}
                                     <li role="menuitem">
                                         <a href="https://www.acc.edu.au/about.html">About</a>
+                                        <ul className="ChildList" id="ChildList">
+                                            <li role="menuitem"><a href="https://www.acc.edu.au/newsroom">Newsroom</a></li>
+                                        </ul>
                                     </li>
                                     <li css={ParentItem} role="menuitem">
                                         <Link to="/" onClick={(PreventDefault) => document.body.classList.toggle('school-list-open')}>Schools&nbsp;&nbsp;<span className="reveal"></span></Link>

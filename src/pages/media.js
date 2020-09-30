@@ -56,13 +56,14 @@ class MediaPage extends React.Component {
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <Container>
+              {/*- start of breadcrumbs --*/}
               <div className="breadcrumbs">
-                  <p><i>
-                  <Link className="crumb" to="/">Newsroom</Link>
-                      |
-                  <Link className="crumb" to="/media">Media</Link>
-                  </i></p>
+                  <Link href="/" className="crumb">
+                      <i className="home"></i>
+                  </Link>
+                  <span className="crumb" to="/media">Media</span>
               </div>
+              {/*- end of breadcrumbs --*/}
             <SectionHeadline>ACC in the Media</SectionHeadline>
             <ArticleList>
               {media.map(({ node }) => {
@@ -87,6 +88,11 @@ export default MediaPage
 
 export const pageQuery = graphql`
   query MediaPageQuery {
+      site {
+          siteMetadata {
+              title
+          }
+      }
       allContentfulMediaLink(sort: {fields: [datePublished], order: DESC}) {
           edges {
               node {

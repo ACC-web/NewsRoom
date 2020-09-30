@@ -34,24 +34,27 @@ class StoryStarters extends React.Component {
                 <div style={{ background: '#fff' }}>
                     <Helmet title={siteTitle} />
                     <div className="wrapper">
+                        {/*- start of breadcrumbs --*/}
                         <div className="breadcrumbs">
-                            <p><i>
-                                <Link className="crumb" to="/">Newsroom</Link>
-                                |
-                                <Link className="crumb" to="/story-starter">Story Starters</Link>
-                            </i></p>
+                            <Link href="/" className="crumb">
+                                <i className="home"></i>
+                            </Link>
+                            <span className="crumb" to="/story-starter">Story Starters</span>
                         </div>
+                        {/*- end of breadcrumbs --*/}
                         <SectionHeadline>Story Starters</SectionHeadline>
                         <p>ACC is excited to provide media representatives and bloggers with the following story starters. Their purpose is to help trigger an interesting angle for your education-related story.</p>
                         <Accordion>
                             {story.map(({ node }) => {
                                 return (
                                     <div key={node.slug} label={node.title}>
-                                        <span
-                                            dangerouslySetInnerHTML={{
+                                        <span className="accordionContent">
+                                            <a className="imageLink" href={node.image.file.url}><img src={node.image.fluid.src} /></a>
+                                            <span dangerouslySetInnerHTML={{
                                                 __html: node.body.childMarkdownRemark.html
                                             }}
-                                        />
+                                            />
+                                        </span>
                                     </div>
                                 )
                             })}
@@ -68,7 +71,12 @@ export default StoryStarters
 
 export const pageQuery = graphql`
   query StoriesPageQuery {
-    allContentfulStoryStarter {
+      site {
+          siteMetadata {
+              title
+          }
+      }
+      allContentfulStoryStarter {
         edges {
           node {
             body {
@@ -77,8 +85,16 @@ export const pageQuery = graphql`
               }
             }
             title
+            image {
+              fluid(maxWidth: 500, quality: 60, cropFocus: CENTER) {
+                src
+              }
+              file {
+                url
+              }
+            }
           }
         }
-      }
+     }
   }
 `

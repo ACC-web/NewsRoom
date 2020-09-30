@@ -19,14 +19,16 @@ class NewsPage extends React.Component {
       <Layout location={this.props.location}>
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
+            {/*- start of breadcrumbs --*/}
+            <div className="breadcrumbs">
+                <Link href="/" className="crumb">
+                    <i className="home"></i>
+                </Link>
+                <span className="crumb" to="/media-releases">Media Releases</span>
+            </div>
+            {/*- end of breadcrumbs --*/}
           <div className="wrapper">
-              <div className="breadcrumbs">
-                  <p><i>
-                      <Link className="crumb" to="/">Newsroom</Link>
-                      |
-                      <Link className="crumb" to="/media-releases">Media Releases</Link>
-                  </i></p>
-              </div>
+
             <SectionHeadline>Media Releases</SectionHeadline>
             <ArticleList>
               {newsitems.map(({ node }) => {
@@ -48,6 +50,11 @@ export default NewsPage
 
 export const pageQuery = graphql`
   query NewsPageQuery {
+      site {
+          siteMetadata {
+              title
+          }
+      }
       allContentfulNews(sort: {fields: [datePublished], order: DESC}) {
           edges {
               node {

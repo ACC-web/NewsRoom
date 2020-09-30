@@ -38,9 +38,23 @@ const Photo = styled(Img)`
 `
 
 class MultimediaPage extends React.Component {
+
+    constructor() {
+        super();
+        this.state = {
+            name: "React"
+        };
+        this.onCategorySelect = this.onCategorySelect.bind(this);
+    }
+
+    onCategorySelect(event) {
+        console.log(event.target.value);
+    }
+
     render () {
         const siteTitle = get(this, 'props.data.site.siteMetadata.title')
         const items = get(this, 'props.data.items.edges')
+        const cats = get(this, 'props.data.categories.edges')
 
 //TODO: insert the filter thing
 
@@ -49,14 +63,25 @@ class MultimediaPage extends React.Component {
                 <div style={{ background: '#fff' }}>
                     <Helmet title={siteTitle} />
                     <Container>
+                        {/*- start of breadcrumbs --*/}
                         <div className="breadcrumbs">
-                            <p><i>
-                                <Link className="crumb" to="/">Newsroom</Link>
-                                |
-                                <Link className="crumb" to="/multimedia">Multimedia Gallery</Link>
-                            </i></p>
+                            <Link href="/" className="crumb">
+                                <i className="home"></i>
+                            </Link>
+                            <span className="crumb" to="/">Multimedia Gallery</span>
                         </div>
+                        {/*- end of breadcrumbs --*/}
                         <SectionHeadline>Multimedia Gallery</SectionHeadline>
+                        <form onChange={this.onCategorySelect}>
+                            {cats.map(({ node }) => {
+                                return (
+                                    <span key={node.category}>
+                                        <input type='radio'name='categories' value={node.category} />
+                                        <label for={node.category}>{node.category}</label><br />
+                                    </span>
+                                )
+                            })}
+                        </form>
                         <ImageGallery>
                             {items.map(({ node }) => {
                                 return (
@@ -83,8 +108,13 @@ class MultimediaPage extends React.Component {
 export default MultimediaPage
 
 export const pageQuery = graphql`
-    query MultiMediaQuery {
-        items: allContentfulMultimediaItems {
+    query MultiMediaQuery{
+        site {
+            siteMetadata {
+                title
+            }
+        }
+        items:   allContentfulMultimediaItems {
             edges {
               node {
                 id
@@ -102,6 +132,13 @@ export const pageQuery = graphql`
                 categories {
                   category
                 }
+              }
+            }
+          }
+          categories: allContentfulCategoriesForMultimedia {
+            edges {
+              node {
+                category
               }
             }
           }

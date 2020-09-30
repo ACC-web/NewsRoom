@@ -21,7 +21,6 @@ class Template extends React.Component {
             <HeaderArea />
         <Container>
             <GoogleFont />
-            <googleFonts />
             {/*<Navigation />*/}
             {/*//TODO: breadcrumbs*/}
             {children}

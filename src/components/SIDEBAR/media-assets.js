@@ -47,10 +47,11 @@ const Button = styled(Link)`
 export default () => (
     <Container>
         <h2>Approved media assets</h2>
+        <Button to={"/media-releases"}>Media Releases</Button>
         <Button to={"/multimedia"}>Multimedia Gallery</Button>
         {/*<Button to={"/fact-sheets"}>Fact Sheet</Button>*/}
         <Button to={"/infographics"}>Infographics</Button>
-        <Button to={"/biographies"}>Biographies</Button>
-        <Button to={"/story-starters"}>Story Starters</Button>
+        {/*<Button to={"/biographies"}>Biographies</Button>*/}
+        {/*<Button to={"/story-starters"}>Story Starters</Button>*/}
     </Container>
 )

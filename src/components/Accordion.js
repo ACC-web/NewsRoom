@@ -18,6 +18,7 @@ class Accordion extends Component {
         const openSections = {};
 
         this.state = { openSections };
+
     }
 
     onClick = label => {

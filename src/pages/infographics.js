@@ -45,13 +45,14 @@ class InfographicPage extends React.Component {
                 <div style={{ background: '#fff' }}>
                     <Helmet title={siteTitle} />
                     <Container>
+                        {/*- start of breadcrumbs --*/}
                         <div className="breadcrumbs">
-                            <p><i>
-                                <Link className="crumb" to="/">Newsroom</Link>
-                                |
-                                <Link className="crumb" to="/infographics">Infographics</Link>
-                            </i></p>
+                            <Link href="/" className="crumb">
+                                <i className="home"></i>
+                            </Link>
+                            <span className="crumb" to="/infographics">Infographics</span>
                         </div>
+                        {/*- end of breadcrumbs --*/}
                         <SectionHeadline>Multimedia Gallery</SectionHeadline>
                         <ImageGallery>
                             {/*infographics*/}
@@ -78,6 +79,11 @@ export default InfographicPage
 
 export const pageQuery = graphql`
     query InfographicQuery {
+        site {
+            siteMetadata {
+                title
+            }
+        }
         infographics: allContentfulInfographic {
             edges {
               node {
