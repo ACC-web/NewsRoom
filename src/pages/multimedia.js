@@ -39,18 +39,6 @@ const Photo = styled(Img)`
 
 class MultimediaPage extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {
-            name: "React"
-        };
-        this.onCategorySelect = this.onCategorySelect.bind(this);
-    }
-
-    onCategorySelect(event) {
-        console.log(event.target.value);
-    }
-
     render () {
         const siteTitle = get(this, 'props.data.site.siteMetadata.title')
         const items = get(this, 'props.data.items.edges')
@@ -72,16 +60,6 @@ class MultimediaPage extends React.Component {
                         </div>
                         {/*- end of breadcrumbs --*/}
                         <SectionHeadline>Multimedia Gallery</SectionHeadline>
-                        <form onChange={this.onCategorySelect}>
-                            {cats.map(({ node }) => {
-                                return (
-                                    <span key={node.category}>
-                                        <input type='radio'name='categories' value={node.category} />
-                                        <label for={node.category}>{node.category}</label><br />
-                                    </span>
-                                )
-                            })}
-                        </form>
                         <ImageGallery>
                             {items.map(({ node }) => {
                                 return (
