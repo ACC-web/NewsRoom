@@ -12,7 +12,14 @@ import MediaAssets from '../components/SIDEBAR/media-assets'
 import VisitForm from '../components/SIDEBAR/visit-request-form'
 import Accordion from '../components/Accordion'
 
-import TwitterWidget from '../components/twitter-widget'
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+// Import Swiper styles
+import 'swiper/swiper-bundle.css'
+
+// import SwiperComponent from "swiper";
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,19 +30,20 @@ const Wrapper = styled.div`
     flex-direction: row;
     margin: 3rem 1rem 0 1rem;
   }
-`;
+`
 
-const Feed = styled.section`
+const BackgroundImage = styled(Img)`
+  display: block;
   width: 100%;
-  margin-top: 0;
-  order: 1;
-
-  @media (min-width: 768px) {
-    width: calc(75% - 1rem);
-    margin-right: 1rem;
-    order: 1;
-  }
-`;
+  min-height: 75vh;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  
+  background-color: #023e88;
+`
 
 const SectionHeading = styled.h2`
   margin-top: 0;
@@ -156,6 +164,11 @@ const MediaList = styled.ul`
   }
 `
 
+const Logo = styled(Img)`
+    max-width: 150px;
+    height: auto;
+`
+
 
 
 class RootIndex extends React.Component {
@@ -163,58 +176,81 @@ class RootIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const media = get(this, 'props.data.media.edges')
     const mediacontact = get(this, 'props.data.mediacontact.edges')
-    const medialogos = get(this, 'props.data.mediaLogos.childImageSharp.fluid')
     const story = get(this, 'props.data.storyStarters.edges')
+    const logoSlide = get(this, 'props.data.slideData.edges')
+    const medialogos = get(this, 'props.data.mediaLogos.childImageSharp.fluid')
+    const backgroundfeature = get(this, 'props.data.homeBackground.childImageSharp.fluid')
 
     return (
-      <Layout location={this.props.location}>
-        <div style={{ background: "#fff" }}>
-          <Helmet title={siteTitle} />
+        <Layout location={this.props.location}>
+            <BackgroundImage fluid={backgroundfeature} objectFit="cover" alt="Media Outlets" objectPosition="50% 50%" />
+
+            <div style={{ background: '#fff' }}>
+              <Helmet title={siteTitle} />
 
             <Wrapper className="wrapper">
-              <Feed>
-                  <h2 style={{ fontSize: '1.8rem', fontWeight: '500' }}>Newsroom</h2>
-                  <p style={{ fontSize: '90%', marginTop: '0' }}>
-                      This newsroom exists to help the media access facts, stories, comments, information, photographs and videos about our schools. Journalists and media representatives can also request school visits and expert comments.
-                  </p>
-                  <p style={{ fontSize: '90%' }}>
-                      This newsroom includes a logo, photo and video gallery, infographics for use by the media, a live stream of media releases and story starters.
-                  </p>
-                <section>
-                <h2 className="section-headline">Story Starters</h2>
-                    <Accordion>
-                        {story.map(({ node }) => {
-                            return (
-                                <div key={node.slug} label={node.title}>
-                                        <span className="accordionContent">
-                                            <a className="imageLink" href={node.image.file.url}><img src={node.image.fluid.src} /></a>
-                                            <span dangerouslySetInnerHTML={{
-                                                    __html: node.body.childMarkdownRemark.html
-                                                }}
-                                            />
-                                        </span>
-                                </div>
-                            )
-                        })}
 
-                    </Accordion>
-              </section>
-              <hr />
-                  <h4 style={{ textAlign: 'center', fontWeight: '400', textTransform: 'uppercase' }}>Australian Christian College has received media coverage in</h4>
-              <Img fluid={medialogos} style={{ width: '100%' }} objectFit="cover" alt="Media Outlets" objectPosition="50% 50%" />
-              </Feed>
-            <Sidebar>
-              <MediaContainer>
-                <h2 style={{ fontSize: '1.1rem', marginBottom: '1.47rem'}}>Media Contacts</h2>
-                {mediacontact.map(({ node }) => {
-                  return <MediaContacts contact={node} />
-                })}
-              </MediaContainer>
-                <TwitterWidget />
-                <MediaAssets />
-              {/*<iframe src="https://australianchristiancollege.formstack.com/forms/school_visit_request_form" style={{ border: 'none' }} title="School Visit Request Form" width="100%" height="800"></iframe>*/}
-              <VisitForm />
-            </Sidebar>
+              <h2 style={{ fontSize: '1.8rem', fontWeight: '500' }}>Newsroom</h2>
+              <p style={{ marginTop: '0' }}>
+                  This newsroom exists to help the media access facts, stories, comments, information, photographs and videos about our schools. Journalists and media representatives can also request school visits and expert comments.
+              </p>
+              <p style={{ }}>
+                  This newsroom includes a logo, photo and video gallery, infographics for use by the media, a live stream of media releases and story starters.
+              </p>
+
+                <MediaContainer>
+                    <h2 style={{ fontSize: '1.1rem', marginBottom: '1.47rem'}}>Media Contacts</h2>
+                    {mediacontact.map(({ node }) => {
+                        return <MediaContacts key={node.id} contact={node} />
+                    })}
+                </MediaContainer>
+            <section>
+            <h2 className="section-headline">Story Starters</h2>
+                <Accordion>
+                    {story.map(({ node }) => {
+                        return (
+                            <div key={node.slug} label={node.title}>
+                                    <span className="accordionContent">
+                                        <a className="imageLink" href={node.image.file.url}><img src={node.image.fluid.src} /></a>
+                                        <span dangerouslySetInnerHTML={{
+                                                __html: node.body.childMarkdownRemark.html
+                                            }}
+                                        />
+                                    </span>
+                            </div>
+                        )
+                    })}
+
+                </Accordion>
+          </section>
+          <hr />
+          <h4 style={{ textAlign: 'center', fontWeight: '400', textTransform: 'uppercase' }}>Australian Christian College has received media coverage in</h4>
+          <Swiper
+              spaceBetween={50}
+              slidesPerView={4}
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
+              navigation
+              pagination={{ clickable: true }}
+              scrollbar={{ draggable: true }}
+              autoPlay={1}
+
+              style={{ display: 'flex', alignItems: 'center' }}
+          >
+              {logoSlide.map(({ node }) => {
+                  return (
+                      <SwiperSlide key={node.id}>
+                          <Logo fluid={node.childImageSharp.fluid} style={{ width: '100%' }} objectFit="contain" alt="Media Outlets" objectPosition="50% 50%" />
+                      </SwiperSlide>
+                  )
+              })}
+          </Swiper>
+          {/*<Img fluid={medialogos} objectFit="cover" alt="Media Outlets" objectPosition="50% 50%" />*/}
+            <VisitForm />
+
+            {/*<Sidebar>*/}
+                {/*<MediaAssets />*/}
+            {/*</Sidebar>*/}
           </Wrapper>
         </div>
       </Layout>
@@ -222,7 +258,8 @@ class RootIndex extends React.Component {
   }
 }
 
-export default RootIndex;
+export default RootIndex
+
 //TODO: make the graphql calls unique with :news allContent etc etc.
 export const pageQuery = graphql`
   query HomeQuery {
@@ -345,5 +382,27 @@ export const pageQuery = graphql`
           }
         }
     }
+    slideData: allFile(filter: {dir: {regex: "\\\\/media/"}}) {
+        edges {
+            node {
+                childImageSharp {
+                    fluid(grayscale: true) {
+                        base64
+                        tracedSVG
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+                id
+            }
+        }
+    }
+      homebackground: file(relativePath: {eq: "home-background"}) {
+          childImageSharp {
+              fluid {
+                  ...GatsbyImageSharpFluid
+                  src
+              }
+          }
+      }
   }
 `;
