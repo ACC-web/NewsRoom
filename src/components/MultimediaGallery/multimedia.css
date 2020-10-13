@@ -1,0 +1,298 @@
+.media-gallery-wrapper .search-form input {
+    border-radius: 5px;
+    border: 2px solid #E3E6EA;
+    padding: 10px 10px;
+    padding-right: 35px;
+    height: 20px;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center right 10px;
+    width: calc(100% - 50px);
+}
+
+.media-gallery-wrapper .visit-form .search-form {
+    margin-bottom: 30px;
+}
+.media-gallery-wrapper .visit-form-wrapper {
+    display: inline-block;
+     width: calc(25% - 20px); 
+     margin-right: 20px;
+}
+.media-gallery-wrapper .visit-form {
+    padding-top: 61px;
+}
+
+.media-gallery-wrapper .checkbox-wrapper .checkboxes .form-group {
+    align-items: center;
+    border-top: 1px solid #F3F3F6;
+    /* border-bottom: 1px solid gray; */
+    padding: 20px 0;
+    margin-top: 0;
+}
+.media-gallery-wrapper .checkbox-wrapper .checkboxes:last-child .form-group {
+    border-bottom: 1px solid #F3F3F6;
+}
+.media-gallery-wrapper .checkbox-wrapper .checkboxes label {
+    font-weight: bold;
+    color: #83888F;
+    font-size: 16px;
+}
+
+.pagination-wrapper .pagination {
+    text-align: right;
+    margin-right: 20px;
+}
+
+.pagination-wrapper .pagination li {
+    display: inline-block;
+}
+.pagination-wrapper .pagination li.disabled a {
+    background-color: #E9ECEF;
+} 
+.pagination-wrapper .pagination li:first-child {
+    margin-right: 10px;
+}
+
+.pagination-wrapper .pagination a {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #96A4B2;
+    border-radius: 100%;
+    padding: 6px;
+    border: none;
+}
+.pagination-wrapper .pagination a:hover {
+    cursor: pointer;
+}
+
+.pagination-wrapper .pagination a svg {
+    height: 25px;
+    width: 25px;
+}
+.pagination-wrapper .pagination a svg path {
+    color: white;
+}
+.hidden { display:none; }
+
+.media-gallery-wrapper .row {
+    margin: 0;
+    flex-wrap: nowrap;
+}
+
+/* tab design */
+.media-gallery-wrapper .react-tabs .react-tabs__tab {
+    bottom: 0;
+    border-radius: 0;
+    color: #97A4B2;
+    border: 1px solid #97A4B2;
+    border-bottom: none;
+    padding: 8px 20px;
+}
+.media-gallery-wrapper .react-tabs .react-tabs__tab div {
+    display: flex;
+    align-items: center;
+}
+
+.media-gallery-wrapper .react-tabs .react-tabs__tab.react-tabs__tab--selected {
+    background-color: #97A4B2;
+    color: white;
+}
+.media-gallery-wrapper .react-tabs .react-tabs__tab .tab-text+span {
+    display: none;
+    line-height: 0;
+}
+
+.media-gallery-wrapper .photo-gallery-wrapper {
+    width: 75%;
+}
+.media-gallery-wrapper
+{
+    min-height: 700px;
+}
+.media-gallery-title
+{
+    font-weight: bold;
+    font-size: 35px;
+    border-radius: 0;
+    color: #97A4B2;
+    padding-bottom: 20px;
+}
+
+
+.media-gallery-wrapper.fullgallery .visit-form-wrapper {
+    display: none;
+}
+.media-gallery-wrapper.fullgallery .photo-gallery-wrapper {
+    width: 100%;
+}
+.media-gallery-wrapper .video-item-wrapper {
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.media-gallery-wrapper .video-item-wrapper a {
+    position: relative;
+    display: inline-block;
+}
+
+.media-gallery-wrapper .material-icons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    display: flex;
+    padding: 15px;
+    border-radius: 50%;
+    opacity: .9;
+}
+.media-gallery-wrapper.fullgallery .row,
+.media-gallery-wrapper.fullgallery .item-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+.media-gallery-wrapper.fullgallery.infogallery .item-wrapper {
+    display: inherit;
+}
+.image-item-wrapper {
+    display: inline-block;
+}
+.image-item-wrapper img {
+    min-height: 82px;
+    min-width: 82px;
+}
+
+.image-item-wrapper img,
+.video-item-wrapper img {
+    object-fit: cover;
+}
+#Gallery .image-item-wrapper {
+    padding-left: 0;
+}
+.video-item-wrapper .video-item-container,
+.logo-wrapper .logo-item {
+    padding-right: 14px;
+    padding-bottom: 16px;
+}
+.info-item-wrapper .info-item {
+    padding-right: 16px;
+    padding-bottom: 16px;
+}
+
+.image-item-wrapper .photo-item {
+    padding-bottom: 10px;
+    padding-right: 16px;
+}
+    
+.image-item-wrapper:nth-child(3n) .photo-item,
+.video-item-wrapper:nth-child(4n) .video-item-container,
+.info-item-wrapper:nth-child(4n) .info-item,
+.logo-wrapper:nth-child(4n) .logo-item {
+    padding-right: 0;
+}
+.logo-wrapper img {
+    object-fit: scale-down; 
+}   
+#lightboxBackdrop figure {
+    position: relative;
+}
+#lightboxBackdrop {
+    z-index: 9999;
+}
+.btn-download {
+    display: flex;
+    align-items: center;
+    background: none;
+    color: white;
+    text-align: right;
+    background-color: rgba(255,255,255, 0.2);
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-right: 0;
+    max-width: 150px;
+    margin: 0 auto;
+    position: absolute;
+    justify-content: center;
+    top: -44px;
+    right: 0;
+}
+.btn-download span {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+}
+.react-tabs__tab-panel {
+    padding-top: 10px;
+ }
+ .react-tabs .react-tabs__tab-list {
+    margin-bottom: 5px;
+}
+
+/* Responsive design */
+@media(max-width: 767px) {
+    .media-gallery-wrapper .row {
+        display: inline-block;
+        width: 100%;
+    }
+    .media-gallery-wrapper .visit-form-wrapper{
+        width: 100%;
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+    .media-gallery-wrapper .photo-gallery-wrapper,
+    .media-gallery-wrapper .visit-form form {
+        width: 100%;
+    }
+    .media-gallery-wrapper .visit-form {
+        padding-top: 0;
+    }
+    .image-item-wrapper:nth-child(2n) .photo-item,
+    /* .image-item-wrapper:nth-child(6n) .photo-item, */
+    .video-item-wrapper:nth-child(2n) .video-item-container,
+    .info-item-wrapper:nth-child(2n) .info-item,
+    .logo-wrapper:nth-child(2n) .logo-item {
+        padding-right: 0;
+    }
+    .image-item-wrapper:nth-child(3n) .photo-item {
+        padding-right: 15px;
+    }
+    .image-item-wrapper:nth-child(6n) .photo-item {
+        padding-right: 0;
+    }
+}
+
+
+@media(max-width: 992px) {
+    .btn-download {
+        right: 45px !important;
+    }
+    .btnclose {
+        right: 30px !important;
+        margin-right: 15px;
+    }
+    
+
+}
+@media(max-width: 575px) {
+    .media-gallery-wrapper .react-tabs .react-tabs__tab .tab-text+span {
+        display: block;
+    }
+    .media-gallery-wrapper .react-tabs .react-tabs__tab .tab-text {
+        display: none;
+    }
+   
+    .media-gallery-wrapper .material-icons {
+        padding: 8px;
+    }
+    .media-gallery-wrapper .material-icons svg {
+        width: 12px;
+        height: 12px;
+    }
+    .pagination-wrapper .pagination a svg {
+        height: 18px;
+        width: 18px;
+    }
+}
