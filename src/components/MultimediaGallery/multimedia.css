@@ -30,7 +30,7 @@
     margin-top: 0;
 }
 .media-gallery-wrapper .checkbox-wrapper .checkboxes:last-child .form-group {
-    border-bottom: 1px solid #F3F3F6;
+    border-bottom: 1px solid  #ddd;
 }
 .media-gallery-wrapper .checkbox-wrapper .checkboxes label {
     font-weight: bold;
@@ -65,7 +65,9 @@
 .pagination-wrapper .pagination a:hover {
     cursor: pointer;
 }
-
+a img:hover {
+    transform: scale(1.1);
+}
 .pagination-wrapper .pagination a svg {
     height: 25px;
     width: 25px;
@@ -295,4 +297,13 @@
         height: 18px;
         width: 18px;
     }
+}
+.select__placeholder
+{
+    display: inline-block;
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+
 }

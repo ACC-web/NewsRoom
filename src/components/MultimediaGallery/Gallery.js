@@ -158,6 +158,7 @@ class Gallery extends React.Component {
     return this.renderGallery(itemNode);
   }
   renderItem(item, k, onClickItem, commonHeight, width, itemIndex) {
+    const filename=item.filename;
     if (item.type == "photo") {
       const src = item.src;
       const alt = item.alt;
@@ -176,7 +177,7 @@ class Gallery extends React.Component {
         <div className="image-item-wrapper" key={k}>
           <Container data-type="photo" className="photo-item">
             <a href="#" className={k} onClick={e => onClickItem(itemIndex, e, "photos")}>
-              <Image src={src} srcSet={srcset} sizes={sizes} height={commonHeight} width={width} alt={alt} />
+              <Image src={src}  filename={filename} srcSet={srcset} sizes={sizes} height={commonHeight} width={width} alt={alt} />
             </a>
           </Container>
         </div>
@@ -196,7 +197,7 @@ class Gallery extends React.Component {
         <div className="video-item-wrapper" key={k}>
           <Container className="video-item-container" data-type="video">
             <a href="#" className={k} onClick={e => onClickItem(itemIndex, e, "videos")}>
-              <Image src={src} srcSet={srcset} sizes={sizes} height={commonHeight} width={width} />
+              <Image src={src} filename={filename} srcSet={srcset} sizes={sizes} height={commonHeight} width={width} />
               <i className="material-icons">
                 <FaPlay />
               </i>
@@ -223,7 +224,7 @@ class Gallery extends React.Component {
         <div className="info-item-wrapper" key={k}>
           <Container data-type="infographic" className="info-item">
             <a href="#" className={k} onClick={e => onClickItem(itemIndex, e, "infographic")}>
-              <Image src={src} srcSet={srcset} sizes={sizes} height={commonHeight} width={width} alt={alt} />
+              <Image src={src} filename={filename} srcSet={srcset} sizes={sizes} height={commonHeight} width={width} alt={alt} />
             </a>
           </Container>
         </div>
@@ -246,7 +247,7 @@ class Gallery extends React.Component {
         <div className="logo-wrapper" key={k}>
           <Container data-type="logos" className="logo-item">
             <a href="#" className={k} onClick={e => onClickItem(itemIndex, e, "logos")}>
-              <Image src={src} srcSet={srcset} sizes={sizes} height={commonHeight} width={width} alt={alt} />
+              <Image src={src} filename={filename} srcSet={srcset} sizes={sizes} height={commonHeight} width={width} alt={alt} />
             </a>
           </Container>
         </div>

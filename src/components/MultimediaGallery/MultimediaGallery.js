@@ -137,6 +137,7 @@ class MultimediaGallery extends Component {
       });
       return {
         src: item.node.asset.fluid.src,
+        filename: item.node.asset.file.fileName,
         width: 100,
         height: 100,
         caption: item.node.caption,
@@ -151,6 +152,7 @@ class MultimediaGallery extends Component {
     let galleryinfographic = props.infographic.map(item => {
       return {
         src: item.node.infographicImage.fluid.src,
+        filename: item.node.infographicImage.file.fileName,
         width: 100,
         height: 100,
         alt: item.node.caption,
@@ -163,6 +165,7 @@ class MultimediaGallery extends Component {
     let gallerylogos = props.logos.map(item => {
       return {
         src: item.node.childImageSharp.fixed.src,
+        filename: item.node.childImageSharp.fixed.originalName,
         width: 100,
         height: 100,
         alt: "",
