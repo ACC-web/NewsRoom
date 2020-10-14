@@ -210,13 +210,13 @@ class RootIndex extends React.Component {
 
                     </Accordion>
               </section>
-              
+
               <section style={{width:'1000'}}>
               <MultimediaGallery filtercategories={filtercategories} logos={logos} galleryImages={galleryImages} galleryvideos={galleryvideos} infographic={infographic}  cats={cats}/>
               </section>
                   <h4 style={{ textAlign: 'center', fontWeight: '400', textTransform: 'uppercase' }}>Australian Christian College has received media coverage in</h4>
               <Img fluid={medialogos} style={{ width: '100%' }} objectFit="cover" alt="Media Outlets" objectPosition="50% 50%" />
-              
+
               </Feed>
             <Sidebar>
               <MediaContainer>
@@ -346,7 +346,7 @@ export const pageQuery = graphql`
               fileName
             }
             fluid(maxWidth: 370, quality: 50) {
-                  ...GatsbyContentfulFluid_tracedSVG
+                  ...GatsbyContentfulFluid
                   src
               }
             description
