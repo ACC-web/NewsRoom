@@ -4,16 +4,17 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from '../components/layout'
 import NewsPreview from '../components/news/news-preview'
 import MediaContacts from '../components/SIDEBAR/media-contact/media-contact'
 import MediaAssets from '../components/SIDEBAR/media-assets'
 import VisitForm from '../components/SIDEBAR/visit-request-form'
 import Accordion from '../components/Accordion'
-
+import MultimediaGallery from '../components/MultimediaGallery/MultimediaGallery'
 import TwitterWidget from '../components/twitter-widget'
-
+import initReactFastclick from 'react-fastclick';
+initReactFastclick();
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -165,7 +166,17 @@ class RootIndex extends React.Component {
     const mediacontact = get(this, 'props.data.mediacontact.edges')
     const medialogos = get(this, 'props.data.mediaLogos.childImageSharp.fluid')
     const story = get(this, 'props.data.storyStarters.edges')
-
+    const galleryImages = get(this, 'props.data.galleryImages.edges')
+   const infographic=get(this, 'props.data.infographic.edges')
+   const galleryvideos = get(this, 'props.data.videos.edges')
+   const logos = get(this, 'props.data.logos.edges')
+  const filtercategories= get(this, 'props.data.categories.edges')
+    const cats=['Online',
+    'On Campus',
+    'Primary',
+    'Secondary',
+    'Outside',
+    'Inside'];
     return (
       <Layout location={this.props.location}>
         <div style={{ background: "#fff" }}>
@@ -187,7 +198,7 @@ class RootIndex extends React.Component {
                             return (
                                 <div key={node.slug} label={node.title}>
                                         <span className="accordionContent">
-                                            <a className="imageLink" href={node.image.file.url}><img src={node.image.fluid.src} /></a>
+                                            <a className="imageLink" href={node.image?.file.url}><img src={node.image?.fluid.src} /></a>
                                             <span dangerouslySetInnerHTML={{
                                                     __html: node.body.childMarkdownRemark.html
                                                 }}
@@ -199,9 +210,13 @@ class RootIndex extends React.Component {
 
                     </Accordion>
               </section>
-              <hr />
+
+              <section style={{width:'1000'}}>
+              <MultimediaGallery filtercategories={filtercategories} logos={logos} galleryImages={galleryImages} galleryvideos={galleryvideos} infographic={infographic}  cats={cats}/>
+              </section>
                   <h4 style={{ textAlign: 'center', fontWeight: '400', textTransform: 'uppercase' }}>Australian Christian College has received media coverage in</h4>
               <Img fluid={medialogos} style={{ width: '100%' }} objectFit="cover" alt="Media Outlets" objectPosition="50% 50%" />
+
               </Feed>
             <Sidebar>
               <MediaContainer>
@@ -319,6 +334,79 @@ export const pageQuery = graphql`
           mediaTitle
         }
       }
+    }
+    galleryImages:   allContentfulMultimediaItems {
+      edges {
+        node {
+          id
+          caption
+          asset {
+            file {
+              url
+              fileName
+            }
+            fluid(maxWidth: 370, quality: 50) {
+                  ...GatsbyContentfulFluid
+                  src
+              }
+            description
+          }
+          categories {
+            category
+          }
+        }
+      }
+    }
+    categories: allContentfulCategoriesForMultimedia {
+      edges {
+        node {
+          category
+        }
+      }
+    }
+    videos : allContentfulVimeo {
+      edges {
+        node {
+          description
+          vimeoUrl
+          vimeoThumbnail {
+            fluid {
+              src
+              ...GatsbyContentfulFluid
+            }
+          }
+        }
+      }
+    }
+    logos : allFile(filter: {dir: {regex: "\\/GENERIC/"}}) {
+      edges {
+        node {
+          childImageSharp {
+            fixed {
+              src
+              originalName
+            }
+          }
+        }
+      }
+    }
+    infographic : allContentfulInfographic {
+      edges {
+        node {
+          caption
+          infographicImage {
+            fluid(maxWidth: 500, quality: 90) {
+                  ...GatsbyContentfulFluid
+                  src
+              }
+            file {
+              url
+              fileName
+            }
+          }
+        }
+      }
+  
     }
     mediacontact: allContentfulMediaContact {
       edges {
