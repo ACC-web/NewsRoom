@@ -348,6 +348,7 @@ class MultimediaGallery extends Component {
                         options={this.state.options}
                         value={selectedOption}
                         onChange={this.handleSelectChange}
+                        placeholder="Categories"
                       />
                       <div className="form-group search-form hidden">
                         <input
