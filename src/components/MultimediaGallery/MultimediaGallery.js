@@ -32,7 +32,7 @@ class MultimediaGallery extends Component {
       tabIndex: 0, categories: props.cats, selectedOption: null, options: [],
       allDataItems: [], gallerylogos: [], galleryImages: [], galleryinfographic: [], galleryvideos: [], filterCategories: [], filteredOptions: [], searchValue: '',
       pageOfItems: [],
-      isLoading: false,isLightBoxLoading: false,
+      isLoading: false, isLightBoxLoading: false,
       page: 0, items: null, photos: null, logos: null, infographic: null, videos: null, itemsLightbox: {
         type: 'images',
         items: []
@@ -98,7 +98,9 @@ class MultimediaGallery extends Component {
   componentDidMount() {
     // an example array of items to be paged
     const props = this.props;
-    const filtercategoriesOptions = props.filtercategories.map((item) => {
+    const filtercategoriesOptions = this.props.filtercategories.filter(x =>
+      this.props.cats.map(v => v.toLowerCase().trim()).indexOf(x.node.category.toLowerCase().trim()) == -1
+    ).map((item) => {
       return {
         value: item.node.category,
         label: item.node.category
@@ -205,7 +207,7 @@ class MultimediaGallery extends Component {
   }
   openLightbox = (index, event, typeItem) => {
     event.preventDefault();
-    
+
     this.setState({
       itemsLightbox: {
         type: (typeItem == 'photos') ? 'images' : (typeItem == 'infographic') ? 'infographic' : (typeItem == 'logos') ? 'logos' : 'videos',
@@ -222,12 +224,12 @@ class MultimediaGallery extends Component {
       lightboxIsOpen: false,
     });
   }
-  activeLightBoxLoader ()  {
-		this.setState({ isLightBoxLoading: true });
-		setTimeout(() => {
-		  this.setState({ isLightBoxLoading: false });
-		}, 2000);
-	  }
+  activeLightBoxLoader() {
+    this.setState({ isLightBoxLoading: true });
+    setTimeout(() => {
+      this.setState({ isLightBoxLoading: false });
+    }, 2000);
+  }
   gotoPrevious = () => {
     this.setState({
       currentItem: this.state.currentItem - 1,
@@ -281,13 +283,13 @@ class MultimediaGallery extends Component {
   }
 
   renderGallery() {
-    let cols =this.state.tabIndex == 0 ? 3 : 4;
+    let cols = this.state.tabIndex == 0 ? 3 : 4;
     //  if(window.innerWidth<768)
     //  {
     //   cols=2;
     //  }
     return (
-    
+
       <Gallery items={this.state.pageOfItems} isLoading={this.state.isLoading} cols={cols} onClickItem={this.openLightbox} />
     );
   }

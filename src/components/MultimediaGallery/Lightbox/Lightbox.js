@@ -53,10 +53,10 @@ class Lightbox extends React.Component {
 	constructor(props) {
 		super(props);
 		var foo = deepMerge(defaultTheme, props.theme);
-		this.theme = foo;this.state = {
-           
-            isLightBoxLoading: props.isLightBoxLoading
-        };
+		this.theme = foo; this.state = {
+
+			isLightBoxLoading: props.isLightBoxLoading
+		};
 		bindFunctions.call(this, [
 			'gotoNext',
 			'gotoPrev',
@@ -64,7 +64,7 @@ class Lightbox extends React.Component {
 			'handleKeyboardInput',
 		]);
 
-		
+
 	}
 
 
@@ -73,7 +73,7 @@ class Lightbox extends React.Component {
 			theme: this.theme,
 		};
 	}
-	
+
 	componentDidMount() {
 		if (this.props.isOpen && this.props.enableKeyboardInput) {
 			window.addEventListener('keydown', this.handleKeyboardInput);
@@ -85,7 +85,7 @@ class Lightbox extends React.Component {
 			this.setState({
 				isLightBoxLoading: nextProps.isLightBoxLoading
 			});
-		  }
+		}
 		// preload images
 		if (nextProps.items.type == 'images') {
 			if (nextProps.preloadNextImage) {
@@ -125,7 +125,7 @@ class Lightbox extends React.Component {
 			window.removeEventListener('keydown', this.handleKeyboardInput);
 		}
 	}
-	
+
 	// ==============================
 	// METHODS
 	// ==============================
@@ -163,14 +163,14 @@ class Lightbox extends React.Component {
 			})
 	}
 	async handleImageDownload(src) {
-		
+
 		const a = document.createElement('a')
 		a.href = await this.toDataURL(src)
 		a.download = ''
 		document.body.appendChild(a)
 		a.click()
 		document.body.removeChild(a)
-		
+
 	}
 	gotoPrev(event) {
 		if (this.props.currentItem === 0) return;
@@ -200,7 +200,7 @@ class Lightbox extends React.Component {
 		return false;
 
 	}
-	
+
 	// ==============================
 	// RENDERERS
 	// ==============================
@@ -255,33 +255,33 @@ class Lightbox extends React.Component {
 				onClick={!!backdropClosesModal && this.closeBackdrop}
 				onTouchEnd={!!backdropClosesModal && this.closeBackdrop}
 			>
-				
+
 				{this.state.isLightBoxLoading ? (
-                    <LoaderWrapper >
-                        <Loader
-                            type="Grid"
-                            color="#666"
-                            height={50}
-                            width={50}
-                        />
-                    </LoaderWrapper>
-                ) :(
-                        <div >
-                            <div className={css(classes.content)} style={{ marginBottom: offsetThumbnails, maxWidth: width }}>
-					<Header
-						customControls={customControls}
-						onClose={onClose}
-						showCloseButton={showCloseButton}
-						closeButtonTitle={this.props.closeButtonTitle}
-					/>
-					{this.renderItems()}
-				</div>
-				{this.renderThumbnails()}
-				{this.renderArrowPrev()}
-				{this.renderArrowNext()}
-				<ScrollLock />
-                        </div>
-                    )}
+					<LoaderWrapper >
+						<Loader
+							type="Grid"
+							color="#666"
+							height={50}
+							width={50}
+						/>
+					</LoaderWrapper>
+				) : (
+						<div >
+							<div className={css(classes.content)} style={{ marginBottom: offsetThumbnails, maxWidth: width }}>
+								<Header
+									customControls={customControls}
+									onClose={onClose}
+									showCloseButton={showCloseButton}
+									closeButtonTitle={this.props.closeButtonTitle}
+								/>
+								{this.renderItems()}
+							</div>
+							{this.renderThumbnails()}
+							{this.renderArrowPrev()}
+							{this.renderArrowNext()}
+							<ScrollLock />
+						</div>
+					)}
 			</Container>
 		);
 	}
@@ -319,7 +319,8 @@ class Lightbox extends React.Component {
 						onClick={(e) => this.handleImageDownload(image.src)}
 					>Download
 						<Icon fill={!!this.theme.close && this.theme.close.fill || defaultTheme.close.fill} type="download" />
-					</button><img
+					</button>
+					<img
 						className={css(classes.image)}
 						sizes={sizes}
 						alt={image.alt}
@@ -369,14 +370,13 @@ class Lightbox extends React.Component {
 							maxHeight: `calc(100vh - ${heightOffset})`,
 						}}
 					/>
-					<DownloadButton
+					<button
 						title="download"
-						className={css(classes.close)}
+						className="btn-download"
 						onClick={(e) => this.handleImageDownload(image.src)}
-					>
+					>Download
 						<Icon fill={!!this.theme.close && this.theme.close.fill || defaultTheme.close.fill} type="download" />
-					</DownloadButton>
-
+					</button>
 					<Footer
 						caption={image.caption}
 						countCurrent={currentItem + 1}
@@ -413,7 +413,7 @@ class Lightbox extends React.Component {
 				<figure className={css(classes.figure)}>
 					<img
 						className={css(classes.image)}
-						onClick={!!onClickImage && onClickImage}
+
 						sizes={sizes}
 						alt={image.alt}
 						src={image.src}
@@ -423,14 +423,14 @@ class Lightbox extends React.Component {
 							maxHeight: `calc(100vh - ${heightOffset})`,
 						}}
 					/>
-					<DownloadButton
+					
+					<button
 						title="download"
-						className={css(classes.close)}
-						onClick={() => this.handleImageDownload(image.src)}
-					>
+						className="btn-download"
+						onClick={(e) => this.handleImageDownload(image.src)}
+					>Download
 						<Icon fill={!!this.theme.close && this.theme.close.fill || defaultTheme.close.fill} type="download" />
-					</DownloadButton>
-
+					</button>
 					<Footer
 						caption={image.caption}
 						countCurrent={currentItem + 1}
@@ -477,7 +477,7 @@ class Lightbox extends React.Component {
 	render() {
 		return (
 			<Portal>
-				
+
 				{this.renderDialog()}
 			</Portal>
 		);
