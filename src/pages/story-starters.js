@@ -49,7 +49,6 @@ class StoryStarters extends React.Component {
                                 return (
                                     <div key={node.slug} label={node.title}>
                                         <span className="accordionContent">
-                                            <a className="imageLink" href={node.image.file.url}><img src={node.image.fluid.src} /></a>
                                             <span dangerouslySetInnerHTML={{
                                                 __html: node.body.childMarkdownRemark.html
                                             }}
