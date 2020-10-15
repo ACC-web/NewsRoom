@@ -32,6 +32,7 @@
     "mixitup": "^3.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-fastclick": "^3.0.2",
     "react-helmet": "^5.2.0",
     "react-images-texts-videos": "^0.0.7",
     "react-loader-spinner": "^3.1.14",

@@ -76,6 +76,7 @@ class MultimediaGallery extends Component {
       this.filterImageGallary();
     });
   };
+  // the following controls the clicking on the category search field
   handleSelectChange = selectedOption => {
     this.setState({ selectedOption });
     var filteredOptions = [];
@@ -357,7 +358,8 @@ class MultimediaGallery extends Component {
                         placeholder="Categories"
                       />
                       <div className="form-group search-form hidden">
-                        <input
+                          {/* --- Category Search box ----*/}
+                          <input
                           type="text"
                           placeholder="Search"
                           onChange={this.onSearchChange}
@@ -368,6 +370,7 @@ class MultimediaGallery extends Component {
                           style={searchstyles.searchicon}
                         />
                       </div>
+                        {/* --- This is the list of pre-defined categories ----*/}
                       <div>
                         {this.state.categories.map(function (item, index) {
                           return (
@@ -393,7 +396,8 @@ class MultimediaGallery extends Component {
                   </div>
                 </Container>
               </div>
-              <div className="photo-gallery-wrapper" id="MultimediaGallery">
+                {/* --- Tabs across the top of the gallery ----*/}
+                <div className="photo-gallery-wrapper" id="MultimediaGallery">
                 <Tabs selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.onSelectTab(tabIndex)}>
                   <TabList>
                     <Tab>
