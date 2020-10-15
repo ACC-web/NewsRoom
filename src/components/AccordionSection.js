@@ -3,10 +3,22 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components'
 
 const H2 = styled.div`
-  font-size: 1.3rem;
+  font-size: 0.9rem;
     line-height: 1.15;
     margin: .5rem 0 .5rem;
     font-weight: 400;
+`
+
+const Wrapper = styled.div`
+  width: calc(100% - 2rem);
+  &:nth-child(even){  margin: 0.5rem 0 0.5rem 0;}
+  &:nth-child(odd){  margin: 0.5rem 0 0.5rem 0;}
+
+    @media(min-width: 768px){
+      width: calc(50% - 2.5rem);
+      &:nth-child(even){  margin: 0.5rem 0 0.5rem 0.5rem;}
+      &:nth-child(odd){  margin: 0.5rem 0.5rem 0.5rem 0;}
+    }
 `
 
 class AccordionSection extends Component {
@@ -28,12 +40,12 @@ class AccordionSection extends Component {
         } = this;
 
         return (
-            <div
+            <Wrapper
                 style={{
                     background: isOpen ? '#f9f9f9' : '#e9ecef',
+                    maxHeight: isOpen ? 'unset' : '2.3rem',
                     padding: '0.5rem 1rem 0.5rem 1rem',
                     borderRadius: '2px',
-                    marginBottom: '1.5rem',
                     transition: 'all 1s ease'
                 }}
             >
@@ -55,7 +67,7 @@ class AccordionSection extends Component {
                         {this.props.children}
                     </div>
                 )}
-            </div>
+            </Wrapper>
         );
     }
 }

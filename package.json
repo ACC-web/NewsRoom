@@ -13,8 +13,8 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.2",
     "framer-motion": "^1.11.1",
+    "gatsby-image": "^2.4.21",
     "gatsby": "^2.24.73",
-    "gatsby-image": "^2.4.19",
     "gatsby-plugin-breadcrumb": "^9.1.0",
     "gatsby-plugin-feed": "^2.5.12",
     "gatsby-plugin-google-analytics": "^2.3.14",
@@ -38,6 +38,7 @@
     "react-loader-spinner": "^3.1.14",
     "react-measure": "^2.5.2",
     "react-responsive-modal": "^4.0.1",
+    "swiper": "^6.3.2"
     "react-select": "^3.1.0",
     "react-tabs": "^3.1.1",
     "react-transition-group": "^1.2.1",

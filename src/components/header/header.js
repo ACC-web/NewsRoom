@@ -3,6 +3,7 @@ import SiteNavLogo from './SiteNavLogo'
 import SiteNav from './SiteNav'
 import '../../styles/style.css'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 
 import {
     SiteHeader,

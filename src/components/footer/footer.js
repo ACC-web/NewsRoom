@@ -11,6 +11,7 @@ import BottomBar from "./bottom-bar.js";
 import SiteNavLogo from "../header/SiteNavLogo";
 import LatestMediaReleaseList from "./latestMediaReleaseList.js"
 import LatestBlogPosts from "./latestBlogPost"
+import TwitterWidget from "../twitter-widget";
 
 const Wrapper = styled.div`
   p.small{
@@ -194,11 +195,11 @@ const Footer = () => {
         <Wrapper>
             <SiteFooter>
                 <div css={[inner, flex]}>
-                        <Column>
-                            <LogoWrapper>
-                                <SiteNavLogo />
-                            </LogoWrapper>
-                            <p style={{color: '#fff'}} css={[rightAlign]}><i>Transforming young lives spiritually, academically, socially and physically.</i></p>
+                    <Column>
+                        <LogoWrapper>
+                            <SiteNavLogo />
+                        </LogoWrapper>
+                        <p style={{color: '#fff'}} css={[rightAlign]}><i>Transforming young lives spiritually, academically, socially and physically.</i></p>
                     </Column>
                     <Column>
                         <SiteFooterNav>
@@ -208,6 +209,9 @@ const Footer = () => {
                     <Column>
                        {/*<LatestMediaReleaseList />*/}
                        <LatestBlogPosts />
+                    </Column>
+                    <Column>
+                        <TwitterWidget />
                     </Column>
                 </div>
             </SiteFooter>

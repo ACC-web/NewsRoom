@@ -7,7 +7,7 @@ const TwitterContainer = styled.div`
     .header{
         width: 100%;
         padding-bottom: 1rem;
-        border-bottom: 1px solid #efefef;
+        border-bottom: 1px solid #fff;
         
         display: flex;
         flex-direction: row;
@@ -30,7 +30,7 @@ const TwitterContainer = styled.div`
         }
         
         a {
-          color: #0069B4;
+          color: #fff;
         }
     }
 `
@@ -62,7 +62,11 @@ const NameHandle = styled.div`
       line-height: 1rem;
       font-size: 0.7rem;
       margin: 0;
-      color: #000;
+      color: #fff;
+      
+      a{
+        color: #fff;
+      }
     }
 `
 
@@ -71,17 +75,22 @@ const TweetText = styled.div`
   font-size: 70%;
   line-height: 1rem;
   font-weight: 400;
-  color: #000;
+  color: #fff;
 `
 
 const TwitterBottom = styled.p`
   text-align: right;
   font-size: 70%;
   width: 100%;
+  background: #0069B4;
+  padding: 6px;
+  border-radius: 5px;
+  text-align: center;
   
   a{
     text-decoration: none;
-    color: #0069B4;
+    color: #fff;
+    font-size: 80%;
   }
 `
 
@@ -91,7 +100,7 @@ const TwitterWidget = () => (
         <StaticQuery
             query={graphql`
               query TwitterPosts {
-                allTwitterStatusesUserTimelineGetPosts(limit: 3) {
+                allTwitterStatusesUserTimelineGetPosts(limit: 1) {
                     edges {
                       node {
                         full_text

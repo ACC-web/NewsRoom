@@ -5,6 +5,13 @@ import styled from 'styled-components'
 import AccordionSection from './AccordionSection';
 
 const AccordionWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+    @media(min-width: 768px){
+          flex-direction: row;
+    }
 `
 
 class Accordion extends Component {
