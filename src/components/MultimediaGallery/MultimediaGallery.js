@@ -138,6 +138,7 @@ class MultimediaGallery extends Component {
       return {
         src: item.node.asset.fluid.src,
         filename: item.node.asset.file.fileName,
+        originalimg:item.node.asset.file.url,
         width: 100,
         height: 100,
         caption: item.node.caption,
@@ -153,6 +154,7 @@ class MultimediaGallery extends Component {
       return {
         src: item.node.infographicImage.fluid.src,
         filename: item.node.infographicImage.file.fileName,
+        originalimg:item.node.infographicImage.file.url,
         width: 100,
         height: 100,
         alt: item.node.caption,
@@ -166,6 +168,7 @@ class MultimediaGallery extends Component {
       return {
         src: item.node.childImageSharp.fixed.src,
         filename: item.node.childImageSharp.fixed.originalName,
+        originalimg:item.node.childImageSharp.fixed.src,
         width: 100,
         height: 100,
         alt: "",
