@@ -56,6 +56,7 @@ class Accordion extends Component {
                         isOpen={!!openSections[child.props.label]}
                         label={child.props.label}
                         onClick={onClick}
+                        key={child.props.id}
                     >
                         {child.props.children}
                     </AccordionSection>

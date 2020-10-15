@@ -35,16 +35,21 @@ const Wrapper = styled.div`
 `
 
 const BackgroundImage = styled(Img)`
-  display: block;
+  display: none;
   width: 100%;
   min-height: 75vh;
+  max-height: 50rem;
   height: auto;
-  position: absolute;
+  
+  position: absolute !important;
   top: 0;
   left: 0;
   right: 0;
+  z-index: -1;
   
-  background-color: #023e88;
+  @media(min-width: 768px){
+      display: block;
+  }
 `
 
 const HomeTop = styled.div`
@@ -261,9 +266,9 @@ class RootIndex extends React.Component {
                   <Accordion>
                       {story.map(({ node }) => {
                           return (
-                              <div key={node.slug} label={node.title}>
+                              <div key={node.id} label={node.title}>
                                       <span className="accordionContent">
-                                          <a className="imageLink" href={node.image?.file.url}><img src={node.image?.fluid.src} /></a>
+                                          {node.image ? <a className="imageLink" href={node.image?.file.url}><img src={node.image?.fluid.src} /></a> : null}
                                           <span dangerouslySetInnerHTML={{
                                                   __html: node.body.childMarkdownRemark.html
                                               }}
@@ -276,40 +281,35 @@ class RootIndex extends React.Component {
                   </Accordion>
                 </section>
                 <hr />
-                <h4 style={{ textAlign: 'center', fontWeight: '400', textTransform: 'uppercase' }}>Australian Christian College has received media coverage in</h4>
                 <section style={{width:'1000'}}>
                     <MultimediaGallery filtercategories={filtercategories} logos={logos} galleryImages={galleryImages} galleryvideos={galleryvideos} infographic={infographic}  cats={cats}/>
                 </section>
-                <Swiper
-                    spaceBetween={50}
-                    slidesPerView={4}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
-                    navigation
-                    pagination={{ clickable: true }}
-                    scrollbar={{ draggable: true }}
-                    autoPlay={1}
 
-                    style={{ display: 'flex', alignItems: 'center' }}
-                >
-                    {logoSlide.map(({ node }) => {
-                        return (
-                            <SwiperSlide key={node.id}>
-                                <Logo fluid={node.childImageSharp.fluid} style={{ width: '100%' }} objectFit="contain" alt="Media Outlets" objectPosition="50% 50%" />
-                            </SwiperSlide>
-                        )
-                    })}
-                </Swiper>
                 {/*<Img fluid={medialogos} objectFit="cover" alt="Media Outlets" objectPosition="50% 50%" />*/}
+                <h4 style={{ textAlign: 'center', fontWeight: '400', textTransform: 'uppercase' }}>Australian Christian College has received media coverage in</h4>
+                <div>
+                    <Swiper
+                        spaceBetween={10}
+                        slidesPerView={4}
+                        onSlideChange={() => console.log('slide change')}
+                        onSwiper={(swiper) => console.log(swiper)}
+                        navigation
+                        pagination={{ clickable: true }}
+                        // scrollbar={{ draggable: true }}
+                        Autoplay={true}
+
+                        style={{ display: 'flex', alignItems: 'center' }}
+                    >
+                        {logoSlide.map(({ node }) => {
+                            return (
+                                <SwiperSlide key={node.id}>
+                                    <Logo fluid={node.childImageSharp.fluid} style={{ width: '100%' }} objectFit="contain" alt="Media Outlets" objectPosition="50% 50%" />
+                                </SwiperSlide>
+                            )
+                        })}
+                    </Swiper>
+                </div>
                   <VisitForm />
-
-                  {/*<Sidebar>*/}
-                      {/*<MediaAssets />*/}
-                  {/*</Sidebar>*/}
-
-
-
-
           </Wrapper>
         </div>
       </Layout>
@@ -330,6 +330,7 @@ export const pageQuery = graphql`
      storyStarters: allContentfulStoryStarter {
         edges {
           node {
+            id
             body {
               childMarkdownRemark {
                 html
@@ -519,7 +520,6 @@ export const pageQuery = graphql`
             node {
                 childImageSharp {
                     fluid(grayscale: true) {
-                        base64
                         tracedSVG
                         ...GatsbyImageSharpFluid
                     }
@@ -528,7 +528,7 @@ export const pageQuery = graphql`
             }
         }
     }
-      homebackground: file(relativePath: {eq: "home-background"}) {
+      homeBackground: file(name: {eq: "home-background"}) {
           childImageSharp {
               fluid {
                   ...GatsbyImageSharpFluid

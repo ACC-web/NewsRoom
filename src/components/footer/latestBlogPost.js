@@ -23,6 +23,7 @@ const LatestBlogPosts = () => {
                   node {
                     title
                     link
+                    id
                   }
                 }
             }
@@ -38,7 +39,7 @@ const LatestBlogPosts = () => {
             <List>
                 {data.blogitems.edges.map(({ node }) => {
                     return (
-                        <li key={node.slug}>
+                        <li key={node.id}>
                             <a href={node.link}>{node.title}</a>
                         </li>
                     )

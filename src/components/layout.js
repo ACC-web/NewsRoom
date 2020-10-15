@@ -16,8 +16,8 @@ const Container = styled.div`
   margin: 0 auto;
   
   @media(min-width: 768px){
-      padding: 5rem;
-
+      padding: 3rem;
+      margin-top: 30vh;
   }
 `
 

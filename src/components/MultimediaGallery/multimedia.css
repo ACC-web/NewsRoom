@@ -15,7 +15,7 @@
 }
 .media-gallery-wrapper .visit-form-wrapper {
     display: inline-block;
-     width: calc(25% - 20px); 
+     width: calc(25% - 20px);
      margin-right: 20px;
 }
 .media-gallery-wrapper .visit-form {
@@ -48,7 +48,7 @@
 }
 .pagination-wrapper .pagination li.disabled a {
     background-color: #E9ECEF;
-} 
+}
 .pagination-wrapper .pagination li:first-child {
     margin-right: 10px;
 }
@@ -114,11 +114,7 @@ a img:hover {
 }
 .media-gallery-title
 {
-    font-weight: bold;
-    font-size: 35px;
     border-radius: 0;
-    color: #97A4B2;
-    padding-bottom: 20px;
 }
 
 
@@ -186,7 +182,7 @@ a img:hover {
     padding-bottom: 10px;
     padding-right: 16px;
 }
-    
+
 .image-item-wrapper:nth-child(3n) .photo-item,
 .video-item-wrapper:nth-child(4n) .video-item-container,
 .info-item-wrapper:nth-child(4n) .info-item,
@@ -194,8 +190,8 @@ a img:hover {
     padding-right: 0;
 }
 .logo-wrapper img {
-    object-fit: scale-down; 
-}   
+    object-fit: scale-down;
+}
 #lightboxBackdrop figure {
     position: relative;
 }
@@ -275,7 +271,7 @@ a img:hover {
         right: 30px !important;
         margin-right: 15px;
     }
-    
+
 
 }
 @media(max-width: 575px) {
@@ -285,7 +281,7 @@ a img:hover {
     .media-gallery-wrapper .react-tabs .react-tabs__tab .tab-text {
         display: none;
     }
-   
+
     .media-gallery-wrapper .material-icons {
         padding: 8px;
     }
