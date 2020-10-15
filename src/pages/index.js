@@ -226,8 +226,8 @@ class RootIndex extends React.Component {
   const filtercategories= get(this, 'props.data.categories.edges')
     const cats=['Online',
     'On Campus',
-    'Primary',
-    'Secondary',
+    'Primary School',
+    'Secondary School',
     'Outside',
     'Inside'];
     return (
@@ -277,6 +277,9 @@ class RootIndex extends React.Component {
                 </section>
                 <hr />
                 <h4 style={{ textAlign: 'center', fontWeight: '400', textTransform: 'uppercase' }}>Australian Christian College has received media coverage in</h4>
+                <section style={{width:'1000'}}>
+                    <MultimediaGallery filtercategories={filtercategories} logos={logos} galleryImages={galleryImages} galleryvideos={galleryvideos} infographic={infographic}  cats={cats}/>
+                </section>
                 <Swiper
                     spaceBetween={50}
                     slidesPerView={4}
@@ -305,9 +308,7 @@ class RootIndex extends React.Component {
                   {/*</Sidebar>*/}
 
 
-                <section style={{width:'1000'}}>
-                <MultimediaGallery filtercategories={filtercategories} logos={logos} galleryImages={galleryImages} galleryvideos={galleryvideos} infographic={infographic}  cats={cats}/>
-              </section>
+
 
           </Wrapper>
         </div>
