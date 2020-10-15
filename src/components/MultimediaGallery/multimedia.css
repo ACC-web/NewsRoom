@@ -222,6 +222,9 @@ a img:hover {
     height: 25px;
     margin-left: 10px;
 }
+.btn-download:hover{
+    cursor: pointer;
+}
 .react-tabs__tab-panel {
     padding-top: 10px;
  }
