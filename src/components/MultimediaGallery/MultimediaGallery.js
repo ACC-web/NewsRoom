@@ -11,6 +11,15 @@ import { FaImages, FaVideo, FaImage, FaUniversity } from "react-icons/fa";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "react-tabs/style/react-tabs.css";
 import Select from "react-select";
+import Loader from "react-loader-spinner";
+
+
+const LoaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+`;
 
 const Container = styled.div`
   width: 100%;
@@ -117,8 +126,8 @@ class MultimediaGallery extends Component {
       }
     );
   };
-  onChangePage = pageOfItems => {
-    this.activeLoader();
+  onChangePage = (pageOfItems, flag) => {
+    this.activeLoader(flag);
     this.setState({ pageOfItems: pageOfItems, photos: pageOfItems });
   };
   componentDidMount() {
@@ -217,7 +226,7 @@ class MultimediaGallery extends Component {
       filteredOptions: [],
       searchValue: ""
     });
-    this.activeLoader();
+    this.activeLoader(false);
     this.loadMorePhotos();
   }
 
@@ -313,13 +322,15 @@ class MultimediaGallery extends Component {
     }
   }
 
-  activeLoader = () => {
+  activeLoader = (flag) => {
     this.setState({ isLoading: true });
     setTimeout(() => {
       var bodyRect = document.body.getBoundingClientRect(),
         elemRect = document.getElementById("MultimediaGallery").getBoundingClientRect(),
         offset = elemRect.top - bodyRect.top;
-      window.scrollTo(0, offset - 10);
+        if(flag && flag !== false ) {
+          window.scrollTo(0, offset - 10);
+        }
     }, 10);
     setTimeout(() => {
       this.setState({ isLoading: false });
@@ -470,9 +481,9 @@ class MultimediaGallery extends Component {
     } else {
       return (
         <div className="">
-          <div className={` ${this.state.allDataItems.length == 0 && this.state.tabIndex == 0 ? "" : "hidden"}`}>
-            Sorry there are no photos that match that category
-          </div>
+          <LoaderWrapper>
+            <Loader type="Grid" color="#666" height={50} width={50} />
+          </LoaderWrapper>
         </div>
       );
     }

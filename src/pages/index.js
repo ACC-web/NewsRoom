@@ -15,6 +15,7 @@ import MultimediaGallery from '../components/MultimediaGallery/MultimediaGallery
 import TwitterWidget from '../components/twitter-widget'
 import initReactFastclick from 'react-fastclick';
 initReactFastclick();
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -346,9 +347,10 @@ export const pageQuery = graphql`
               fileName
             }
             fluid(maxWidth: 370, quality: 50) {
-                  ...GatsbyContentfulFluid
-                  src
-              }
+              src
+              srcSet
+              sizes
+            }
             description
           }
           categories {

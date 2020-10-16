@@ -39,7 +39,7 @@ const defaultProps = {
 export default class Pagination extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { pager: {} };
+    this.state = { pager: {}, flag : 0};
   }
 
   componentWillMount() {
@@ -77,7 +77,12 @@ export default class Pagination extends React.Component {
     this.setState({ pager: pager });
 
     // call change page function in parent component
-    this.props.onChangePage(pageOfItems);
+    if(this.state.flag === 0 ) {
+      this.props.onChangePage(pageOfItems, false);
+      this.setState({ flag: 1 });
+    }else {
+      this.props.onChangePage(pageOfItems, true);
+    }
   }
 
   getPager(totalItems, currentPage, pageSize) {
@@ -140,13 +145,6 @@ export default class Pagination extends React.Component {
 
     return (
       <List>
-        {/* <ListItem className={pager.currentPage === 1 ? 'disabled' : ''}>
-                    <a style={{
-                       
-                        color: pager.currentPage === 1 ? '#777777' : '#337ab7',
-                        cursor: pager.currentPage === 1 ? 'not-allowed' : ''
-                    }} onClick={() => this.setPage(1)}>First</a>
-                </ListItem> */}
         <ListItem className={pager.currentPage === 1 ? "disabled" : ""}>
           <a
             style={{
@@ -159,16 +157,6 @@ export default class Pagination extends React.Component {
             <FaAngleLeft />
           </a>
         </ListItem>
-        {/* {pager.pages.map((page, index) =>
-                    <ListItem style={{ display: 'inline' }} key={index} className={pager.currentPage === page ? 'active' : ''}>
-                        <a style={{
-                           
-                            color: pager.currentPage === page ? '#fff' : '#337ab7',
-                            background: pager.currentPage === page ? '#337ab7' : '#fff',
-                          
-                        }} onClick={() => this.setPage(page)}>{page}</a>
-                    </ListItem>
-                )} */}
         <ListItem className={pager.currentPage === pager.totalPages ? "disabled" : ""}>
           <a
             style={{
@@ -180,15 +168,6 @@ export default class Pagination extends React.Component {
             <FaAngleRight />
           </a>
         </ListItem>
-
-        {/* <ListItem className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-                    <a style={{
-                       
-                        color: pager.currentPage === pager.totalPages ? '#777777' : '#337ab7',
-                       
-                        cursor: pager.currentPage === pager.totalPages ? 'not-allowed' : ''
-                    }} onClick={() => this.setPage(pager.totalPages)}>Last</a>
-                </ListItem> */}
       </List>
     );
   }
