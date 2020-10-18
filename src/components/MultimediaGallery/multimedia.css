@@ -1,3 +1,4 @@
+
 .media-gallery-wrapper .search-form input {
     border-radius: 5px;
     border: 2px solid #E3E6EA;
@@ -36,6 +37,8 @@
     font-weight: bold;
     color: #83888F;
     font-size: 16px;
+    /* this fixes the overlap issue for safari */
+    padding-left: 10px
 }
 
 .pagination-wrapper .pagination {

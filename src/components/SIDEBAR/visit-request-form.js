@@ -1,5 +1,5 @@
-import React, { useState }  from "react"
-import axios from "axios";
+import React, { useState } from 'react'
+import axios from 'axios'
 import styled from 'styled-components'
 import styles from '../article-preview.module.css'
 
@@ -28,12 +28,12 @@ const VisitForm = () => {
         const form = e.target;
         setServerState({ submitting: true });
         axios({
-            method: "post",
-            url: "https://getform.io/f/dfedd077-f1ce-4cd5-bdc3-cca7ec4ea335",
+            method: 'post',
+            url: 'https://getform.io/f/dfedd077-f1ce-4cd5-bdc3-cca7ec4ea335',
             data: new FormData(form)
         })
             .then(r => {
-                handleServerResponse(true, "We have received your request and will be in contact shortly.", form);
+                handleServerResponse(true, 'We have received your request and will be in contact shortly.', form);
             })
             .catch(r => {
                 handleServerResponse(false, r.response.data.error, form);
@@ -50,13 +50,13 @@ const VisitForm = () => {
                             <label>I represent a:</label>
                             <div className="flex-row">
                                 <div>
+                                    <label htmlFor="represent-media">Media Outlet</label>
                                     <input className="checkbox" type="radio" id="represent-media" name="I Represent a" value="Represent Media" checked />
-                                        <label htmlFor="huey">Media Outlet</label>
                                 </div>
 
                                 <div>
-                                    <input className="checkbox" type="radio" id="represent-blog" name="I Represent a" value="Represent BlogORweb" />
-                                        <label htmlFor="dewey">Blog/website</label>
+                                    <label htmlFor="represent-blog">Blog/website</label>
+                                    <input className="checkbox" type="radio" id="represent-blog" name="I Represent a" value="Represent Blog" />
                                 </div>
                             </div>
 
@@ -67,7 +67,7 @@ const VisitForm = () => {
                             <div className="flex-row">
                                 <div>
                                     <input className="checkbox" type="checkbox" id="addToMedia" name="Add to ACC's media list" value="Checked" checked />
-                                    <label htmlFor="addToMedia">Add to ACC's media list</label>
+                                    <label htmlFor="addToMedia">Add to ACC&apos;s media list</label>
                                 </div>
 
                                 <div>
@@ -80,36 +80,33 @@ const VisitForm = () => {
 
                         <div className="form-group">
                             <label htmlFor="Outlet">Name of media outlet our blog:</label>
-                            <input type="text" name="Name of outlet" className="form-control" id="Outlet"
-                                    required="required"/>
+                            <input type="text" name="Name of outlet" className="form-control" id="Outlet" required="required"/>
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="Website">Website:</label>
-                            <input type="text" name="Website" id="Website"
-                                   required="required"/>
+                            <input type="text" name="Website" id="Website" required="required"/>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="representative-name">Representative's name:</label>
-                            <input type="text" name="Representatives name" className="form-control" id="representative-name"
-                                    required="required"/>
+                            <label htmlFor="representative-name">Representative&apos;s name:</label>
+                            <input type="text" name="Representatives name" className="form-control" id="representative-name" required="required"/>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="representative-title">Representative's title:</label>
+                            <label htmlFor="representative-title">Representative&apos;s title:</label>
                             <input type="text" name="Representatives title" className="form-control" id="representative-title"
                                     required="required"/>
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="representative-email" required="required">Representative's email</label>
+                            <label htmlFor="representative-email" required="required">Representative&apos;s email</label>
                             <input type="email" name="Representatives email" className="form-control" id="representative-email"
                                    aria-describedby="emailHelp" />
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="representative-mobile">Representative's mobile:</label>
+                            <label htmlFor="representative-mobile">Representative&apos;s mobile:</label>
                             <input type="number" name="Representatives mobile" className="form-control" id="representative-mobile"
                                     required="required"/>
                         </div>
