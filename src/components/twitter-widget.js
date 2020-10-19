@@ -1,7 +1,8 @@
-import React from "react"
-import { graphql, StaticQuery, Link} from 'gatsby';
+import React from 'react'
+import { graphql, StaticQuery, Link } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import {Heading2} from '../../styles/shared.ts'
 
 const TwitterContainer = styled.div`
     .header{
@@ -15,11 +16,11 @@ const TwitterContainer = styled.div`
         font-size: 1.1rem;
         line-height: 1rem;
         
-        h2{
-          font-size:inherit;
-          line-height: inherit;
-          margin: 0;
-        }
+        //h2{
+        //  font-size:inherit;
+        //  line-height: inherit;
+        //  margin: 0;
+        //}
         
         p, a{
               margin: 0;
@@ -127,7 +128,7 @@ const TwitterWidget = () => (
                 <>
                     <TwitterContainer>
                         <div className="header">
-                            <h2>Tweets&nbsp;</h2>
+                            <Heading2>Tweets&nbsp;</Heading2>
                             <p>by <a href="/">@ACC</a></p>
                         </div>
                         {
