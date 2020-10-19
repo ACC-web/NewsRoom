@@ -128,8 +128,7 @@ const TwitterWidget = () => (
                 <>
                     <TwitterContainer>
                         <div className="header">
-                            <Heading2>Tweets&nbsp;</Heading2>
-                            <p>by <a href="/">@ACC</a></p>
+                            <Heading2>Tweets by <a href="/">@ACC</a></Heading2>
                         </div>
                         {
                             data.allTwitterStatusesUserTimelineGetPosts.edges.map((item, i) => (
