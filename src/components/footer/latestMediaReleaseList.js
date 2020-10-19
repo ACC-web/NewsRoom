@@ -1,7 +1,7 @@
 import {graphql, Link, useStaticQuery} from 'gatsby';
 import * as React from 'react';
 import styled from "styled-components"
-import {List, H2} from '../../styles/shared.ts';
+import {List, Heading2} from '../../styles/shared.ts';
 
 import get from 'lodash/get'
 
