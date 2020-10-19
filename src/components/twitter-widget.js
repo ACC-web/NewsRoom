@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, StaticQuery, Link } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import {Heading2} from '../../styles/shared.ts'
+import {Heading2} from '../styles/shared'
 
 const TwitterContainer = styled.div`
     .header{

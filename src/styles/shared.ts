@@ -153,7 +153,7 @@ export const Heading2 = styled.h2`
 
 export const SectionHeadline = styled.h1`
     padding: 0 0 1rem 0;
-    margin: 1 0 2rem 0;
+    margin: 1rem 0 2rem 0;
     border-bottom: 1px solid #ddd;
     
 `
