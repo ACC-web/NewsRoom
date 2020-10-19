@@ -143,7 +143,7 @@ export const SiteHeaderStyles = css`
 
 /* --------- Article content list pages ---------*/
 
-export const H2 = styled.h2`
+export const Heading2 = styled.h2`
     color: #fff;
     font-size: 1rem;
     font-weight: 500;

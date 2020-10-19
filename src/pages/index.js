@@ -12,6 +12,9 @@ import MediaAssets from '../components/SIDEBAR/media-assets'
 import VisitForm from '../components/SIDEBAR/visit-request-form'
 import Accordion from '../components/Accordion'
 
+// import Swiper core and required components
+import SwiperCore, { Navigation, A11y, Autoplay } from 'swiper';
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -214,6 +217,7 @@ const Logo = styled(Img)`
 
 
 
+
 class RootIndex extends React.Component {
   render () {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -223,6 +227,9 @@ class RootIndex extends React.Component {
     const logoSlide = get(this, 'props.data.slideData.edges')
     const medialogos = get(this, 'props.data.mediaLogos.childImageSharp.fluid')
     const backgroundfeature = get(this, 'props.data.homeBackground.childImageSharp.fluid')
+
+      // install Swiper components
+      SwiperCore.use([Navigation, A11y, Autoplay]);
 
     const galleryImages = get(this, 'props.data.galleryImages.edges')
    const infographic=get(this, 'props.data.infographic.edges')
@@ -296,7 +303,10 @@ class RootIndex extends React.Component {
                         navigation
                         pagination={{ clickable: true }}
                         // scrollbar={{ draggable: true }}
-                        Autoplay={true}
+                        autoplay={{
+                            delay: 1000,
+                            disableOnInteraction: false
+                        }}
 
                         style={{ display: 'flex', alignItems: 'center' }}
                     >
@@ -428,9 +438,10 @@ export const pageQuery = graphql`
               fileName
             }
             fluid(maxWidth: 370, quality: 50) {
-                  ...GatsbyContentfulFluid
-                  src
-              }
+              src
+              srcSet
+              sizes
+            }
             description
           }
           categories {

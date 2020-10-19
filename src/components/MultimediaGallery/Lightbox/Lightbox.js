@@ -264,7 +264,7 @@ class Lightbox extends React.Component {
       const classes = StyleSheet.create(deepMerge(defaultStyles, this.theme));
       return (
         <figure className={css(classes.figure)}>
-          <button title="download" className="btn-download" onClick={e => this.handleImageDownload(image.src,image.filename)}>
+          <button title="download" className="btn-download" onClick={e => this.handleImageDownload(image.originalimg,image.filename)}>
             Download
             <Icon fill={(!!this.theme.close && this.theme.close.fill) || defaultTheme.close.fill} type="download" />
           </button>
@@ -315,7 +315,7 @@ class Lightbox extends React.Component {
               maxHeight: `calc(100vh - ${heightOffset})`
             }}
           />
-          <button title="download" className="btn-download" onClick={e => this.handleImageDownload(image.src,image.filename)}>
+          <button title="download" className="btn-download" onClick={e => this.handleImageDownload(image.originalimg,image.filename)}>
             Download
             <Icon fill={(!!this.theme.close && this.theme.close.fill) || defaultTheme.close.fill} type="download" />
           </button>
@@ -363,7 +363,7 @@ class Lightbox extends React.Component {
             }}
           />
 
-          <button title="download" className="btn-download" onClick={e => this.handleImageDownload(image.src,image.filename)}>
+          <button title="download" className="btn-download" onClick={e => this.handleImageDownload(image.originalimg,image.filename)}>
             Download
             <Icon fill={(!!this.theme.close && this.theme.close.fill) || defaultTheme.close.fill} type="download" />
           </button>

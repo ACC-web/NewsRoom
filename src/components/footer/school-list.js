@@ -1,5 +1,5 @@
-import React from "react";
-import {List, H2} from '../../styles/shared.ts';
+import React from 'react';
+import {List, Heading2} from '../../styles/shared.ts';
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
@@ -27,7 +27,7 @@ class SchoolList extends React.Component {
   render () {
     return (
       <Wrapper>
-        <H2>Schools</H2>
+        <Heading2>Schools</Heading2>
         <List>
           <Item><a target="_blank" rel="noopener noreferrer"  href="https://www.acc.edu.au/moreton/index.html">Moreton, QLD</a></Item>
           <Item><a target="_blank" rel="noopener noreferrer"  href="https://www.acc.edu.au/singleton/index.html">Singleton, NSW</a></Item>
