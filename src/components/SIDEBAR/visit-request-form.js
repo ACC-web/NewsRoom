@@ -22,7 +22,7 @@ const ContactForm = styled.form`
 
     .forChecked{
         width: calc(100% - 1rem);
-        margin-right: 1rem;
+        margin-right: 0.5rem;
         margin-top: 0.2rem;
     }
     .half-width{
@@ -91,13 +91,16 @@ const ContactForm = styled.form`
         border: 0;
     }
     
-    & input {
+    & input
+     {
       padding: 0.7rem 0.5rem;
       border: 0;
     }
     
-    & select{
-        padding: 0.4rem 0.5rem;
+    & select,
+    & input#visit-date
+    {
+        padding: 8px 0.5rem;
         border: 0;
         width: 100%;
         border-right: 1rem solid #fff;
@@ -145,15 +148,15 @@ const VisitForm = () => {
 
                         <div className="checkboxes full-width">
                             <div className="flex-row checkboxes">
-                                <label className="forChecked">I represent a:</label>
+                                <label className="forChecked">I represent:</label>
 
                                 <div>
-                                    <label htmlFor="represent-media">Media Outlet</label>
-                                    <input className="checkbox" type="radio" id="represent-media" name="I Represent a" value="Represent Media" checked />
+                                    <label htmlFor="represent-media">A Media Outlet</label>
+                                    <input className="checkbox" type="radio" id="represent-media" name="I Represent a" value="Represent Media" />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="represent-blog">Blog/website</label>
+                                    <label htmlFor="represent-blog">A Blog/website</label>
                                     <input className="checkbox" type="radio" id="represent-blog" name="I Represent a" value="Represent Blog" />
                                 </div>
                             </div>
@@ -165,13 +168,13 @@ const VisitForm = () => {
                                 <label className="forChecked">I would like to:</label>
 
                                 <div>
-                                    <input className="checkbox" type="checkbox" id="addToMedia" name="Add to ACC's media list" value="Checked" checked />
-                                    <label htmlFor="addToMedia">Add to ACC&apos;s media list</label>
+                                    <label htmlFor="addToMedia">Be added to ACC&apos;s media list</label>
+                                    <input className="checkbox" type="checkbox" id="addToMedia" name="Add to ACC's media list" value="Checked" />
                                 </div>
 
                                 <div>
-                                    <input className="checkbox" type="checkbox" id="organiseVisit" name="Organise a school visit" value="Checked" />
                                     <label htmlFor="organiseVisit">Organise a school visit</label>
+                                    <input className="checkbox" type="checkbox" id="organiseVisit" name="Organise a school visit" value="Checked" />
                                 </div>
                             </div>
 

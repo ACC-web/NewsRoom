@@ -7,7 +7,6 @@ import { Heading2 } from '../styles/shared'
 const TwitterContainer = styled.div`
     .header{
         width: 100%;
-        padding-bottom: 1rem;
         border-bottom: 1px solid #fff;
         
         display: flex;
@@ -37,7 +36,18 @@ const TwitterContainer = styled.div`
 `
 
 const TweetItem = styled.div`
-    padding: 20px                      
+    padding: 15px 0;  
+    
+    p{
+      line-height: 1rem;
+      font-size: 0.7rem;
+      margin: 0;
+      color: #fff;
+      
+      a{
+        color: #fff;
+      }
+    }                   
 `
 
 const UserInfo = styled.div`
@@ -133,13 +143,13 @@ const TwitterWidget = () => (
                                     {/*    </NameHandle>*/}
                                     {/*</UserInfo>*/}
                                     <TweetText>
-                                        {item.node.full_text}
-                                        {item.node.entities.urls.expanded_url}
+                                        <p>{item.node.full_text}</p>
+                                        {item.node.entities.urls.url}
                                     </TweetText>
                                 </TweetItem>
                             ))
                         }
-                        <TwitterBottom className="cta-main" style={{ padding: '1rem 0', width: '100%'}}><Link target="_blank" to="https://twitter.com/ACCGroup2">View on Twitter</Link></TwitterBottom>
+                        <TwitterBottom className="cta-main" style={{ padding: '1rem 0', width: '100%'}}><a rel="noreferrer" target="_blank" href="https://twitter.com/ACCGroup2">View on Twitter</a></TwitterBottom>
                     </TwitterContainer>
                 </>
             )}

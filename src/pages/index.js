@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby'
 import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
+import Img from 'gatsby-image/withIEPolyfill'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from '../components/layout'
 import NewsPreview from '../components/news/news-preview'
@@ -38,6 +38,10 @@ const Container = styled.div`
     flex-direction: column;
     margin: 3rem auto 0 auto;
     padding: 4rem;
+  }
+  
+  .swiper-wrapper{
+    align-items: center;
   }
 `
 
@@ -302,17 +306,36 @@ class RootIndex extends React.Component {
                 <div>
                     <Swiper
                         spaceBetween={10}
-                        slidesPerView={4}
+                        loop={true}
+                        speed={3500}
+                        preloadImages={false}
+                        lazy={true}
+                        loadPrevNextAmount={5}
+                        height={true}
                         onSlideChange={() => console.log('slide change')}
                         onSwiper={(swiper) => console.log(swiper)}
                         pagination={{ clickable: true }}
                         // scrollbar={{ draggable: true }}
                         autoplay={{
-                            delay: 1000,
-                            disableOnInteraction: false
+                            delay: 100,
+                            disableOnInteraction: true
                         }}
 
                         style={{ display: 'flex', alignItems: 'center' }}
+                        breakpoints={{
+                            // when window width is >= 640px
+                            300: {
+                                width: 600,
+                                slidesPerView: 2,
+                                spaceBetween: 100,
+                            },
+                            // when window width is >= 768px
+                            768: {
+                                width: 1000,
+                                slidesPerView: 4,
+                                spaceBetween: 100,
+                            },
+                        }}
                     >
                         {logoSlide.map(({ node }) => {
                             return (
@@ -523,20 +546,13 @@ export const pageQuery = graphql`
         }
       }
     }
-    mediaLogos: file(name: {eq: "acc-newsroom-logos"}) {
-        childImageSharp {
-          fluid(maxWidth: 1000, quality: 95) {
-            ...GatsbyImageSharpFluid
-            src
-          }
-        }
-    }
     slideData: allFile(filter: {dir: {regex: "\\\\/media/"}}) {
         edges {
             node {
                 childImageSharp {
                     fluid(maxWidth: 300, quality: 95, grayscale: true) {
-                        ...GatsbyImageSharpFluid_withWebp
+                        ...GatsbyImageSharpFluid_noBase64
+                        ...GatsbyImageSharpFluidLimitPresentationSize
                     }
                 }
                 id
