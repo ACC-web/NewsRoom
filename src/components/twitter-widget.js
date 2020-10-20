@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, StaticQuery, Link } from 'gatsby'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
-import {Heading2} from '../styles/shared'
+import { Heading2 } from '../styles/shared'
 
 const TwitterContainer = styled.div`
     .header{
@@ -82,10 +82,10 @@ const TweetText = styled.div`
 const TwitterBottom = styled.p`
   text-align: right;
   font-size: 70%;
-  width: 100%;
-  background: #0069B4;
-  padding: 6px;
-  border-radius: 5px;
+  //width: calc(100% - 12px);
+  //background: #0069B4;
+  //padding: 6px;
+  //border-radius: 5px;
   text-align: center;
   
   a{
@@ -107,16 +107,8 @@ const TwitterWidget = () => (
                         full_text
                         entities {
                           urls {
-                            url
+                            expanded_url
                           }
-                        }
-                        created_at
-                        favorite_count
-                        user {
-                          name
-                          profile_image_url
-                          screen_name
-                          default_profile
                         }
                       }
                     }
@@ -133,18 +125,21 @@ const TwitterWidget = () => (
                         {
                             data.allTwitterStatusesUserTimelineGetPosts.edges.map((item, i) => (
                                 <TweetItem key={i}>
-                                    <UserInfo>
-                                        <ProfileImage src={item.node.user.profile_image_url} />
-                                        <NameHandle>
-                                            <p><strong>{item.node.user.name}</strong></p>
-                                            <p><Link target="_blank" to={`https://twitter.com/${item.node.user.screen_name}`}>@{item.node.user.screen_name}</Link></p>
-                                        </NameHandle>
-                                    </UserInfo>
-                                    <TweetText>{item.node.full_text}</TweetText>
+                                    {/*<UserInfo>*/}
+                                    {/*    <ProfileImage src={item.node.user.profile_image_url} />*/}
+                                    {/*    <NameHandle>*/}
+                                    {/*        <p><strong>{item.node.user.name}</strong></p>*/}
+                                    {/*        <p><Link target="_blank" to={`https://twitter.com/${item.node.user.screen_name}`}>@{item.node.user.screen_name}</Link></p>*/}
+                                    {/*    </NameHandle>*/}
+                                    {/*</UserInfo>*/}
+                                    <TweetText>
+                                        {item.node.full_text}
+                                        {item.node.entities.urls.expanded_url}
+                                    </TweetText>
                                 </TweetItem>
                             ))
                         }
-                        <TwitterBottom><Link target="_blank" to="https://twitter.com/ACCGroup2">View on Twitter</Link></TwitterBottom>
+                        <TwitterBottom className="cta-main" style={{ padding: '1rem 0', width: '100%'}}><Link target="_blank" to="https://twitter.com/ACCGroup2">View on Twitter</Link></TwitterBottom>
                     </TwitterContainer>
                 </>
             )}

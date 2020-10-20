@@ -34,7 +34,7 @@ module.exports = {
         title: 'ACC NewsRoom',
         author: 'ACC',
         description: 'This newsroom includes a logo, photo and video gallery (with a search filter), facts sheets on a range of education topics, infographics for use by the media, a live stream of media releases, biographies of ACC topical experts and story starters.',
-        siteUrl: 'https://foxtrot.acc.edu.au/' // full path to this site - no ending slash
+        siteUrl: 'https://www.acc.edu.au' // full path to this site - no ending slash
     },
   plugins: [
       'gatsby-transformer-remark',
@@ -88,9 +88,9 @@ module.exports = {
                   getPosts: {
                       endpoint: "statuses/user_timeline",
                       params: {
-                          screen_name: "smashingmag",
+                          screen_name: "ACCGroup2",
                           include_rts: false,
-                          exclude_replies: true,
+                          exclude_replies: false,
                           tweet_mode: "extended",
                       },
                   },

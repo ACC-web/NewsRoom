@@ -8,15 +8,13 @@ import Footer from './footer/footer'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  max-width: 1100px;
   margin:0 auto;
   font-family: montserrat, arial, sans-serif;
   padding: 0;
-  background-color: #fff;
+  //background-color: #fff;
   margin: 0 auto;
   
   @media(min-width: 768px){
-      padding: 3rem;
       margin-top: 30vh;
   }
 `

@@ -98,7 +98,6 @@ main {
  */
 
 h1 {
-    font-size: 1.8rem;
     line-height: 2rem;
     margin: 0.67em 0;
 }
@@ -249,9 +248,10 @@ textarea {
 
 .visit-form .checkboxes{
     /*background-image: url("./checkbox.png");*/
-    -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
-    -moz-appearance: checkbox;    /* Firefox */
-    -ms-appearance: checkbox;     /* not currently supported */
+    /* -----RH - I have disabled the following line cause it broke it on Safari*/
+    /*-webkit-appearance: checkbox; !* Chrome, Safari, Opera *!*/
+    /*-moz-appearance: checkbox;    !* Firefox *!*/
+    /*-ms-appearance: checkbox;     !* not currently supported *!*/
 }
 
 .visit-form .checkboxes input{
@@ -271,7 +271,7 @@ input,
 textarea{ /* 1 */
     overflow: visible;
     background-image: none;
-    background-color: #E9ECEF;
+    background-color: #fff;
     border: none;
     padding: 0.5rem;
     margin: 0;
@@ -486,13 +486,6 @@ summary {
     display: list-item;
 }
 
-/* css copied from original -base.css- starter */
-
-.wrapper {
-    width: calc(100% - 2rem);
-    margin: 0 1rem;
-}
-
 /**
  * article grid
  */
@@ -562,16 +555,25 @@ body{
 
 
 /* ------ TYPOGRAPHY ----- */
-h1, h2, h3, h4, h5, p, em, a, i{
+h1, h2, h3, h4, h5, p, em, a, i, label, select, input{
     text-rendering: optimizelegibility;
     font-family: montserrat, arial, sans-serif;
+    color: #707070;
 }
-h1{ font-weight: 500;}
+h1{
+    font-weight: 400;
+    color: #707070;
+}
 h2{
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     line-height: 1.15;
     margin: 0.5rem 0 1rem;
     font-weight: 400;
+    color: #707070;
+}
+
+@media(min-width: 768px){
+    h2{font-size: 1.8rem;}
 }
 h2.section-headline{
     font-weight: 400;
@@ -623,7 +625,7 @@ ul li{
 .cta-main {
     position: relative;
     border-radius: 5px;
-    padding: 1.2em 1.5em;
+    padding: 1.2em 3rem;
     border: solid 2px;
     margin-top: 1em;
     margin-bottom: 3em;
@@ -640,6 +642,7 @@ ul li{
     text-align: center;
     white-space: normal;
     vertical-align: middle;
+    width: auto;
 }
 
 .row {

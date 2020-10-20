@@ -199,7 +199,7 @@ const Footer = () => {
                         <LogoWrapper>
                             <SiteNavLogo />
                         </LogoWrapper>
-                        <p style={{color: '#fff'}} css={[rightAlign]}><i>Transforming young lives spiritually, academically, socially and physically.</i></p>
+                        <p css={[rightAlign]}><i style={{color: '#fff'}}>Transforming young lives spiritually, academically, socially and physically.</i></p>
                     </Column>
                     <Column>
                         <SiteFooterNav>

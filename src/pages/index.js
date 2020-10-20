@@ -13,7 +13,7 @@ import VisitForm from '../components/SIDEBAR/visit-request-form'
 import Accordion from '../components/Accordion'
 
 // import Swiper core and required components
-import SwiperCore, { Navigation, A11y, Autoplay } from 'swiper';
+import SwiperCore, { A11y, Autoplay } from 'swiper';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -26,14 +26,18 @@ import TwitterWidget from '../components/twitter-widget'
 import initReactFastclick from 'react-fastclick';
 initReactFastclick();
 
-const Wrapper = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 1rem 1rem 0 1rem;
+  margin: 1rem auto 0 auto;
+  max-width: 1100px;
+  background-color: #fff;
+  padding: 0 1rem;
 
   @media (min-width: 768px) {
     flex-direction: column;
-    margin: 3rem 1rem 0 1rem;
+    margin: 3rem auto 0 auto;
+    padding: 4rem;
   }
 `
 
@@ -52,12 +56,14 @@ const BackgroundImage = styled(Img)`
   
   @media(min-width: 768px){
       display: block;
+        min-height: unset;
   }
 `
 
 const HomeTop = styled.div`
   display: flex;
   flex-direction: column;
+  
   
   > div{
     //width: 50%;
@@ -229,7 +235,7 @@ class RootIndex extends React.Component {
     const backgroundfeature = get(this, 'props.data.homeBackground.childImageSharp.fluid')
 
       // install Swiper components
-      SwiperCore.use([Navigation, A11y, Autoplay]);
+      SwiperCore.use([ A11y, Autoplay]);
 
     const galleryImages = get(this, 'props.data.galleryImages.edges')
    const infographic=get(this, 'props.data.infographic.edges')
@@ -246,14 +252,13 @@ class RootIndex extends React.Component {
         <Layout location={this.props.location}>
             <BackgroundImage fluid={backgroundfeature} objectFit="cover" alt="Media Outlets" objectPosition="50% 50%" />
 
-            <div style={{ background: '#fff' }}>
+            <div >
               <Helmet title={siteTitle} />
 
-            <Wrapper className="wrapper">
-
+            <Container>
                 <HomeTop>
                     <div>
-                      <h2 style={{ fontSize: '1.8rem', fontWeight: '500' }}>Newsroom</h2>
+                      <h1>Newsroom</h1>
                       <p style={{ marginTop: '0' }}>
                           This newsroom exists to help the media access facts, stories, comments, information, photographs and videos about our schools. Journalists and media representatives can also request school visits and expert comments.
                       </p>
@@ -288,19 +293,18 @@ class RootIndex extends React.Component {
                   </Accordion>
                 </section>
                 <hr />
-                <section style={{width:'1000'}}>
+                <section style={{width:'1000', marginTop: '4rem'}}>
                     <MultimediaGallery filtercategories={filtercategories} logos={logos} galleryImages={galleryImages} galleryvideos={galleryvideos} infographic={infographic}  cats={cats}/>
                 </section>
 
                 {/*<Img fluid={medialogos} objectFit="cover" alt="Media Outlets" objectPosition="50% 50%" />*/}
-                <h4 style={{ textAlign: 'center', fontWeight: '400', textTransform: 'uppercase' }}>Australian Christian College has received media coverage in</h4>
+                <h4 style={{ textAlign: 'center', fontWeight: '400', textTransform: 'uppercase', marginBottom: '2rem' }}>Australian Christian College has received media coverage in</h4>
                 <div>
                     <Swiper
                         spaceBetween={10}
                         slidesPerView={4}
                         onSlideChange={() => console.log('slide change')}
                         onSwiper={(swiper) => console.log(swiper)}
-                        navigation
                         pagination={{ clickable: true }}
                         // scrollbar={{ draggable: true }}
                         autoplay={{
@@ -319,9 +323,10 @@ class RootIndex extends React.Component {
                         })}
                     </Swiper>
                 </div>
-                  <VisitForm />
-          </Wrapper>
-        </div>
+          </Container>
+        <VisitForm />
+
+            </div>
       </Layout>
     );
   }
@@ -520,7 +525,7 @@ export const pageQuery = graphql`
     }
     mediaLogos: file(name: {eq: "acc-newsroom-logos"}) {
         childImageSharp {
-          fluid(maxWidth: 1000, quality: 100) {
+          fluid(maxWidth: 1000, quality: 95) {
             ...GatsbyImageSharpFluid
             src
           }
@@ -530,9 +535,8 @@ export const pageQuery = graphql`
         edges {
             node {
                 childImageSharp {
-                    fluid(grayscale: true) {
-                        tracedSVG
-                        ...GatsbyImageSharpFluid
+                    fluid(maxWidth: 300, quality: 95, grayscale: true) {
+                        ...GatsbyImageSharpFluid_withWebp
                     }
                 }
                 id
