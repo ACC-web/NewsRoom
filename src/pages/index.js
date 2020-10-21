@@ -478,12 +478,12 @@ export const pageQuery = graphql`
         }
       }
     }
-    categories: allContentfulCategoriesForMultimedia {
-      edges {
-        node {
-          category
+    categories:    allContentfulCategoriesForMultimedia(sort: {order: ASC, fields: category}) {
+        edges {
+            node {
+                category
+            }
         }
-      }
     }
     videos : allContentfulVimeo {
       edges {
