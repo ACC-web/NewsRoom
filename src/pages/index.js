@@ -251,7 +251,8 @@ class RootIndex extends React.Component {
     'Primary School',
     'Secondary School',
     'Outside',
-    'Inside'];
+    'Inside',
+    'Staff'];
     return (
         <Layout location={this.props.location}>
             <BackgroundImage fluid={backgroundfeature} objectFit="cover" alt="Media Outlets" objectPosition="50% 50%" />
