@@ -177,8 +177,9 @@ class Gallery extends React.Component {
       return (
         <div className="image-item-wrapper" key={k}>
           <Container data-type="photo" className="photo-item">
-            <a href="#" className={k} onClick={e => onClickItem(itemIndex, e, "photos")}>
+            <a href="#" className={k} onClick={e => onClickItem(itemIndex, e, "photos")} style={{ textDecoration: 'none' }}>
               <Image src={src} originalimg={originalimg}  filename={filename} srcSet={srcset} sizes={sizes} height={commonHeight} width={width} alt={alt} />
+            <p style={{ fontSize: '60%', marginTop: '5px' }}>{item.caption}</p>
             </a>
           </Container>
         </div>
