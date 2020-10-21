@@ -455,7 +455,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    galleryImages:   allContentfulMultimediaItems {
+    galleryImages: allContentfulMultimediaItems {
       edges {
         node {
           id
@@ -527,7 +527,6 @@ export const pageQuery = graphql`
           }
         }
       }
-  
     }
     mediacontact: allContentfulMediaContact {
       edges {
