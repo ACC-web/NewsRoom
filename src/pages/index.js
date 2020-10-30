@@ -561,7 +561,7 @@ export const pageQuery = graphql`
     }
       homeBackground: file(name: {eq: "home-background"}) {
           childImageSharp {
-              fluid {
+              fluid(maxWidth: 2000) {
                   ...GatsbyImageSharpFluid
                   src
               }

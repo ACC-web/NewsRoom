@@ -21,6 +21,15 @@ const Image = styled.img`
   display: block;
   border: 1px solid #f3f3f6;
 `;
+
+const Caption = styled.p`
+  font-size: 50%;
+  margin-top: 5px;
+  @media(min-width: 768px){
+      font-size: 60%;
+
+  }
+`
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
@@ -179,7 +188,7 @@ class Gallery extends React.Component {
           <Container data-type="photo" className="photo-item">
             <a href="#" className={k} onClick={e => onClickItem(itemIndex, e, "photos")} style={{ textDecoration: 'none' }}>
               <Image src={src} originalimg={originalimg}  filename={filename} srcSet={srcset} sizes={sizes} height={commonHeight} width={width} alt={alt} />
-            <p style={{ fontSize: '60%', marginTop: '5px' }}>{item.caption}</p>
+                <Caption>{item.caption}</Caption>
             </a>
           </Container>
         </div>

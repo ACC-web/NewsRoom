@@ -750,6 +750,7 @@ ul li{
 .main-menu li {
     border-bottom: 1px solid #414B56;
     padding: 1.5em 0 1.5em 0;
+    position: relative;
 }
 
 .main-menu li:first-child {
@@ -837,6 +838,106 @@ ul li{
     }
 }
 
+
+/* ============================= ===================== megaMenu ==================================================================  */
+#main-menu li .megaMenu {
+    display: none;
+    visibility: hidden;
+}
+
+#main-menu li:hover .megaMenu{
+    display: flex;
+    visibility: visible;
+    flex-direction: column;
+}
+
+
+#main-menu li .megaMenu a:hover{border-bottom: none; text-decoration: underline}
+#main-menu li .megaMenu a:hover svg{
+    transform: rotate(90deg);
+}
+
+@media(min-width: 768px) {
+
+
+    #main-menu li .megaMenu{
+        display: none;
+        visibility: hidden;
+
+        position: absolute;
+        top: 80px;
+        right: 0;
+        bottom: 0;
+
+        left: unset;
+        height: 100vh;
+        width: auto;
+        min-width: unset;
+        background-color: #2a333c;
+
+        padding: 0 35px;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        text-align: right;
+        overflow: auto;
+    }
+
+    #main-menu li:hover .megaMenu{
+        display: flex;
+        visibility: visible;
+        flex-direction: column;
+    }
+    #main-menu li .megaMenu h3{
+        color: #fff;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        font-weight: 500;
+        white-space: nowrap;
+
+    }
+    #main-menu li .megaMenu{
+        flex-direction: column;
+    }
+
+    #main-menu li .megaMenu li,
+    #main-menu li .megaMenu h4{
+        height: auto;
+        padding: 0.5rem 0;
+    }
+
+    #main-menu li .megaMenu li h4 a,
+    #main-menu li .megaMenu a,
+    #main-menu li .megaMenu li a,
+    #main-menu li .megaMenu h4 a{
+        font-size: 1.1rem;
+        font-weight: 400;
+        line-height: 1rem;
+        height: 1.3rem;
+        padding: 0 0.5rem;
+        display: inline;
+        white-space: nowrap;
+    }
+
+    #main-menu li .megaMenu li a:hover{
+        text-decoration: underline;
+    }
+
+    .megaMenu li:hover .fa-close:active .megaMenu{
+        visibility: hidden;
+        display: none;
+    }
+
+    #main-menu li .megaMenu ul{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        text-align: right;
+    }
+
+
+
+}
 /*----------------------child school sublist (dropdown) menu-----------------------*/
 
 
@@ -941,7 +1042,7 @@ body.school-list-open #MainNav .reveal{
     #main-menu li a {
         color: #fff;
         padding: .75em 15px;
-        font-weight: 300;
+        font-weight: 400;
         font-size: 1.3rem;
         fill: none;
         stroke: #FFFFFF;

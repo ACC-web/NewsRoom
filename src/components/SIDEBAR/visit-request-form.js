@@ -97,13 +97,15 @@ const ContactForm = styled.form`
       border: 0;
     }
     
-    & select,
-    & input#visit-date
+    & select
     {
+        width: 100%;
         padding: 8px 0.5rem;
         border: 0;
-        width: 100%;
         border-right: 1rem solid #fff;
+    }
+    & input#visit-date{
+      width: calc(100% - 1rem)
     }
 `
 
@@ -220,13 +222,13 @@ const VisitForm = () => {
 
                         <div className="form-group half-width">
                             <label htmlFor="visitors">Requested visit date:</label>
-                            <input type="date" name="Requested visit date" className="form-control" id="visit-date" required="required"/>
+                            <input type="date" name="Requested visit date" className="date form-control" id="visit-date" required="required"/>
                         </div>
                         {/*DATE HERE-------*/}
 
                         <div className="form-group half-width">
                             <label htmlFor="campus">Which ACC School do you wish to visit?</label>
-                            <select className="form-control" id="campus" name="Which school to visit" required="required">
+                            <select className="schools form-control" id="campus" name="Which school to visit" required="required">
                                 <option>Moreton</option>
                                 <option>Singleton</option>
                                 <option>Marsden Park</option>
@@ -236,6 +238,7 @@ const VisitForm = () => {
                                 <option>Hobart</option>
                                 <option>Burnie</option>
                                 <option>Launceston</option>
+                                <option>Brightwaters</option>
                             </select>
                         </div>
 
