@@ -19,7 +19,8 @@ const LoaderWrapper = styled.div`
 `;
 const Image = styled.img`
   display: block;
-  border: 1px solid #f3f3f6;
+  // RH I removed this border because the images were too wide by 1 pixel for some reason, not sure why
+  //border: 1px solid #f3f3f6;
 `;
 
 const Caption = styled.p`
